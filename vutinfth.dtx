@@ -1718,10 +1718,11 @@
 % \begin{macro}{\addstatementpage}
 % \changes{v1.003=v1.3}{2014/11/25}{Updated to support English version. \issue{4}}
 % \changes{v1.012=v1.12}{2023/06/04}{Removed support for English version. \issue{8}}
+% \changes{v1.014=v1.14}{2025/10/09}{Readded support for English version.}
 % Generates the statement page.
 %    \begin{macrocode}
-\newcommand{\addstatementpage}{%
-  \selectlanguage{naustrian}%
+\newcommand{\addstatementpage}[1]{%
+  \selectlanguage{#1}%
   \AddStatementPage
 }%
 %    \end{macrocode}
