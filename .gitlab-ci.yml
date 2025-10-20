@@ -35,7 +35,7 @@ build_texlive_docker_image:
     # Pull the previous image from the registry to use it as a cache source.
     - docker pull $IMAGE_TAG_CACHE || true # '|| true' handles missing images.
     # Build the image using the Dockerfile in the root folder.
-    - docker build -f Dockerfile.texlive --cache-from $IMAGE_TAG_CACHE -t $IMAGE_TAG .
+    - docker build -f tests/Dockerfile.texlive --cache-from $IMAGE_TAG_CACHE -t $IMAGE_TAG .
     # Push the image to the Container Registry.
     - docker push $IMAGE_TAG
     # Add the stable 'latest' tag.

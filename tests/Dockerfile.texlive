@@ -13,7 +13,7 @@ RUN apk update && apk upgrade
 RUN apk add --no-cache perl gnupg curl
 
 # Copy your TeX Live profile into the image.
-COPY tests/texlive.profile /tmp/texlive.profile
+COPY texlive.profile /tmp/texlive.profile
 
 # Download and Install TeX Live using your profile.
 RUN wget -c http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz -O - | tar -xz -C /tmp \
