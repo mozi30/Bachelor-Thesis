@@ -50,13 +50,15 @@ compare_with_reference:
         printf '%s\n' "Page count of generated example file matches reference" >&2;
       fi
     # Generate per-page difference images between the example file and its reference.
-    - "magick example.pdf null: example-ref.pdf
-       -compose difference -layers composite -channel a -separate
-       tests/diff_%d.png"
+    - |
+      magick example.pdf null: example-ref.pdf \
+        -compose difference -layers composite -channel a -separate \
+        tests/diff_%d.png
     # Measure per-page differences between the example file and its reference.
-    - "magick example.pdf null: example-ref.pdf
-       -compose difference -layers composite -channel a -separate -precision 12
-       -format %[fx:mean]\\\\n info: > tests/differences.dat"
+    - |
+      magick example.pdf null: example-ref.pdf \
+        -compose difference -layers composite -channel a -separate -precision 12 \
+        -format %[fx:mean]\n info: > tests/differences.dat
     # Get the largest difference across all pages.
     - difference=$(sort -g tests/differences.dat | tail -n 1 | awk '{ printf "%.20f", $1 }')
     # Check for non-zero differences and report error if difference detected.
