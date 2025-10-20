@@ -1,5 +1,4 @@
 # Copyright (C) 2014-2025 by Thomas Auzinger <thomas@auzinger.name>
-
 stages:
   - build_image
   - build
