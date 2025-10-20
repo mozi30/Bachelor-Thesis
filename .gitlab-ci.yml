@@ -1,32 +1,54 @@
-image: alpine
-
-default:
-  before_script:
-    - apk update
-    - apk upgrade
 
 stages:
+  - build_image
   - build
   - test
 
+variables:
+  # Set unique name for the Docker image.
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  # Use the latest Docker image for caching a new build.
+  IMAGE_TAG_CACHE: $CI_REGISTRY_IMAGE:latest
+
+build_texlive_docker_image:
+  stage: build_image
+  image: docker:latest
+  services:
+    # Run Docker daemon (dind) as a separate service.
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - docker info
+    # Login to the GitLab Container Registry.
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    # Exit the image generate if the image exists.
+    - |
+      if docker manifest inspect $IMAGE_TAG_CACHE > /dev/null 2>&1; then
+        echo "Image already exists; skipping rebuild."
+        exit 0
+      fi
+    # Pull the previous image from the registry to use it as a cache source.
+    - docker pull $IMAGE_TAG_CACHE || true # '|| true' handles missing images.
+    # Build the image using the Dockerfile in the root folder.
+    - docker build -f Dockerfile.texlive --cache-from $IMAGE_TAG_CACHE -t $IMAGE_TAG .
+    # Push the image to the Container Registry.
+    - docker push $IMAGE_TAG
+    # Add the stable 'latest' tag.
+    - docker tag $IMAGE_TAG $IMAGE_TAG_CACHE
+    - docker push $IMAGE_TAG_CACHE
+    
 compile_example:
   stage: build
+  image: $IMAGE_TAG_CACHE
+  needs:
+    - job: build_texlive_docker_image
+      optional: true
   script:
-    - apk add --no-cache perl gnupg curl
-    # Download TeX Live installation script.
-    - mkdir install
-    - wget -c http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz -O - | tar -xz -C install
-    # Install TeX Live using predefine installation profile.
-    - perl install/install-tl*/install-tl --profile=tests/texlive.profile --repository=https://ctan.net/systems/texlive/tlnet/
-    # Add folder of TeX-related executables to system path.
-    - export PATH=$PATH:/usr/local/texlive/2023/bin/x86_64-linuxmusl
-    # Install additional TeX packages.
-    - tlmgr install ccicons csquotes datatool datetime2 datetime2-english doclicense
-      enumitem glossaries glossaries-english hypdoc idxlayout ifoddpage mfirstuc
-      morewrites multirow nag pdfx relsize todonotes xfor xifthen xmpincl xstring
-    # Ensure creation of the naustrian language.
-    - tlmgr install babel-german datetime2-german glossaries-german
-    - sh ./build-all.sh # Build document class and example file.
+    # Build document class and example file.
+    - sh ./build-all.sh
   artifacts:
     paths:
       - example.pdf # Output the compiled example file.
@@ -36,8 +58,9 @@ compile_example:
 
 compare_with_reference:
   stage: test
+  image: $IMAGE_TAG_CACHE
+  needs: ["compile_example"]
   script:
-    - apk add --no-cache poppler-utils imagemagick imagemagick-pdf # Install comparison tools.
     # Count the pages of the compiled example file and its reference.
     - pagecount=$(pdfinfo example.pdf | grep Pages | awk '{print $2}')
     - pagecount_ref=$(pdfinfo example-ref.pdf | grep Pages | awk '{print $2}')
