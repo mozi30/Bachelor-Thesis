@@ -23,7 +23,7 @@ RUN wget -c http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz -
     && rm -rf /tmp/install-tl*
 
 # Add TeX Live binaries to the system PATH.
-ENV PATH="$PATH:/usr/local/texlive/2023/bin/x86_64-linuxmusl"
+ENV PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linuxmusl"
 
 # Install additional TeX packages.
 RUN tlmgr install ccicons csquotes datatool datetime2 datetime2-english doclicense \
@@ -34,8 +34,8 @@ RUN tlmgr install hyphen-german babel-german datetime2-german glossaries-german
 
 # Update all packages and clean up to reduce image size.
 RUN tlmgr update --self --all \
-    && rm -rf /usr/local/texlive/2023/texmf-dist/doc \
-              /usr/local/texlive/2023/texmf-dist/source \
+    && rm -rf /usr/local/texlive/2025/texmf-dist/doc \
+              /usr/local/texlive/2025/texmf-dist/source \
               /tmp/*
 
 # Install dependencies for image-based PDF comparison.
