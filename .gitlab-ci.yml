@@ -27,13 +27,12 @@ compile_example:
     # Ensure creation of the naustrian language.
     - tlmgr install babel-german datetime2-german glossaries-german
     - sh ./build-all.sh # Build document class and example file.
-  rules:
-    - when: always
   artifacts:
     paths:
       - example.pdf # Output the compiled example file.
       - example.log # Output the compilation log for debugging.
-    expire_in: 1 year
+    when: always
+    expire_in: 1 month
 
 compare_with_reference:
   stage: test
@@ -68,16 +67,12 @@ compare_with_reference:
       else
         printf '%s\n' "Generated example file matches reference" >&2;
       fi
-  rules:
-    - if: $CI_COMMIT_BRANCH == "develop"
-      when: manual
-    - when: always
   artifacts:
     paths:
       - tests/*.png # Output the difference images for debugging.
       - tests/*.dat # Output the per-page differences for debugging.
     when: always
-    expire_in: 1 year
+    expire_in: 1 month
 
 check_pdf_a:
   stage: test
@@ -98,7 +93,3 @@ check_pdf_a:
         printf '%s\n' "Generated example file does not conforms to the PDF/A standard" >&2 &&
         exit 1;
       fi
-  rules:
-    - if: $CI_COMMIT_BRANCH == "develop"
-      when: manual
-    - when: always
