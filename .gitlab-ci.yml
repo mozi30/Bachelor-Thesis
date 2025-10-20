@@ -24,7 +24,7 @@ build_texlive_docker_image:
   before_script:
     - docker info
     # Login to the GitLab Container Registry.
-    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+    - echo $CI_JOB_TOKEN | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   script:
     # Exit the image generate if the image exists.
     - |
