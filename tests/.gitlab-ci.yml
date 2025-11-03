@@ -1,0 +1,152 @@
+# Copyright (C) 2014-2025 by Thomas Auzinger <thomas@auzinger.name>
+stages:
+  - build_image
+  - build
+  - test
+
+variables:
+  # Set unique name for the Docker image.
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  # Use the latest Docker image for caching a new build.
+  IMAGE_TAG_CACHE: $CI_REGISTRY_IMAGE:latest
+
+.document_matrix:
+  parallel:
+    matrix:
+      - EXAMPLE_PATH: "example"
+      - EXAMPLE_PATH: "tests/example-draft-onside-bachelor-with"
+      - EXAMPLE_PATH: "tests/example-draft-twoside-master-with"
+      - EXAMPLE_PATH: "tests/example-final-onside-phd-without"
+      - EXAMPLE_PATH: "tests/example-final-twoside-phd-with"
+  needs:
+    - job: compile_document
+      artifacts: true
+
+# BUILD TEX LIVE DOCKER IMAGE
+build_texlive_docker_image:
+  stage: build_image
+  image: docker:latest
+  services:
+    # Run Docker daemon (dind) as a separate service.
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - docker info
+    # Login to the GitLab Container Registry.
+    - echo $CI_JOB_TOKEN | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+  script:
+    # Exit the image generate if the image exists.
+    - |
+      if docker manifest inspect $IMAGE_TAG_CACHE > /dev/null 2>&1; then
+        echo "Image already exists; skipping rebuild."
+        exit 0
+      fi
+    # Pull the previous image from the registry to use it as a cache source.
+    - docker pull $IMAGE_TAG_CACHE || true # '|| true' handles missing images.
+    # Build the image using the Dockerfile in the root folder.
+    - docker build -f tests/Dockerfile.texlive --cache-from $IMAGE_TAG_CACHE -t $IMAGE_TAG .
+    # Push the image to the Container Registry.
+    - docker push $IMAGE_TAG
+    # Add the stable 'latest' tag.
+    - docker tag $IMAGE_TAG $IMAGE_TAG_CACHE
+    - docker push $IMAGE_TAG_CACHE
+    
+# COMPILE DOCUMENT CLASS AND TYPESET ALL DOCUMENTS
+compile_document:
+  stage: build
+  image: $IMAGE_TAG_CACHE
+  extends: .document_matrix
+  needs:
+    - job: build_texlive_docker_image
+      optional: true
+  script:
+    # Build document class and document file in the root folder.
+    - export EXAMPLE_STEM=$(basename $EXAMPLE_PATH)
+    - mv $EXAMPLE_PATH.tex $EXAMPLE_STEM.tex
+    - sh ./build-all.sh $EXAMPLE_STEM
+    # Move the resulting files to the artifacts folder.
+    - mv $EXAMPLE_STEM.pdf $EXAMPLE_PATH.pdf
+    - mv $EXAMPLE_STEM.log $EXAMPLE_PATH.log
+  artifacts:
+    paths:
+      - $EXAMPLE_PATH.pdf # Output the compiled document file.
+      - $EXAMPLE_PATH.log # Output the compilation log for debugging.
+    when: always
+    expire_in: 1 month
+
+# COMPARE TYPESETTING RESULT WITH REFERENCE
+compare_with_reference:
+  stage: test
+  image: $IMAGE_TAG_CACHE
+  extends: .document_matrix
+  variables:
+    ARTIFACT_DIR: "artifacts/$EXAMPLE_PATH"
+  before_script:
+    - mkdir -p $ARTIFACT_DIR
+  script:
+    # Count the pages of the compiled document file and its reference.
+    - pagecount=$(pdfinfo $EXAMPLE_PATH.pdf | grep Pages | awk '{print $2}')
+    - pagecount_ref=$(pdfinfo $EXAMPLE_PATH-ref.pdf | grep Pages | awk '{print $2}')
+    - 'echo "Page count of $EXAMPLE_PATH.pdf: $pagecount"'
+    - 'echo "Page count of $EXAMPLE_PATH-ref.pdf: $pagecount_ref"'
+    # Compare page counts and report error if they do not match.
+    - if [ "$pagecount" -ne "$pagecount_ref" ]; then
+        printf '%s\n' "Page count of $EXAMPLE_PATH.pdf does not match reference" >&2 &&
+        exit 1;
+      else
+        printf '%s\n' "Page count of $EXAMPLE_PATH.pdf matches reference" >&2;
+      fi
+    # Generate per-page difference images between the generated document file and its reference.
+    - |
+      magick $EXAMPLE_PATH.pdf null: $EXAMPLE_PATH-ref.pdf \
+        -compose difference -layers composite -channel a -separate \
+        $ARTIFACT_DIR/diff_%d.png
+    # Measure per-page differences between the generated document file and its reference.
+    - |
+      magick $EXAMPLE_PATH.pdf null: $EXAMPLE_PATH-ref.pdf \
+        -compose difference -layers composite -channel a -separate -precision 12 \
+        -format %[fx:mean]\n info: > $ARTIFACT_DIR/differences.dat
+    # Get the largest difference across all pages.
+    - difference=$(sort -g $ARTIFACT_DIR/differences.dat | tail -n 1 | awk '{ printf "%.20f", $1 }')
+    # Check for non-zero differences and report error if difference detected.
+    - if [ 1 -eq "$(echo "${difference} > 0" | bc -l)" ]; then
+        printf '%s\n' "Generated $EXAMPLE_PATH.pdf does not match reference" >&2 &&
+        exit 1;
+      else
+        printf '%s\n' "Generated $EXAMPLE_PATH.pdf matches reference" >&2;
+      fi
+  artifacts:
+    paths:
+      - $ARTIFACT_DIR/*.png # Output the difference images for debugging.
+      - $ARTIFACT_DIR/*.dat # Output the per-page differences for debugging.
+    when: always
+    expire_in: 1 month
+
+# ENSURE PDF-A COMPATIBILITY OF TYPESET DOCUMENTS
+check_pdf_a:
+  stage: test
+  image:
+    name: verapdf/cli:latest
+    entrypoint: ["/bin/sh", "-c"]
+  extends: .document_matrix
+  variables:
+    ARTIFACT_DIR: "artifacts/$EXAMPLE_PATH"
+  before_script:
+    - mkdir -p $ARTIFACT_DIR
+  script:
+    # Validate the generated PDF.
+    - /opt/verapdf/verapdf --format text $EXAMPLE_PATH.pdf > $ARTIFACT_DIR/pdfa_validation.txt
+    - |
+      if grep -q '^PASS' $ARTIFACT_DIR/pdfa_validation.txt; then
+        printf '%s\n' "Generated $EXAMPLE_PATH.pdf conforms to the PDF/A standard" >&2
+      else
+        printf '%s\n' "Generated $EXAMPLE_PATH.pdf does not conform to the PDF/A standard" >&2
+        exit 1
+      fi
+  artifacts:
+    paths:
+      - $ARTIFACT_DIR/pdfa_validation.txt
+    when: always
+    expire_in: 1 month

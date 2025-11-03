@@ -5,7 +5,7 @@
 % 'final': Remove all debug information in the final build.
 % 'onside': Create document for onsided printing (without empty pages added by LaTeX).
 % 'twoside': Create document for twosided printing, which adds empty pages to start chapters on odd pages.
-\documentclass[draft,twoside]{vutinfth}
+\documentclass[final,twoside]{vutinfth}
 
 % Define convenience functions to use the author name and the thesis title in the PDF document properties.
 \newcommand{\authorname}{Forename Surname} % The author name without titles.
@@ -85,15 +85,15 @@
 
 % Select the thesis type: bachelor / master / doctor.
 % Bachelor:
-\setthesis{bachelor}
+%\setthesis{bachelor}
 %
 % Master:
 %\setthesis{master}
 %\setmasterdegree{dipl.} % dipl. / rer.nat. / rer.soc.oec. / master
 %
 % Doctor:
-%\setthesis{doctor}
-%\setdoctordegree{rer.soc.oec.}% rer.nat. / techn. / rer.soc.oec.
+\setthesis{doctor}
+\setdoctordegree{techn.}% rer.nat. / techn. / rer.soc.oec.
 
 % For bachelor and master:
 \setcurriculum{Media Informatics and Visual Computing}{Medieninformatik und Visual Computing} % Sets the English and German name of the curriculum.

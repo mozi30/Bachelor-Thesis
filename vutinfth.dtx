@@ -1,7 +1,7 @@
 % \iffalse meta-comment
 %
 %% vutinfth.dtx
-%% Copyright (C) 2014-2024 by Thomas Auzinger <thomas@auzinger.name>
+%% Copyright (C) 2014-2025 by Thomas Auzinger <thomas@auzinger.name>
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -28,7 +28,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{vutinfth}
 %<*class>
-    [2024/05/29 v1.13 TU Wien Informatics thesis template]
+    [2025/10/19 v1.14 TU Wien Informatics thesis template]
 %</class>
 %
 %<*driver>
@@ -1161,17 +1161,17 @@
   english=Declaration of Authorship,
   naustrian=Erkl\"arung zur Verfassung der Arbeit]{StatementChapter}%
 \CreatePolylingual[
-  english={I hereby declare that I have written this Doctoral Thesis
+  english={I hereby declare that I have written this thesis
     independently, that I have completely specified the utilized
     sources and resources and that I have definitely marked all parts
-    of the work - including tables, maps and figures - which belong
+    of the work~-- including tables, maps and figures~-- which belong
     to other works or to the internet, literally or extracted, by
     referencing the source as borrowed.},
   naustrian={Hiermit erkl\"are ich, dass ich diese Arbeit
     selbst\"andig verfasst habe, dass ich die verwendeten Quellen
     und Hilfsmittel vollst\"andig angegeben habe und dass ich die
-    Stellen der Arbeit -- einschlie{\ss}lich Tabellen, Karten und
-    Abbildungen --, die anderen Werken oder dem Internet im Wortlaut
+    Stellen der Arbeit~-- einschlie{\ss}lich Tabellen, Karten und
+    Abbildungen~--, die anderen Werken oder dem Internet im Wortlaut
     oder dem Sinn nach entnommen sind, auf jeden Fall unter Angabe
     der Quelle als Entlehnung kenntlich gemacht habe.}]{Statement}%
 \CreatePolylingual[
@@ -1718,10 +1718,11 @@
 % \begin{macro}{\addstatementpage}
 % \changes{v1.003=v1.3}{2014/11/25}{Updated to support English version. \issue{4}}
 % \changes{v1.012=v1.12}{2023/06/04}{Removed support for English version. \issue{8}}
+% \changes{v1.014=v1.14}{2025/10/09}{Readded support for English version.}
 % Generates the statement page.
 %    \begin{macrocode}
-\newcommand{\addstatementpage}{%
-  \selectlanguage{naustrian}%
+\newcommand{\addstatementpage}[1]{%
+  \selectlanguage{#1}%
   \AddStatementPage
 }%
 %    \end{macrocode}

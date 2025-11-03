@@ -1,8 +1,12 @@
 #!/bin/sh
-# Copyright (C) 2014-2024 by Thomas Auzinger <thomas@auzinger.name>
+# Copyright (C) 2014-2025 by Thomas Auzinger <thomas@auzinger.name>
 
 CLASS=vutinfth
-SOURCE=example
+# Get the document base path from the first argument.
+# This functionality is used by the continuous integration tests.
+# Use shell parameter expansion: 
+# If $1 is unset or null, assign the value "example" to SOURCE.
+SOURCE=${1:-example}
 
 # Build vutinfth documentation
 pdflatex $CLASS.dtx
@@ -28,4 +32,4 @@ pdflatex $SOURCE
 
 echo
 echo
-echo Class file and example document compiled.
+echo Class file and $SOURCE document compiled.

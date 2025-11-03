@@ -1,0 +1,42 @@
+# syntax=docker/dockerfile:1
+# Copyright (C) 2014-2025 by Thomas Auzinger <thomas@auzinger.name>
+
+FROM alpine:latest
+
+# Set environment variables to non-interactive.
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Initialize package repository.
+RUN apk update && apk upgrade
+
+# Install dependencies needed for TeX Live installer.
+RUN apk add --no-cache perl gnupg curl
+
+# Copy your TeX Live profile into the image.
+COPY texlive.profile /tmp/texlive.profile
+
+# Download and Install TeX Live using your profile.
+RUN wget -c http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz -O - | tar -xz -C /tmp \
+    && cd /tmp/install-tl* \
+    && perl ./install-tl --profile=/tmp/texlive.profile --repository=https://ctan.net/systems/texlive/tlnet/ \
+    && cd / \
+    && rm -rf /tmp/install-tl*
+
+# Add TeX Live binaries to the system PATH.
+ENV PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linuxmusl"
+
+# Install additional TeX packages.
+RUN tlmgr install ccicons csquotes datatool datetime2 datetime2-english doclicense \
+          enumitem glossaries glossaries-english hypdoc idxlayout ifoddpage mfirstuc \
+          morewrites multirow nag pdfx relsize todonotes xfor xifthen xmpincl xstring
+# Ensure creation of the naustrian language.
+RUN tlmgr install hyphen-german babel-german datetime2-german glossaries-german
+
+# Update all packages and clean up to reduce image size.
+RUN tlmgr update --self --all \
+    && rm -rf /usr/local/texlive/2025/texmf-dist/doc \
+              /usr/local/texlive/2025/texmf-dist/source \
+              /tmp/*
+
+# Install dependencies for image-based PDF comparison.
+RUN apk add --no-cache poppler-utils imagemagick imagemagick-pdf
