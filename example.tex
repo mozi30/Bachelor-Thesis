@@ -8,14 +8,14 @@
 \documentclass[draft,twoside]{vutinfth}
 
 % Define convenience functions to use the author name and the thesis title in the PDF document properties.
-\newcommand{\authorname}{Forename Surname} % The author name without titles.
-\newcommand{\thesistitle}{Title of the Thesis} % The title of the thesis. The English version should be used, if it exists.
+\newcommand{\authorname}{Moritz Anton Zideck} % The author name without titles.
+\newcommand{\thesistitle}{Impact of Temporal Context on Robustness in UAV-based Imagery} % The title of the thesis. The English version should be used, if it exists.
 
 % Create the XMP metadata file for the creation of PDF/A compatible documents.
 \begin{filecontents*}[overwrite]{\jobname.xmpdata}
 \Author{\authorname}                                    % The author's name in the document properties.
 \Title{\thesistitle}                                    % The document's title in the document properties.
-\Language{de-AT}                                        % The document's language in the document properties. Select 'en-US', 'en-GB', or 'de-AT'.
+\Language{en-GB}                                        % The document's language in the document properties. Select 'en-US', 'en-GB', or 'de-AT'.
 \Keywords{a\sep list\sep of\sep keywords}               % The document's keywords in the document properties (separated by '\sep ').
 \Publisher{TU Wien}                                     % The document's publisher in the document properties.
 \Subject{Thesis}                                        % The document's subject in the document properties.
@@ -43,6 +43,8 @@
 \usepackage[a-2b,mathxmp]{pdfx}      % Enables PDF/A compliance. Loads the package hyperref and has to be included second to last.
 \usepackage[acronym,toc]{glossaries} % Enables the generation of glossaries and lists of acronyms. This package has to be included last.
 
+\usepackage{float}
+\usepackage{colortbl}
 % Set PDF document properties
 \hypersetup{
     pdfpagelayout   = TwoPageRight,           % How the document is shown in PDF viewers (optional).
@@ -62,13 +64,13 @@
 % Set persons with 4 arguments:
 %  {title before name}{name}{title after name}{gender}
 %  where both titles are optional (i.e. can be given as empty brackets {}).
-\setauthor{Pretitle}{\authorname}{Posttitle}{female}
-\setadvisor{Pretitle}{Forename Surname}{Posttitle}{male}
+\setauthor{}{\authorname}{}{male}
+\setadvisor{Senior Lecturer Dipl.-Ing. Dr.techn.}{Sebastian Zambanini}{}{male}
 
 % For bachelor and master theses:
-\setfirstassistant{Pretitle}{Forename Surname}{Posttitle}{male}
-\setsecondassistant{Pretitle}{Forename Surname}{Posttitle}{male}
-\setthirdassistant{Pretitle}{Forename Surname}{Posttitle}{male}
+\setfirstassistant{Dipl. Inf}{Marvin Burges}{}{male}
+%\setsecondassistant{Pretitle}{Forename Surname}{Posttitle}{male}
+%\setthirdassistant{Pretitle}{Forename Surname}{Posttitle}{male}
 
 % For dissertations:
 \setfirstreviewer{Pretitle}{Forename Surname}{Posttitle}{male}
@@ -78,9 +80,9 @@
 \setsecondadvisor{Pretitle}{Forename Surname}{Posttitle}{male} % Comment to remove.
 
 % Required data.
-\setregnumber{0123456}
+\setregnumber{12217036}
 \setdate{01}{01}{2001} % Set date with 3 arguments: {day}{month}{year}.
-\settitle{\thesistitle}{Titel der Arbeit} % Sets English and German version of the title (both can be English or German). If your title contains commas, enclose it with additional curvy brackets (i.e., {{your title}}) or define it as a macro as done with \thesistitle.
+\settitle{\thesistitle}{Auswirkungen des zeitlichen Kontexts auf die Robustheit in der UAV-gestützten Bildverarbeitung} % Sets English and German version of the title (both can be English or German). If your title contains commas, enclose it with additional curvy brackets (i.e., {{your title}}) or define it as a macro as done with \thesistitle.
 \setsubtitle{Optional Subtitle of the Thesis}{Optionaler Untertitel der Arbeit} % Sets English and German version of the subtitle (both can be English or German).
 
 % Select the thesis type: bachelor / master / doctor.
@@ -101,6 +103,11 @@
 % Optional reviewer data:
 \setfirstreviewerdata{Affiliation, Country}
 \setsecondreviewerdata{Affiliation, Country}
+
+% Define colors
+\definecolor{tableheader}{RGB}{220,220,220}
+\definecolor{tablerow}{RGB}{245,245,245}
+
 
 
 \begin{document}
@@ -139,10 +146,247 @@
 \mainmatter
 
 \chapter{Introduction}
-\todo{Enter your text here.}
+Video object detection is a relatively new field in computer vision that aims to leverage the temporal context of videos in order to improve detection performance compared to image-based object detection.
+Temporal context refers to information that can be extracted from the time domain of a video, such as object motion, object trajectories, and changes in object appearance over time.
+By exploiting this additional information, video object detection models can achieve higher accuracy, improved robustness, and greater temporal consistency when detecting objects across frames.
+This is especially important in scenarios where objects may be occluded, blurred, or undergo significant appearance changes over time.
+A prominent example is UAV-based imagery, where the camera is constantly moving, objects are often small, and visual conditions can change rapidly, making reliable object detection particularly challenging.
+
+To date, most evaluations of object detection models—both image-based and video-based—focus primarily on accuracy measured on clean and unperturbed data.
+However, in real-world deployments, and especially in UAV-based applications, visual data is frequently affected by a wide range of perturbations, including sensor noise, compression artifacts, motion blur, illumination changes, and variations in viewpoint and scale.
+These perturbations can substantially degrade detection performance.
+Although several works have investigated the robustness of image-based object detectors to such corruptions, only limited attention has been given to the robustness of video object detection models, and virtually no systematic studies exist for UAV-based video data in particular.
+
+In this thesis, the focus is therefore placed on the robustness of video object detection models under common perturbations in UAV-based imagery.
+Robustness is defined as the ability of a model to maintain its detection performance when exposed to adverse conditions such as lighting changes, weather effects, motion blur, occlusions, and variations in object appearance and scale.
+A model may achieve high accuracy on clean data, yet still be unreliable in practice if its performance deteriorates significantly under realistic perturbations.
+For safety-critical and autonomous UAV applications, such robustness is essential.
+
+The central research question of this thesis is how the incorporation of temporal context in video object detection models affects their robustness to common perturbations in UAV-based imagery.
+In particular, the impact of the number of reference frames used to construct the temporal context is analyzed. To address this question, a comprehensive evaluation of state-of-the-art video object detection models is conducted on a benchmark dataset designed for UAV scenarios.
+In addition, a novel robustness evaluation metric is proposed, which quantifies the performance degradation of a model under different perturbations relative to its performance on clean data.
+
+
 
 \chapter{Additional Chapter}
 \todo{Enter your text here.}
+
+\chapter{Method}
+
+\section{Models}
+For this thesis two video detector models are chosen, which represent different approaches to leverage temporal context in different ways.
+On the one hand there is TransVOD \cite{zhu2021transvod}, which is a transformer based model that uses attention mechanisms to aggregate temporal information from multiple frames.
+On the other hand YOLOV \cite{liu2023yolov}, which is a one-stage detector that extends the popular YOLO architecture to video data by incorporating temporal feature fusion techniques.
+For both models the Swin base backbone \cite{swin2021transformer} has been chosen, to ensure a fair compairson as well as petrain weights being available for both models.
+
+%Write better
+Together these models provide a good basis for evaluation, as they represent different design philosophies and represent pro and cons in terms of temporal context utilization, computational efficiency and detection accuracy.
+\subsection{Transvod}
+Transvod \cite{zhu2021transvod} is a end to end video object detection model base on DETR \cite{carion2020endtoendobjectdetectiontransformers}.
+End to end mean that no hand crafted features as well as no post processing is needed, everthing is learned by the model itself.
+The models fist version was proposed in 2021 as one of the first transformer based video object detection models to streamline the detection pipeline and remove the need for hand crafted features.
+By encoding not only spatial but also temporal information in their attention mechanism, the model shows strong performance on various video object detection benchmarks.
+In the most well known video object detection benchmark, ImageNet VID \cite{russakovsky2015ImageNet} outperforms its single frame baseline by 3.6 mAP(\%) achieving 80.7 mAP(\%) on the validation set.
+One year later an improved version of TransVOD was proposed, called TransVOD++ \cite{zhu2022transvod++}, which builds upon the original TransVOD architecture and introduces several enhancements to further improve detection performance.
+The main goal of TransVOD++ is to address the heavy computation costs as well as increase the detection accuracy of its predecessor.
+Next to architectural improvements, which i will describe in the following, a new backbone namely Swin-Base \cite{swin2021transformer} instead of ResNet-101 \cite{he2016ResNet} was used to further boost performance.
+With these improvements TransVOD++ was the first model to achieve over 90 mAP(\%) on the ImageNet VID validation set, reaching 90.0 mAP(\%).
+TransVod short summary: ...
+\subsubsection{Model design}
+
+
+\subsection{YOLOV}
+Base on the popular YOLO \cite{redmon2016yolo} architecture, to be more precise YOLOX \cite{yolox2021}, which are one-stage detectors known for their speed and efficiency, YOLOV \cite{liu2023yolov} extends this architecture to video data by incorporating temporal feature fusion techniques.
+The paper that was published in 2023, was able to surpass previous state of the art video object detection models on the ImageNet VID \cite{russakovsky2015ImageNet} benchmark with a mAP(\%) of 85.5 on the validation set, while being still near real time capable with 22.7 FPS on a Nvidia TITAN RTX GPU.
+YOLOV achieves this by introducing a temporal feature fusion module that aggregates features from multiple frames, allowing the model to leverage temporal context effectively.
+Futhermore like TransVOD a improved version of YOLOV was proposed called YOLOV++ \cite{shi2024yolovpp}, which further enhances the temporal feature fusion mechanism and introduces additional optimizations to improve detection accuracy and efficiency.
+The now improved YOLOV++ was able to achieve a new record mAP(\%) of 93.2 on the ImageNet VID validation set, while still being over 30 FPS on a Nvidia RTX 3090. 
+However for this a special backbone names FocalNet-Large \cite{yang2022FocalModulation} is used.
+Using the same Swin-Base \cite{swin2021transformer} backbone as for TransVOD++, YOLOV++ achieves a mAP(\%) of 90.7 on the ImageNet VID validation set, which is still significantly higher than TransVOD++ with 90.0 mAP(\%).
+\subsubsection{Model design}
+
+
+
+\section{Visdrone Dataset}
+The Visdrone dataset \cite{zhu2021detection} is a large-scale dataset for different detection scenarios based on drone based imagery.
+The images and videos were captured by various drone platforms in different urban and suburban areas of 14 different cities across China.
+The objects are entitys of public street scenes, e.g., pedestrians, vehicles, bicycles, etc.
+All together there are 10 different object categories.
+It is curated by the \emph{AISKYEYE} research group from the \emph{Tianjin University in China}.
+For this thesis VISDRONE2019-VID is used, to leverage the temporal context of the videos for the object detection task. 
+All together the dataset contains 79 sequences with 33,366 frames, which are split 56 videos with 24,198 frames for training, 7 videos with 2,846 frames for validation and 16 videos with 6,322 frames for testing.
+The dataset is chosen because of its large size and the challenging scenarios, e.g., different weather conditions, various altitudes and camera angles as well as high density of objects in the images.
+Object sizes vary significantly, ranging from very small objects with only a few pixels to large objects covering a significant portion of the image.
+This large difference in object sizes makes it also suitable to evaluate the performance of detection models under different perturbations and across different scales.
+%exmaple images from the dataset
+\begin{figure}[htbp]
+    \centering
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{graphics/visdrone_example_1.jpg}
+        \caption{Example 1}
+    \end{subfigure}
+
+    \par\medskip
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{graphics/visdrone_example_2.jpg}
+        \caption{Example 2}
+    \end{subfigure}
+
+    \par\medskip
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{graphics/visdrone_example_3.jpg}
+        \caption{Example 3}
+    \end{subfigure}
+
+    \caption{Example images from the Visdrone dataset.}
+    \label{fig:visdrone_examples}
+\end{figure}
+
+\chapter{Perurbation}
+A signficant part of this thesis to evaluate the robustness of video object detection models under common perturbations in UAV-based imagery.
+In this sentence two key concepts must be defined: what robustness means in the context of an object detection model, and which perturbations commonly occur in UAV-based imagery.
+
+\subsection{Definition of Robustness}
+A widely used definition of robustness was proposed by Hendrycks and Dietterich~\cite{hendrycks2019benchmarking}, who define robustness as a model’s ability to maintain predictive performance under distribution shifts caused by common, naturally occurring image corruptions and perturbations.
+In the context of object detection, this means that a robust model should be able to accurately detect and localize objects even when the input images are affected by various types of noise, distortions, or other adverse conditions.
+In the context of this thesis, the main metric to quantify robustness is the relative performance degradation of a model mean avarage precision (mAP) under different perturbations compared to its performance on clean data.
+\subsection{Common Perturbations in UAV-based Imagery}
+The paper by Hendrycks and Dietterich~\cite{hendrycks2019benchmarking} introduced a benchmark suite called ImageNet-C, which consists of 15 different types of common image corruptions applied to the ImageNet dataset.
+For further insight a paper named \emph{Benchmarking the Robustness of UAV Tracking Against Common Corruptions} \cite{liu2024UAVRobustness} which was published in 2024, is used to identify perturbations that commonly occur in UAV-based imagery.
+Based on these works, the following perturbations are considered in this thesis:
+\begin{itemize}
+    \item Gaussian Noise: Random noise following a Gaussian distribution is added to the image pixels, simulating sensor noise.
+    \item Motion Blur: Simulates the effect of camera or object motion during exposure, resulting in blurred images.
+    \item Defocus Blur: Simulates the effect of an out-of-focus lens, resulting in blurred images.
+    \item Brightness Changes: Adjusts the overall brightness of the image, simulating different lighting conditions.
+    \item Contrast Changes: Adjusts the contrast of the image, affecting the distinction between light and dark areas.
+    \item Jpeg Compression: Simulates artifacts introduced by JPEG compression at various quality levels.
+\end{itemize}
+The simulation of weather conditions such as fog, rain, and snow is not considered in this thesis, as these perturbations require more complex rendering techniques.
+For each perturbation type, multiple severity levels are defined to assess robustness across a range of adverse conditions; in this thesis, three levels are used: low, medium, and high.
+\subsection{Implementation}
+To apply the defined perturbations to the Visdrone dataset, a custom data augmentation pipeline is implemented into to the models data loader.
+Based on evaluation input parameters, the data loader applies the specified perturbation with the desired severity level to each frame before it is fed into the model for inference.
+For more in depth evaluation a probability parameter is added, which defines the likeliness each perturbation being applied to a frame.
+
+\paragraph{Gaussian noise.}
+We add i.i.d.\ Gaussian noise:
+\begin{equation}
+\tilde{I} = \mathrm{clip}\big(I + N,\ 0,\ 255\big), \qquad
+N_{h,w,c} \sim \mathcal{N}\!\left(0,\ (\sigma \cdot 255)^2\right),
+\end{equation}
+where $\sigma$ is the noise standard deviation.
+
+\paragraph{Defocus blur.}
+We approximate defocus blur by convolving the image with a normalized disk (pillbox) kernel:
+\begin{equation}
+\tilde{I} = I * K_{\mathrm{disk}}, \qquad
+K_{\mathrm{disk}}(u,v)=\frac{1}{Z}\,\mathbb{1}\!\left(u^2+v^2 \le r^2\right),
+\end{equation}
+where $K_{\mathrm{disk}}$ is a $k\times k$ kernel, $r=\lfloor k/2 \rfloor$, $Z=\sum_{u,v} \mathbb{1}(\cdot)$, and $*$ denotes 2D convolution.
+
+\paragraph{Motion blur.}
+We simulate linear motion blur by convolving with a sparse line kernel of size $k\times k$ oriented by an angle $\theta$ (in degrees, default $\theta=0$). The kernel is constructed by placing ones on the discrete line
+\begin{equation}
+v = \tan(\theta)\,u, \qquad u \in \left[-\left\lfloor k/2\right\rfloor,\ \left\lfloor k/2\right\rfloor\right],
+\end{equation}
+rasterized onto the kernel grid and normalized to sum to one, then $\tilde{I} = I * K_{\mathrm{motion}}$.
+
+\paragraph{Brightness change.}
+We apply a global multiplicative gain:
+\begin{equation}
+\tilde{I} = \mathrm{clip}\big(\alpha I,\ 0,\ 255\big),
+\end{equation}
+with $\alpha>0$.
+
+\paragraph{Contrast change.}
+We scale deviations from the per-channel mean:
+\begin{equation}
+\mu_c = \frac{1}{HW}\sum_{h,w} I_{h,w,c}, \qquad
+\tilde{I}_{h,w,c} = \mathrm{clip}\big((I_{h,w,c}-\mu_c)\alpha + \mu_c,\ 0,\ 255\big),
+\end{equation}
+with contrast factor $\alpha$.
+
+\paragraph{Pixelation.}
+We downsample and upsample the image using a block factor $p$ (default $p=8$). Specifically, we resize $I$ to $(\lfloor W/p\rfloor, \lfloor H/p\rfloor)$ using bilinear interpolation, then resize back to $(W,H)$ using nearest-neighbor interpolation:
+\begin{equation}
+\tilde{I} = \mathrm{NN}\big(\mathrm{BL}(I; \lfloor W/p\rfloor,\lfloor H/p\rfloor);\ W,H\big),
+\end{equation}
+where $\mathrm{BL}$ denotes bilinear resize and $\mathrm{NN}$ denotes nearest-neighbor resize.
+
+\paragraph{JPEG compression.}
+We simulate compression artifacts by encoding and decoding the image using JPEG with quality parameter $q$:
+\begin{equation}
+\tilde{I} = \mathrm{JPEGdecode}\big(\mathrm{JPEGencode}(I; q)\big).
+\end{equation}
+
+The specific severity levels are defined as follows:
+
+
+\begin{table}[H]
+\centering
+\caption{Perturbation presets and severity levels used in robustness evaluation.}
+\rowcolors{2}{tablerow}{white}
+\begin{tabular}{l c c c}
+\toprule
+\rowcolor{tableheader}
+\textbf{Perturbation} & \textbf{Low} & \textbf{Medium} & \textbf{High} \\
+\midrule
+Gaussian noise
+& $\sigma = 0.01$
+& $\sigma = 0.05$
+& $\sigma = 0.10$ \\
+Defocus blur
+& $k = 3$
+& $k = 7$
+& $k = 11$ \\
+Motion blur
+& $k = 3,\ \theta = 0^\circ$
+& $k = 7,\ \theta = 0^\circ$
+& $k = 15,\ \theta = 0^\circ$ \\
+Brightness change
+& $\alpha = 1.10$
+& $\alpha = 1.25$
+& $\alpha = 1.45$ \\
+Contrast change
+& $\alpha = 1.10$
+& $\alpha = 1.25$
+& $\alpha = 1.45$ \\
+Pixelation
+& $p = 2$
+& $p = 4$
+& $p = 6$ \\
+JPEG compression
+& $q = 85$
+& $q = 55$
+& $q = 25$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+With this setup, all together 18 different perturbation configurations (6 perturbation types $\times$ 3 severity levels) can be evaluated to assess the robustness of video object detection models in UAV-based imagery.
+To give an impression of the applied perturbations, example images for each perturbation type and severity level are shown in Figure~\ref{fig:perturbation_examples}.
+
+
+
+
+
+
+
+
+
+\chapter{Evaluation Metric}
+\chapter{Experiments}
+\chapter{Results}
+\chapter{Conclusion}
+
+
 
 % Remove following line for the final thesis.
 \input{intro.tex} % A short introduction to LaTeX.
