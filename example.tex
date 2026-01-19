@@ -5,7 +5,7 @@
 % 'final': Remove all debug information in the final build.
 % 'onside': Create document for onsided printing (without empty pages added by LaTeX).
 % 'twoside': Create document for twosided printing, which adds empty pages to start chapters on odd pages.
-\documentclass[draft,twoside]{vutinfth}
+\documentclass[final,twoside]{vutinfth}
 
 % Define convenience functions to use the author name and the thesis title in the PDF document properties.
 \newcommand{\authorname}{Moritz Anton Zideck} % The author name without titles.
@@ -45,6 +45,7 @@
 
 \usepackage{float}
 \usepackage{colortbl}
+\usepackage{makecell}
 % Set PDF document properties
 \hypersetup{
     pdfpagelayout   = TwoPageRight,           % How the document is shown in PDF viewers (optional).
@@ -166,11 +167,6 @@ The central research question of this thesis is how the incorporation of tempora
 In particular, the impact of the number of reference frames used to construct the temporal context is analyzed. To address this question, a comprehensive evaluation of state-of-the-art video object detection models is conducted on a benchmark dataset designed for UAV scenarios.
 In addition, a novel robustness evaluation metric is proposed, which quantifies the performance degradation of a model under different perturbations relative to its performance on clean data.
 
-
-
-\chapter{Additional Chapter}
-\todo{Enter your text here.}
-
 \chapter{Method}
 
 \section{Models}
@@ -218,6 +214,33 @@ All together the dataset contains 79 sequences with 33,366 frames, which are spl
 The dataset is chosen because of its large size and the challenging scenarios, e.g., different weather conditions, various altitudes and camera angles as well as high density of objects in the images.
 Object sizes vary significantly, ranging from very small objects with only a few pixels to large objects covering a significant portion of the image.
 This large difference in object sizes makes it also suitable to evaluate the performance of detection models under different perturbations and across different scales.
+
+Since the dataset includes ignored regions, which are areas in the images where objects are not annotated due to beeing too crowded or too small, these regions are taken out of the evaluation to avoid penalizing the models for false positives in these areas.
+This was done by blacking out these regions in the images before feeding them into the models for training and evaluation.
+The method was chosen due to its simplicity and effectiveness. 
+Other methods such as removing the annotations for these regions or masking them out during evaluation were considered, but blacking them out directly in the images was found to be the most straightforward approach.
+Without this step models tend to produce a high number of false positives in these ignored regions, which would skew the evaluation results.
+%show original and blacked out image
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{graphics/blackout/original.jpg}
+        \caption{Original Image}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{graphics/blackout/blackout.jpg}
+        \caption{Image with Ignored Regions Blacked Out}
+    \end{subfigure}
+    \caption{Example of an image from the Visdrone dataset with ignored regions blacked out for training and evaluation.}
+    \label{fig:visdrone_ignored_regions}
+\end{figure}
+
+
+
+
 %exmaple images from the dataset
 \begin{figure}[htbp]
     \centering
@@ -373,23 +396,295 @@ JPEG compression
 With this setup, all together 18 different perturbation configurations (6 perturbation types $\times$ 3 severity levels) can be evaluated to assess the robustness of video object detection models in UAV-based imagery.
 To give an impression of the applied perturbations, example images for each perturbation type and severity level are shown in Figure~\ref{fig:perturbation_examples}.
 
+\begin{figure}[H]
+\centering
+\caption{Example images illustrating perturbation severities (Low, Medium, High).}
+\label{fig:perturbation_examples}
 
+\setlength{\tabcolsep}{2pt} % spacing between images
+\renewcommand{\arraystretch}{1.0}
 
+\begin{tabular}{l c c c}
+\toprule
+\textbf{Perturbation} & \textbf{Low} & \textbf{Medium} & \textbf{High} \\
+\midrule
 
+Gaussian noise
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/gaussian_noise_low.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/gaussian_noise_mid.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/gaussian_noise_high.jpg} \\
 
+Defocus blur
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/defocus_blur_low.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/defocus_blur_mid.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/defocus_blur_high.jpg} \\
 
+Motion blur
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/motion_blur_low.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/motion_blur_mid.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/motion_blur_high.jpg} \\
 
+Brightness change
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/brightness_change_low.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/brightness_change_mid.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/brightness_change_high.jpg} \\
 
+Contrast change
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/contrast_change_low.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/contrast_change_mid.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/contrast_change_high.jpg} \\
+
+Pixelation
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/pixelation_low.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/pixelation_mid.jpg}
+& \includegraphics[width=0.22\linewidth]{graphics/visdrone_perturbated_examples/pixelation_high.jpg} \\
+
+\bottomrule
+\end{tabular}
+\end{figure}
 
 \chapter{Evaluation Metric}
-\chapter{Experiments}
+For robustness evaluation next to standard object detection metrics such as mean average precision (mAP) and mean average recall (mAR), a proper metric is needed, that quantifies the performance degradation of a model under different perturbations relative to its performance on clean data.
+Derived from the papers \emph{Benchmarking the Robustness of UAV Tracking Against Common Corruptions} \cite{liu2024UAVRobustness} mCE (mean corruption error) which was based on the top-1 error rate, a new metric named \emph{mean Corruption Average Precision} (mCAP) and \emph{relative mean Corruption Average Precision} (rmCAP) is proposed.
+Parallel to that \emph{mean Corruption Average Recall} (mCAR) and \emph{relative mean Corruption Average Recall} (rmCAR) is defined.
+
+The mean Corruption Average Precision (mCAP) is defined as: 
+
+\begin{equation}
+\mathrm{mCAP}
+=
+\frac{1}{|C|}
+\sum_{c \in C}
+\frac{1}{S}
+\sum_{s=1}^{S}
+\mathrm{mAP}_{s,c},
+\end{equation}
+
+where $C$ is the set of all perturbation configurations (i.e., perturbation types and severity levels), $S$ is the number of severity levels, and $\mathrm{mAP}_{s,c}$ is the mean average precision of the model under perturbation configuration $c$ at severity level $s$.
+
+The relative mean Corruption Average Precision (rmCAP) is defined as:
+\begin{equation}
+\mathrm{rmCAP}
+=
+\frac{1}{|C|}
+\sum_{c \in C}
+\frac{1}{S}
+\sum_{s=1}^{S}
+\frac{\mathrm{mAP}_{s,c}}{\mathrm{mAP}_{\mathrm{clean}}},
+\end{equation}
+
+where $\mathrm{mAP}_{\mathrm{clean}}$ is the mean average precision of the model on clean, unperturbed data.
+
+\paragraph{Probability-based mean Corruption Average Precision (p-mCAP).}
+In addition to corruption-type robustness, we evaluate robustness with respect to the
+probability of perturbation occurrence.
+Let $P$ denote the set of perturbation probabilities applied independently per frame.
+We define probability-based mean Corruption Average Precision (p-mCAP) as
+\begin{equation}
+\mathrm{p\text{-}mCAP}
+=
+\frac{1}{|P|}
+\sum_{p \in P}
+\frac{1}{S}
+\sum_{s=1}^{S}
+\mathrm{mAP}_{p,s},
+\end{equation}
+where $\mathrm{mAP}_{p,s}$ denotes the detection performance when each frame is perturbed
+with probability $p$ at severity level $s$.
+
+\paragraph{Relative probability-based mean Corruption Average Precision (rp-mCAP).}
+Analogous to rmCAP, we define a relative probability-based robustness metric by normalizing
+p-mCAP with respect to a baseline detector:
+\begin{equation}
+\mathrm{rp\text{-}mCAP}
+=
+\frac{1}{|P|}
+\sum_{p \in P}
+\frac{
+\sum_{s=1}^{S} \mathrm{mAP}^{f}_{p,s}
+}{
+\sum_{s=1}^{S} \mathrm{mAP}^{\text{baseline}}_{p,s}
+}.
+\end{equation}
+
+
+
+\chapter{Experiments Setup}
+
+\subsection{Hardware and Software Environment}
+The training as well as evaluation of the models was done on eather Nvidia RTX 3060 Ti or Nvidia RTX 3090ti GPUs.
+This was due due to the fact that CUDA 11.3 was required by the TransVOD implementation, which is not supported by the newer GPUs such as the RTX 40 series.
+Both models were implemented in PyTorch \cite{paszke2019pytorch} and trained using the AdamW \cite{loshchilov2017decoupled} optimizer.
+
+\subsection{Reference Frame Sampling Strategy} 
+Since both models leverage temporal context from multiple frames, a proper reference frame sampling strategy is needed to select the frames that will be used as input to the models.
+As written in the original papers as well as implemented int the provided code repositories, TransVOD++ and YOLOV++ use inherently different sampling strategies.
+
+\subsubsection{Transvod Sampling}
+Following the sampling strategy of TransVOD++, each video is divided into 16 temporal intervals. 
+For a given target frame, reference frames are selected by sampling one frame from each interval. 
+When the number of reference frames $N\geq8$, sampling is performed only on one side of the target frame; when $N\geq8$ reference frames are sampled from both the past and future relative to the target frame.
+As a result, the selected reference frames are approximately evenly spaced in time around the target frame.
+
+However, as will be discussed later, this global sampling strategy does not achieve reasonable performance on the VisDrone dataset.
+To address this issue, we adopt a modified, more local sampling strategy in which reference frames are selected using a fixed temporal offset relative to the target frame.
+Specifically, we test reference frames sampling with a temporal offset of 1 frame and 8 frames.
+Overall, one single-frame baseline and twelve video-based TransVOD++ configurations were evaluated, combining three reference-frame sampling strategies with four different numbers of reference frames.
+\subsubsection{YOLOV Sampling}
+In the YOLOV++ paper, it is mentioned that test have resulted in better performance when using random sampling of reference frames in the whole video clip, called global sampling.
+Therefore, for YOLOV++ the original global sampling strategy is used, where reference frames are sampled from the entire video clip.
+To test the impact of local sampling on YOLOV++, an additional configuration with local sampling is evaluated, where reference frames are selected using a fixed temporal offset relative to the target frame with stride 10.
+Therefore, a total of seven YOLOV++ configurations were evaluated, consisting of one single-frame baseline and six video-based variants formed by combining two reference-frame sampling strategies with three different reference-frame counts.
+
+
+\subsection{Input Resolution}
+Since the VisDrone dataset contains a large proportion of small objects, which are particularly challenging for object detectors, the input resolution must be chosen carefully. Higher resolutions preserve fine details and improve small-object detectability, but they also increase memory consumption and thus limit the feasible batch size on the available GPUs. 
+Consequently, an input resolution of 960x544 pixels was chosen as a compromise between detection performance and memory efficiency, as well as keeping the original aspect ratio of the images.
+
+\subsection{Training Protocol}
+Both models are trained under an identical training protocol to ensure a fair comparison. Differences between the two models are limited to architectural components and are detailed separately.
+Since both models already provided pretrained weights on the ImageNet VID \cite{russakovsky2015ImageNet} dataset with a Swin-Base \cite{swin2021transformer} backbone, these weights were used to finetune the single frame version of the models on the Visdrone2019-VID \cite{zhu2021detection} training set.
+\begin{table}[H]
+\centering
+\caption{Fine-tuning hyperparameters for the single-frame detectors.}
+\rowcolors{2}{tablerow}{white}
+
+\small
+\setlength{\tabcolsep}{4pt}
+
+\begin{tabular}{p{0.22\textwidth} p{0.35\textwidth} p{0.35\textwidth}}
+\toprule
+\rowcolor{tableheader}
+\textbf{Hyperparameter} & \multicolumn{1}{c}{\textbf{YOLOV++}} & \multicolumn{1}{c}{\textbf{TransVOD++}} \\
+\midrule
+Batch size     & \multicolumn{1}{c}{$8$} & \multicolumn{1}{c}{$8$} \\
+Precision      & \multicolumn{1}{c}{FP16} & \multicolumn{1}{c}{FP16} \\
+Learning rate  & \multicolumn{1}{c}{$0.01/64 \approx 1.56 \cdot 10^{-4}$} & \multicolumn{1}{c}{\makecell[c]{$10^{-4}$ and $10^{-5}$ for backbone,\\ with lr drops after 3 and 5 epochs}} \\
+Weight decay   & \multicolumn{1}{c}{$1 \cdot 10^{-4}$} & \multicolumn{1}{c}{$1 \cdot 10^{-4}$} \\
+Data augmentation
+&
+\begin{minipage}[t]{\linewidth}\vspace{0pt}
+\begin{itemize}[leftmargin=*,nosep]
+    \item Random horizontal flip
+    \item Multi-scale resize: original size $\pm 64$ px
+    \item Color jitter
+    \item Geometric transforms: rotation $\pm 5^\circ$, translation $0.1$, shear $2^\circ$
+\end{itemize}
+\end{minipage}
+&
+\begin{minipage}[t]{\linewidth}\vspace{0pt}
+\begin{itemize}[leftmargin=*,nosep]
+    \item Random horizontal flip
+    \item Multi-scale resize: original size $\pm 64$ px
+    \item Color jitter
+\end{itemize}
+\end{minipage}
+\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+After finetuning the single frame models, the video versions were trained by loading the finetuned single frame weights and training the temporal context modules while keeping the backbone and single frame detection head frozen.
+For TransVOD++ the number of reference frames was used namely 1, 3, 7 and 15 reference frames.
+However due to memory constraints only up to 7 reference frames could be used for YOLOV++ since the number of reference frame directly corresponds to the batch size.
+This means that for 15 reference frames a batch size of 16 would be required, which surpasses the available GPU memory of 24GB of the NVIDIA RTX 3090ti.
+
+For training the video models, different hyperparameters were used compared to the single frame models, which are summarized in the following table.
+\begin{table}[H]
+\centering
+\caption{Fine-tuning hyperparameters for the video detectors.}
+\rowcolors{2}{tablerow}{white}
+
+\small
+\setlength{\tabcolsep}{4pt}
+
+\begin{tabular}{p{0.22\textwidth} p{0.35\textwidth} p{0.35\textwidth}}
+\toprule
+\rowcolor{tableheader}
+\textbf{Hyperparameter} & \multicolumn{1}{c}{\textbf{YOLOV++}} & \multicolumn{1}{c}{\textbf{TransVOD++}} \\
+\midrule
+Batch size     & \multicolumn{1}{c}{number of reference frames} & \multicolumn{1}{c}{$1$} \\
+Precision      & \multicolumn{1}{c}{FP16} & \multicolumn{1}{c}{FP16} \\
+Learning rate  & \multicolumn{1}{c}{$10^{-5}$} & \multicolumn{1}{c}{\makecell[c]{$2 \cdot 10^{-6}$}} \\
+Weight decay   & \multicolumn{1}{c}{$1 \cdot 10^{-4}$} & \multicolumn{1}{c}{$1 \cdot 10^{-4}$} \\
+Data augmentation
+&
+\begin{minipage}[t]{\linewidth}\vspace{0pt}
+\begin{itemize}[leftmargin=*,nosep]
+    \item Random horizontal flip
+\end{itemize}
+\end{minipage}
+&
+\begin{minipage}[t]{\linewidth}\vspace{0pt}
+\begin{itemize}[leftmargin=*,nosep]
+    \item Random horizontal flip
+\end{itemize}
+\end{minipage}
+\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All together the single frame as well as 3 different video models for YOLOV++ and 4 different video models for TransVOD++ were trained and evaluated.
+
+For all the evaluttions random seeds were fixe to 42 to ensure reproducibility of the results, except for random sample selection of reference frames during training, where different random seeds were used to increase the diversity of training samples.
+To see if this had an impact on the results, 5 different training runs were done for the YOLOV++ model with 7 reference frames, which showed almost no variation in mAP(\%) of less than 0.3\% between the runs.
+
+For evaluation the models were first evaluated on the clean Visdrone2019-VID \cite{zhu2021detection} validation set to obtain the baseline mAP(\%) and mAR(\%) values.
+Subsequently the models were evaluated on the perturbed versions of the validation set for each perturbation type and severity level as described in the \emph{Perturbation} chapter.
+Futhermore evaluations with different perturbation probabilities were conducted to assess the models robustness when only a subset of frames are perturbed.
+For this two different probabilities were chosen namely 0.5 and 0.75 meaning that each frame has a 50\% or 75\% chance of being perturbed.
+The goal of this evaluation is to simulate more realistic scenarios where not all frames are affected by perturbations and conclude on how well the models can leverage unperturbed frames to maintain detection performance.
+
+
 \chapter{Results}
-\chapter{Conclusion}
+\section{Clean Results}
+To form a basis for the robustness evaluation, the models were first evaluated on the clean Visdrone2019-VID \cite{zhu2021detection} validation set.
+The results are summarized in Table~\ref{tab:clean_results}.
+\begin{table}[H]
+\centering
+\caption{Detection performance of all evaluated video object detection models on the VisDrone2019-VID validation set. (Best results in \textbf{bold} and worst results in \underline{underline} per model.)}
+\rowcolors{2}{tablerow}{white}
+
+\small
+\setlength{\tabcolsep}{6pt}
+
+\begin{tabular}{p{0.50\textwidth} c c}
+\toprule
+\rowcolor{tableheader}
+\textbf{Model Configuration} & \textbf{mAP$_{50:95}$ (\%)} & \textbf{mAR$_{50:95}$ (\%)} \\
+\midrule
+\multicolumn{3}{l}{\textbf{YOLOV++}} \\
+Single-frame baseline                 & \underline{17.2} & \underline{28.3} \\
+Sampling local, 1 reference frame         & 17.5 & 29.2 \\
+Sampling local, 3 reference frames        & 17.8 & 29.7 \\
+Sampling local, 7 reference frames        & \textbf{18.0} & \textbf{30.0} \\
+Sampling global, 1 reference frame         & 17.3 & 29.0 \\
+Sampling global, 3 reference frames        & 17.7 & 29.5 \\
+Sampling global, 7 reference frames        & 17.8 & \textbf{30.0} \\
+\midrule
+\multicolumn{3}{l}{\textbf{TransVOD++}} \\
+Single-frame baseline                 & 19.4 & 34.8 \\
+Sampling stride 1, 1 reference frame         & 19.6 & 35.8 \\
+Sampling stride 1, 3 reference frames        & 20.0 & 36.4 \\
+Sampling stride 1, 7 reference frames        & \textbf{20.4} & \textbf{36.3} \\
+Sampling stride 1, 15 reference frames       & 19.8 & 35.2 \\
+Sampling stride 8, 1 reference frame         & 19.3 & 35.2 \\
+Sampling stride 8, 3 reference frames        & 19.7 & 35.6 \\
+Sampling stride 8, 7 reference frames        & 19.4 & 34.6 \\
+Sampling stride 8, 15 reference frames       & 18.2 & 32.8 \\
+Sampling global, 1 reference frame         & 19.5 & 35.1 \\
+Sampling global, 3 reference frames        & 19.3 & 34.8 \\
+Sampling global, 7 reference frames        & 18.9 & 33.3 \\
+Sampling global, 15 reference frames       & \underline{17.2} & \underline{31.0} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 
 % Remove following line for the final thesis.
-\input{intro.tex} % A short introduction to LaTeX.
+%\input{intro.tex} % A short introduction to LaTeX.
 
 \backmatter
 
