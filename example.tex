@@ -352,7 +352,7 @@ We simulate compression artifacts by encoding and decoding the image using JPEG 
 The specific severity levels are defined as follows:
 
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Perturbation presets and severity levels used in robustness evaluation.}
 \rowcolors{2}{tablerow}{white}
@@ -396,7 +396,7 @@ JPEG compression
 With this setup, all together 18 different perturbation configurations (6 perturbation types $\times$ 3 severity levels) can be evaluated to assess the robustness of video object detection models in UAV-based imagery.
 To give an impression of the applied perturbations, example images for each perturbation type and severity level are shown in Figure~\ref{fig:perturbation_examples}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \caption{Example images illustrating perturbation severities (Low, Medium, High).}
 \label{fig:perturbation_examples}
@@ -448,7 +448,7 @@ For robustness evaluation next to standard object detection metrics such as mean
 Derived from the papers \emph{Benchmarking the Robustness of UAV Tracking Against Common Corruptions} \cite{liu2024UAVRobustness} mCE (mean corruption error) which was based on the top-1 error rate, a new metric named \emph{mean Corruption Average Precision} (mCAP) and \emph{relative mean Corruption Average Precision} (rmCAP) is proposed.
 Parallel to that \emph{mean Corruption Average Recall} (mCAR) and \emph{relative mean Corruption Average Recall} (rmCAR) is defined.
 
-The mean Corruption Average Precision (mCAP) is defined as: 
+\paragraph{Mean Corruption Average Precision (mCAP)} is defined as: 
 
 \begin{equation}
 \mathrm{mCAP}
@@ -462,7 +462,7 @@ The mean Corruption Average Precision (mCAP) is defined as:
 
 where $C$ is the set of all perturbation configurations (i.e., perturbation types and severity levels), $S$ is the number of severity levels, and $\mathrm{mAP}_{s,c}$ is the mean average precision of the model under perturbation configuration $c$ at severity level $s$.
 
-The relative mean Corruption Average Precision (rmCAP) is defined as:
+\paragraph{Relative mean Corruption Average Precision (rmCAP)} is defined as:
 \begin{equation}
 \mathrm{rmCAP}
 =
@@ -544,7 +544,7 @@ Consequently, an input resolution of 960x544 pixels was chosen as a compromise b
 \subsection{Training Protocol}
 Both models are trained under an identical training protocol to ensure a fair comparison. Differences between the two models are limited to architectural components and are detailed separately.
 Since both models already provided pretrained weights on the ImageNet VID \cite{russakovsky2015ImageNet} dataset with a Swin-Base \cite{swin2021transformer} backbone, these weights were used to finetune the single frame version of the models on the Visdrone2019-VID \cite{zhu2021detection} training set.
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Fine-tuning hyperparameters for the single-frame detectors.}
 \rowcolors{2}{tablerow}{white}
@@ -590,7 +590,7 @@ However due to memory constraints only up to 7 reference frames could be used fo
 This means that for 15 reference frames a batch size of 16 would be required, which surpasses the available GPU memory of 24GB of the NVIDIA RTX 3090ti.
 
 For training the video models, different hyperparameters were used compared to the single frame models, which are summarized in the following table.
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Fine-tuning hyperparameters for the video detectors.}
 \rowcolors{2}{tablerow}{white}
@@ -635,13 +635,11 @@ Subsequently the models were evaluated on the perturbed versions of the validati
 Futhermore evaluations with different perturbation probabilities were conducted to assess the models robustness when only a subset of frames are perturbed.
 For this two different probabilities were chosen namely 0.5 and 0.75 meaning that each frame has a 50\% or 75\% chance of being perturbed.
 The goal of this evaluation is to simulate more realistic scenarios where not all frames are affected by perturbations and conclude on how well the models can leverage unperturbed frames to maintain detection performance.
-
-
 \chapter{Results}
 \section{Clean Results}
 To form a basis for the robustness evaluation, the models were first evaluated on the clean Visdrone2019-VID \cite{zhu2021detection} validation set.
 The results are summarized in Table~\ref{tab:clean_results}.
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Detection performance of all evaluated video object detection models on the VisDrone2019-VID validation set. (Best results in \textbf{bold} and worst results in \underline{underline} per model.)}
 \rowcolors{2}{tablerow}{white}
@@ -679,47 +677,102 @@ Sampling global, 7 reference frames        & 18.9 & 33.3 \\
 Sampling global, 15 reference frames       & \underline{17.2} & \underline{31.0} \\
 \bottomrule
 \end{tabular}
+\label{tab:clean_results}
 \end{table}
+
+As can it can be seen in Table~\ref{tab:clean_results}, the single frame baseline of TransVOD++ outperforms the single frame baseline of YOLOV++ by a significant margin of 2.2\% mAP and 6.5\% mAR.
+When looking at the video-based configurations, both models show improvements over their respective single frame baselines.
+\subsection{YOLOV++ clean data results}
+For YOLOV++, the best performance is achieved using random sampling of reference frames, with 7 reference frames.
+This configuration yields the highest mAP of 18.0\% and mAR of 30.0\%, therefore an increase of 0.8\% mAP and 1.7\% mAR or 4.7\% and 6.0\% relative improvement compared to the single frame baseline.
+Alligned with the findings in the YOLOV++ paper, random sampling of reference frames outperforms local sampling in all configurations, however the performance gap is relatively small with only 0.2\% mAP and 0.0-0.5\% mAR difference between the two sampling strategies.
+
+\subsection{TransVOD++ clean data results}
+For TransVOD++, the best performance is achieved using a local sampling strategy with a temporal stride of 1 frame and 7 reference frames.
+This configuration yields the highest mAP of 20.4\% and mAR of 36.3\%, therefore an increase of 1.0\% mAP and 1.5\% mAR or 5.2\% and 4.3\% relative improvement compared to the single frame baseline.
+However, it is important to note that in contrast to the orginal TransVOD++ paper, the global sampling strategy results in the worst performance on the Visdrone dataset.
+It even performs worse than the single frame baseline when using 15 reference frames, which indicates that this sampling strategy is not suitable for the Visdrone dataset.
+FIND EXPLENATION FOR DEGRADING PERFORMANCE WITH GLOBAL SAMPLING
+To get a better insight into the impact of the sampling strategy, local sampling with a temporal stride of 8 frames was also evaluated.
+This configuration shows a similar trend as global sampling, where the performance degrades with an increasing number of reference frames.
+This further supports the hypothesis that sampling frames that are temporally distant from the target frame is not beneficial for the Visdrone dataset, likely due to the fast motion and rapid scene changes in UAV-based videos.
+
+Since the global sampling strategy achieves the worst performance with a significant margin, it will not be considered for the robustness evaluation in the following chapter.
+Therefore we we have a total of 9 instead of 13 different TransVOD++ configurations for robustness evaluation.
+
+
 
 \section{Perturbation Results}
 
 The results are summarized in Table~\ref{tab:clean_perturbated}.
 \begin{table}[H]
 \centering
-\caption{Detection performance of all evaluated video object detection models on the VisDrone2019-VID validation set. (Best results in \textbf{bold} and worst results in \underline{underline} per model.)}
+\caption{Detection performance of all evaluated video object detection models on the VisDrone2019-VID validation set under perturbations. (Best results in \textbf{bold} and worst results in \underline{underline} per model.)}
 \rowcolors{2}{tablerow}{white}
 
 \small
-\setlength{\tabcolsep}{6pt}
+\setlength{\tabcolsep}{4pt}
 
-\begin{tabular}{p{0.50\textwidth} c c}
+\begin{tabular}{p{0.40\textwidth} c c c c}
 \toprule
 \rowcolor{tableheader}
-\textbf{Model Configuration} & \textbf{mAP$_{50:95}$ (\%)} & \textbf{mAR$_{50:95}$ (\%)} \\
+\textbf{Model Configuration} & \textbf{mCAP$_{50:95}$ (\%)} & \textbf{mCAR$_{50:95}$ (\%)} & \textbf{rmCAP} & \textbf{rmCAR} \\
 \midrule
-\multicolumn{3}{l}{\textbf{YOLOV++}} \\
-Single-frame baseline                 & \underline{11.3} & \underline{20.1} \\
-Sampling local, 1 reference frame     & 11.4 & 21.7 \\
-Sampling local, 3 reference frames    & 11.5 & 21.8 \\
-Sampling local, 7 reference frames    & 11.4 & 21.8 \\
-Sampling random, 1 reference frame    & 11.7 & 22.1 \\
-Sampling random, 3 reference frames   & 11.9 & 22.6 \\
-Sampling random, 7 reference frames   & \textbf{12.0} & \textbf{23.0} \\
+\multicolumn{5}{l}{\textbf{YOLOV++}} \\
+Single-frame baseline                 & \underline{11.3} & \underline{20.1} & 0.66 & \underline{0.71} \\
+Sampling local, 1 reference frame     & 11.4 & 21.7 & 0.66 & 0.75 \\
+Sampling local, 3 reference frames    & 11.5 & 21.8 & 0.65 & 0.74 \\
+Sampling local, 7 reference frames    & 11.4 & 21.8 & \underline{0.64} & 0.73 \\
+Sampling random, 1 reference frame    & 11.7 & 22.1 & 0.67 & 0.76 \\
+Sampling random, 3 reference frames   & 11.9 & 22.6 & 0.67 & 0.76 \\
+Sampling random, 7 reference frames   & \textbf{12.0} & \textbf{23.0} & \textbf{0.67} & \textbf{0.77} \\
 \midrule
-\multicolumn{3}{l}{\textbf{TransVOD++}} \\
-Single-frame baseline                 & 18.3 & 33.3 \\
-Sampling stride 1, 1 reference frame  & 18.7 & 34.0 \\
-Sampling stride 1, 3 reference frames & 18.9 & 34.5 \\
-Sampling stride 1, 7 reference frames & \textbf{19.1} & \textbf{34.7} \\
-Sampling stride 1, 15 reference frames& 18.5 & 34.0 \\
-Sampling stride 8, 1 reference frame  & 18.5 & 33.5 \\
-Sampling stride 8, 3 reference frames & 18.5 & 33.7 \\
-Sampling stride 8, 7 reference frames & 18.2 & 33.2 \\
-Sampling stride 8, 15 reference frames& \underline{17.0} & \underline{31.2} \\
+\multicolumn{5}{l}{\textbf{TransVOD++}} \\
+Single-frame baseline                 & 18.3 & 33.3 & 0.94 & 0.96 \\
+Sampling stride 1, 1 reference frame  & 18.7 & 34.0 & 0.95 & 0.95 \\
+Sampling stride 1, 3 reference frames & 18.9 & 34.5 & 0.95 & 0.95 \\
+Sampling stride 1, 7 reference frames & \textbf{19.1} & \textbf{34.7} & 0.94 & 0.96 \\
+Sampling stride 1, 15 reference frames& 18.5 & 34.0 & \underline{0.93} & \textbf{0.97} \\
+Sampling stride 8, 1 reference frame  & 18.5 & 33.5 & \textbf{0.96} & 0.95 \\
+Sampling stride 8, 3 reference frames & 18.5 & 33.7 & 0.94 & 0.95 \\
+Sampling stride 8, 7 reference frames & 18.2 & 33.2 & 0.94 & 0.96 \\
+Sampling stride 8, 15 reference frames& \underline{17.0} & \underline{31.2} & 0.93 & \underline{0.95} \\
 \bottomrule
 \end{tabular}
+\label{tab:perturbated_results}
 \end{table}
 
+On perturbed data, TransVOD++ significantly outperforms YOLOV++ in terms of mCAP and mCAR across all configurations, as seen in Table~\ref{tab:perturbated_results}.
+This performance gap can be noticed on every model configuration, with TransVOD++ achieving mCAP values ranging from 17.0\% to 19.1\%, while YOLOV++ achieves mCAP values between 11.3\% and 12.0\%.
+Looking at the relative metrics rmCAP and rmCAR, TransVOD++ also demonstrates superior robustness to perturbations, on the other hand a signicant releative performance drop can be observed for YOLOV++.
+\subsection{YOLOV++ perturbation results}
+The perturbation results for YOLOV++ in Table~\ref{tab:perturbated_results} show that the video-based configurations outperform the single-frame baseline in terms of mCAP and mCAR.
+This phenomenon is consistent with the clean data results \ref{tab:clean_results}, where video-based models also showed improved performance.
+Looking at the the realtive metrics rmCAP and rmCAR, no clear trend can be observed between model configurations. 
+This indicates that the number of reference frames and sampling strategy have little impact on the relative robustness of YOLOV++ to perturbations.
+In general the YOLOV++ models show a signicant relative performance drop when evaluated on perturbed data, with rmCAP values ranging from 0.64 to 0.67 and rmCAR values between 0.71 and 0.77.
+\subsection{TransVOD++ perturbation results}
+For TransVOD++, a similar trend as in the clean data results can be observed in Table~\ref{tab:perturbated_results}, where the models gain from the first few reference frames but performance degrades when using too many reference frames.
+Forthermore the local sampling stagegy with a temporal stride of 1 frame outperforms the stride of 8 frames strategy, with the best performance achieved using 7 reference frames.
+However an important observation is that the relative robustness of all TransVOD++ configurations is shown a very strong robustness to perturbations, with rmCAP values ranging from 0.93 to 0.96 and rmCAR values between 0.95 and 0.97.
+As with YOLOV++ no clear trend can be observed between model configurations, indicating that the number of reference frames and sampling strategy have little impact on the relative robustness of TransVOD++ to perturbations.
+
+\subsection{Perturbations and Reference Frames}
+Opposite of the initial hypothesis, increasing the number of reference frames does not necessarily lead to improved robustness against perturbations.
+This trend is can be observed in both YOLOV++ and TransVOD++ models, while video models generally outperform their single-frame baselines, relative to their clean data performance, the robustness does not improve with more reference frames.
+This indicates that simply adding more temporal context is not sufficient to enhance robustness against perturbations.
+Therefore if all frames are perturbated, the models are not able to leverage information from multibiple perturbated frames to improve detection performance.
+
+\section{Deeper insight into Perturbations}
+To gain a deeper understanding of into model robustness in the following sections, the performance of the best YOLOV++ and TransVOD++ configurations on each perturbation type are analysed separately. 
+
+\dots
+
+\section{Perturbation Probability Results}
+\dots 
+
+\chapter{Conclusion and Future Work}
+\label{ch:conclusion}
 
 
 
