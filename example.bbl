@@ -1,0 +1,59 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{GLW{\etalchar{+}}21}
+
+\bibitem[CMS{\etalchar{+}}20]{carion2020endtoendobjectdetectiontransformers}
+Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, and Sergey Zagoruyko.
+\newblock End-to-end object detection with transformers, 2020.
+
+\bibitem[GLW{\etalchar{+}}21]{yolox2021}
+Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun.
+\newblock Yolox: Exceeding yolo series in 2021.
+\newblock {\em arXiv preprint arXiv:2107.08430}, 2021.
+
+\bibitem[HD19]{hendrycks2019benchmarking}
+Dan Hendrycks and Thomas Dietterich.
+\newblock Benchmarking neural network robustness to common corruptions and perturbations.
+\newblock In {\em International Conference on Learning Representations (ICLR)}, 2019.
+
+\bibitem[HZRS16]{he2016ResNet}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, pages 770--778, 2016.
+
+\bibitem[LFH{\etalchar{+}}24]{liu2024UAVRobustness}
+Xiaoqiong Liu, Yunhe Feng, Shu Hu, Xiaohui Yuan, and Heng Fan.
+\newblock Benchmarking the robustness of uav tracking against common corruptions.
+\newblock {\em arXiv preprint arXiv:2403.11424v1}, March 2024.
+\newblock [cs.CV].
+
+\bibitem[LLC{\etalchar{+}}21]{swin2021transformer}
+Ze~Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, and Baining Guo.
+\newblock Swin transformer: Hierarchical vision transformer using shifted windows.
+\newblock In {\em Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}, 2021.
+
+\bibitem[RDGF16]{redmon2016yolo}
+Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi.
+\newblock You only look once: Unified, real-time object detection.
+\newblock In {\em 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, pages 779--788, 2016.
+
+\bibitem[RDS{\etalchar{+}}15]{russakovsky2015ImageNet}
+Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, Zhiheng Huang, Andrej Karpathy, Aditya Khosla, and Michael Bernstein.
+\newblock Imagenet large scale visual recognition challenge.
+\newblock {\em International Journal of Computer Vision}, 115(3):211--252, December 2015.
+
+\bibitem[SZG24]{shi2024yolovpp}
+Yuheng Shi, Tong Zhang, and Xiaojie Guo.
+\newblock Practical video object detection via feature selection and aggregation.
+\newblock {\em arXiv preprint arXiv:2407.19650}, 2024.
+
+\bibitem[YLDG22]{yang2022FocalModulation}
+Jianwei Yang, Chao Li, Xiaohang Dai, and Jianfeng Gao.
+\newblock Focal modulation networks.
+\newblock In {\em Advances in Neural Information Processing Systems}, 2022.
+
+\bibitem[ZWD{\etalchar{+}}21]{zhu2021detection}
+Pengfei Zhu, Longyin Wen, Dawei Du, Xiao Bian, Heng Fan, Qinghua Hu, and Haibin Ling.
+\newblock Detection and tracking meet drones challenge.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}, 44(11):7380--7399, 2021.
+
+\end{thebibliography}

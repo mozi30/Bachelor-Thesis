@@ -1,0 +1,168 @@
+\glsdefs@newdocentry{ctan}%
+{%
+name={\acronymfont {\glsentryshort {ctan}}},%
+sort={CTAN},%
+type={acronym},%
+first={CTAN},%
+firstplural={CTANs},%
+text={CTAN},%
+plural={CTANs},%
+description={Comprehensive TeX Archive Network},%
+descriptionplural={Comprehensive TeX Archive Network},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Comprehensive TeX Archive Network},%
+longplural={Comprehensive TeX Archive Networks},%
+short={CTAN},%
+shortplural={CTANs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{faq}%
+{%
+name={\acronymfont {\glsentryshort {faq}}},%
+sort={FAQ},%
+type={acronym},%
+first={FAQ},%
+firstplural={FAQs},%
+text={FAQ},%
+plural={FAQs},%
+description={Frequently Asked Questions},%
+descriptionplural={Frequently Asked Questions},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Frequently Asked Questions},%
+longplural={Frequently Asked Questionss},%
+short={FAQ},%
+shortplural={FAQs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{pdf}%
+{%
+name={\acronymfont {\glsentryshort {pdf}}},%
+sort={PDF},%
+type={acronym},%
+first={PDF},%
+firstplural={PDFs},%
+text={PDF},%
+plural={PDFs},%
+description={Portable Document Format},%
+descriptionplural={Portable Document Format},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Portable Document Format},%
+longplural={Portable Document Formats},%
+short={PDF},%
+shortplural={PDFs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{svn}%
+{%
+name={\acronymfont {\glsentryshort {svn}}},%
+sort={SVN},%
+type={acronym},%
+first={SVN},%
+firstplural={SVNs},%
+text={SVN},%
+plural={SVNs},%
+description={Subversion},%
+descriptionplural={Subversion},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Subversion},%
+longplural={Subversions},%
+short={SVN},%
+shortplural={SVNs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{wysiwyg}%
+{%
+name={\acronymfont {\glsentryshort {wysiwyg}}},%
+sort={WYSIWYG},%
+type={acronym},%
+first={WYSIWYG},%
+firstplural={WYSIWYGs},%
+text={WYSIWYG},%
+plural={WYSIWYGs},%
+description={What You See Is What You Get},%
+descriptionplural={What You See Is What You Get},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={What You See Is What You Get},%
+longplural={What You See Is What You Gets},%
+short={WYSIWYG},%
+shortplural={WYSIWYGs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{texteditor}%
+{%
+name={editor},%
+sort={editor},%
+type={main},%
+first={editor},%
+firstplural={editors},%
+text={editor},%
+plural={editors},%
+description={A text editor is a type of program used for editing plain text files.},%
+descriptionplural={A text editor is a type of program used for editing plain text files.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
