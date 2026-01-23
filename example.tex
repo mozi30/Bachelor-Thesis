@@ -42,6 +42,9 @@
 \usepackage{morewrites} % Increases the number of external files that can be used.
 \usepackage[a-2b,mathxmp]{pdfx}      % Enables PDF/A compliance. Loads the package hyperref and has to be included second to last.
 \usepackage[acronym,toc]{glossaries} % Enables the generation of glossaries and lists of acronyms. This package has to be included last.
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{caption} % for \captionsetup if you want
 
 \usepackage{float}
 \usepackage{colortbl}
@@ -189,10 +192,34 @@ Next to architectural improvements, which i will describe in the following, a ne
 With these improvements TransVOD++ was the first model to achieve over 90 mAP(\%) on the ImageNet VID validation set, reaching 90.0 mAP(\%).
 TransVod short summary: ...
 \subsubsection{Model design}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{graphics/transvod/model.png}
+    \caption{TransVOD++ architecture overview (from \cite{zhu2022transvod++})}
+    \label{fig:transvod++_architecture}
+\end{figure}
+TransVOD++ builds upon the deforamble DETR \cite{zhu2021deformabledetr} architecture, which itself improves the DETR \cite{carion2020endtoendobjectdetectiontransformers} model by introducing deformable attention modules to better handle multi-scale features and improve convergence speed.
+This baseline is used to extract spatial features from individual frames.
+To leverage temporal context of multible frames, TransVOD++ introduces two key components: Query and ROI fusion (QRF) and Hard Query Mining (HQM).
+
+\paragraph{Query and ROI fusion (QRF)}
+The goal of this module, as described in \cite{zhu2022transvod++}, is to reduce computational cost while still effectively leveraging temporal context.
+QRF enables temporal encoding over object-level, RoI-refined feature embeddings instead of dense spatial feature maps. 
+This is done by extracting RoI-aligned appearance features from predicted bounding boxes and fusing them into the corresponding transformer queries, allowing temporal aggregation to operate directly on object-centric representations.
+
+\paragraph{Hard Query Mining (HQM)}
+As the QRF module focuses on object-level features, HQM further reduces computational cost by retaining only the most informative object queries for temporal aggregation.
+This is achieved by evaluating object queries from the current frame and all reference frames using a lightweight classification head and selecting only those with high confidence scores.
+With this mechanism, redundant and low-confidence queries are discarded, allowing temporal fusion to operate on a compact and informative set of object queries.
+
+As it can be seend in Figure~\ref{fig:transvod++_architecture}, each image is first processed by the deformable DETR backbone to extract spatial features.
+After that the QRF module extracts RoI-aligned object features from predicted bounding boxes and fuses them into the corresponding object queries.
+These features are then selected by the HQM module based on their confidence scores.
+Finally, the selected object queries from the current frame and reference frames are aggregated using a temporal transformer to produce the final detection results.
 
 
 \subsection{YOLOV}
-Base on the popular YOLO \cite{redmon2016yolo} architecture, to be more precise YOLOX \cite{yolox2021}, which are one-stage detectors known for their speed and efficiency, YOLOV \cite{liu2023yolov} extends this architecture to video data by incorporating temporal feature fusion techniques.
+Based on the popular YOLO \cite{redmon2016yolo} architecture, to be more precise YOLOX \cite{yolox2021}, which are one-stage detectors known for their speed and efficiency, YOLOV \cite{liu2023yolov} extends this architecture to video data by incorporating temporal feature fusion techniques.
 The paper that was published in 2023, was able to surpass previous state of the art video object detection models on the ImageNet VID \cite{russakovsky2015ImageNet} benchmark with a mAP(\%) of 85.5 on the validation set, while being still near real time capable with 22.7 FPS on a Nvidia TITAN RTX GPU.
 YOLOV achieves this by introducing a temporal feature fusion module that aggregates features from multiple frames, allowing the model to leverage temporal context effectively.
 Futhermore like TransVOD a improved version of YOLOV was proposed called YOLOV++ \cite{shi2024yolovpp}, which further enhances the temporal feature fusion mechanism and introduces additional optimizations to improve detection accuracy and efficiency.
@@ -765,6 +792,67 @@ Therefore if all frames are perturbated, the models are not able to leverage inf
 
 \section{Deeper insight into Perturbations}
 To gain a deeper understanding of into model robustness in the following sections, the performance of the best YOLOV++ and TransVOD++ configurations on each perturbation type are analysed separately. 
+
+
+
+\begin{figure}[t]
+\centering
+
+% -------- TOP: GRAPH (FULL WIDTH) --------
+\begin{tikzpicture}
+\begin{axis}[
+    width=\linewidth,
+    height=6cm,
+    xlabel={Severity},
+    ylabel={mAP},
+    xtick={1,2,3,4},
+    xticklabels={Clean,Low,Mid,High},
+    ymin=0, ymax=22,
+    grid=both,
+    legend pos=south west,
+]
+
+% YOLOV++ single-frame
+\addplot coordinates {(1,17.2) (2,14.5) (3,10.7) (4,4.8)};
+\addlegendentry{YOLOV++ single-frame}
+
+% YOLOV++ temporal
+\addplot coordinates {(1,18.0) (2,15.7) (3,11.3) (4,5.0)};
+\addlegendentry{YOLOV++ + temporal}
+
+% TransVOD++ single-frame
+\addplot coordinates {(1,19.4) (2,19.3) (3,18.0) (4,13.6)};
+\addlegendentry{TransVOD++ single-frame}
+
+% TransVOD++ temporal
+\addplot coordinates {(1,20.4) (2,20.2) (3,18.8) (4,14.2)};
+\addlegendentry{TransVOD++ + temporal}
+
+\end{axis}
+\end{tikzpicture}
+
+\vspace{3mm}
+
+% -------- BOTTOM: TABLE (FULL WIDTH) --------
+\small
+\begin{tabular}{p{0.58\linewidth}cccc}
+\toprule
+Model & Clean & Low & Mid & High \\
+\midrule
+YOLOV++ Single-frame baseline & 17.2 & 14.5 & 10.7 & 4.8 \\
+YOLOV++ Sampling stride 8, 7 ref frames & 18.0 & 15.7 & 11.3 & 5.0 \\
+TransVOD++ Single-frame baseline & 19.4 & 19.3 & 18 & 13.6 \\
+TransVOD++ Sampling stride 1, 7 ref frames & 20.4 & 20.2 & 18.8 & 14.2 \\
+\bottomrule
+\end{tabular}
+
+\caption{Robustness under image corruptions. Top: mAP vs severity. Bottom: mAP table (clean/low/mid/high).}
+\label{fig:robustness_combo}
+\end{figure}
+
+
+
+
 
 \dots
 
