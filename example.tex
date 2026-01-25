@@ -215,7 +215,8 @@ With this mechanism, redundant and low-confidence queries are discarded, allowin
 As it can be seend in Figure~\ref{fig:transvod++_architecture}, each image is first processed by the deformable DETR backbone to extract spatial features.
 After that the QRF module extracts RoI-aligned object features from predicted bounding boxes and fuses them into the corresponding object queries.
 These features are then selected by the HQM module based on their confidence scores.
-Finally, the selected object queries from the current frame and reference frames are aggregated using a temporal transformer to produce the final detection results.
+Finally, the selected object queries from the current frame and reference frames are aggregated using a temporal transformer, described in \ref{fig:transvod++_architecture} as Temporal Query Encoder (TQE) and Temporal
+Deformable Transformer Encoder to produce the final detection results.
 
 
 \subsection{YOLOV}
