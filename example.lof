@@ -15,10 +15,16 @@
 \babel@toc {english}{}\relax
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Example of an image from the Visdrone dataset with ignored regions blacked out for training and evaluation.}}{5}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Example images from the Visdrone dataset.}}{6}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces TransVOD++ architecture overview (from \cite {zhu2022transvod++})}}{6}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces YOLOV++ architecture overview (from \cite {shi2024yolovpp})}}{8}{figure.caption.21}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Example images illustrating perturbation severities (Low, Medium, High).}}{10}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Example of an image from the Visdrone dataset with ignored regions blacked out for training and evaluation.}}{12}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Example images from the Visdrone dataset.}}{13}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Example images illustrating perturbation severities (Low, Medium, High).}}{16}{figure.caption.34}%
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces mAP performance across perturbation types and severity levels.}}{27}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Performance drop under probabilistic perturbations. For each configuration, bars are grouped by model (YOLOV++ left, TransVOD++ right). Within each model group: 20\% (back, lighter) and 10\% (front, darker).}}{29}{figure.caption.45}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
