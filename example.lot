@@ -16,7 +16,7 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {3.1}{\ignorespaces Perturbation presets and severity levels used in robustness evaluation.}}{15}{table.caption.32}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Perturbation presets and severity levels used in robustness evaluation.}}{17}{table.caption.32}%
 \addvspace {10pt}
 \contentsline {table}{\numberline {4.1}{\ignorespaces Fine-tuning hyperparameters for the single-frame detectors.}}{21}{table.caption.37}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces Fine-tuning hyperparameters for the video detectors.}}{21}{table.caption.38}%

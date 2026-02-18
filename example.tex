@@ -26,7 +26,7 @@
 \usepackage[T1]{fontenc}    % Determines font encoding of the output. Font packages have to be included before this line.
 \usepackage[utf8]{inputenc} % Determines encoding of the input. All input files have to use UTF8 encoding.
 
-% Extended LaTeX functionality is enables by including packages with \usepackage{...}.
+% Extended LaTeX functionality is enabled by including packages with \usepackage{...}.
 \usepackage{amsmath}    % Extended typesetting of mathematical expression.
 \usepackage{amssymb}    % Provides a multitude of mathematical symbols.
 \usepackage{mathtools}  % Further extensions of mathematical typesetting.
@@ -198,18 +198,18 @@ By answering these research questions, this thesis aims to provide a deeper insi
 
 \section{Related Work}
 This chapter provides an overview of existing work related to the topic of video object detection and robustness in computer vision.
-First i will give a brief overview of the state of the art in object detection, that serves as a foundation for video object detection.
-After that i will highlight the most relevant works in video object detection, like FGFA\cite{zhu2017flowguidedfeatureaggregationvideo} and MEGA\cite{chen2020memoryenhancedgloballocalaggregation}, as well as the two models used in this thesis, TransVOD++\cite{zhou2022transvod} and YOLOV++\cite{shi2024yolovpp}.
-Finally i will discuss existing works on robustness evaluation in computer vision, including benchmarks like ImageNet-C\cite{hendrycks2019benchmarking} and studies on the robustness of object detection models in UAV-based imagery\cite{liu2024UAVRobustness}.
+First, I will give a brief overview of the state of the art in object detection, which serves as a foundation for video object detection.
+After that, I will highlight the most relevant works in video object detection, such as FGFA\cite{zhu2017flowguidedfeatureaggregationvideo} and MEGA\cite{chen2020memoryenhancedgloballocalaggregation}, as well as the two models used in this thesis, TransVOD++\cite{zhou2022transvod} and YOLOV++\cite{shi2024yolovpp}.
+Finally, I will discuss existing works on robustness evaluation in computer vision, including benchmarks like ImageNet-C\cite{hendrycks2019benchmarking} and studies on the robustness of object detection models in UAV-based imagery\cite{liu2024UAVRobustness}.
 
 \subsection{Object Detection}
 In the research field of computer vision, object detection is defined as the task of \textbf{identifying and localizing objects of interest within an image or video frame}. 
 This problem was traditionally approached using hand-crafted features and classical machine learning techniques, such as Haar cascades\cite{viola2001rapid} and HOG + SVM\cite{dalal2005histograms}.
 However, with the advent of deep learning, particularly convolutional neural networks (CNNs), object detection has seen significant advancements.
-Since then multiple differnt architectures have emerged, each with its own strengths and weaknesses.
+Since then, multiple different architectures have emerged, each with its own strengths and weaknesses.
 In regards to this thesis, two main categories of object detection are relevant: transformer-based detectors and one-stage detectors.
 
-Transformers, like \textbf{DETR}\cite{carion2020endtoendobjectdetectiontransformers} and \textbf{Deformable DETR}\cite{zhu2021deformabledetr}, use self-attention meachnisms, which makes them able to capture long-range dependencies in the input data.
+Transformers, like \textbf{DETR}\cite{carion2020endtoendobjectdetectiontransformers} and \textbf{Deformable DETR}\cite{zhu2021deformabledetr}, use self-attention mechanisms, which makes them able to capture long-range dependencies in the input data.
 This feature is particularly useful for object detection, as it allows the model to consider the entire image context when making predictions.
 Therefore transformer-based detectors have shown strong performance on various object detection benchmarks, often outperforming traditional CNN-based methods, however they tend to be computationally more expensive and require larger amounts of training data.
 
@@ -218,12 +218,12 @@ One-stage means that they predict bounding boxes and class probabilities directl
 With this design they are able to achieve high inference speeds, making them suitable for applications like autonomous driving and surveillance, where real-time performance is crucial.
 
 \subsection{Video Object Detection}
-Compared to image-based object detection, video object detection resarch has received less attention, even though many real-world applications involve video data.
+Compared to image-based object detection, video object detection research has received less attention, even though many real-world applications involve video data.
 In most cases the video is treated as a sequence of individual frames, and image-based object detection models are applied independently to each frame.
 The reason for this is the increased complexity of video data, which requires models to not only consider spatial information within each frame but also temporal information across frames.
 Combining spatial and temporal information effectively is a challenging task, as it requires models to handle issues like motion blur, occlusions, and changes in object appearance over time.
 However, if done successfully, leveraging temporal context can lead to significant improvements in detection accuracy and stability.
-Since 2017 several works have proposed methods have been proposed to address these challenges.
+Since 2017 several methods have been proposed to address these challenges.
 
 Most notable works in video object detection include \textbf{FGFA}\cite{zhu2017flowguidedfeatureaggregationvideo}, which uses optical flow to aggregate features from multiple frames, and \textbf{MEGA}\cite{chen2020memoryenhancedgloballocalaggregation}, which introduces a memory module to store and retrieve temporal information.
 Optical flow is a technique that estimates the motion of objects between consecutive frames, allowing the model to align features from different frames before aggregation.
@@ -252,19 +252,19 @@ Finally, Chapter 6 concludes the thesis with a summary of findings, discusses li
 For this thesis two video detector models are chosen, which represent different approaches to leverage temporal context in different ways.
 On the one hand there is TransVOD++\cite{zhou2023transvodpp}, which is a transformer based model that uses attention mechanisms to aggregate temporal information from multiple frames.
 On the other hand YOLOV++\cite{shi2024yolovpp}, which is a one-stage detector that extends the popular YOLO architecture to video data by incorporating temporal feature fusion techniques.
-For both models the Swin base backbone\cite{swin2021transformer} has been chosen, to ensure a fair compairson as well as petrain weights being available for both models.
+For both models the Swin-Base backbone\cite{swin2021transformer} has been chosen, to ensure a fair comparison as well as pre-trained weights being available for both models.
 
 %Write better
 Together these models provide a good basis for evaluation, as they represent different design philosophies and represent pro and cons in terms of temporal context utilization, computational efficiency and detection accuracy.
-\section{Transvod++}
-Transvod\cite{zhou2022transvod} is a end to end video object detection model base on DETR\cite{carion2020endtoendobjectdetectiontransformers}.
-End to end mean that no hand crafted features as well as no post processing is needed, everthing is learned by the model itself.
-The models fist version was proposed in 2021 as one of the first transformer based video object detection models to streamline the detection pipeline and remove the need for hand crafted features.
+\section{TransVOD++}
+TransVOD\cite{zhou2022transvod} is an end-to-end video object detection model based on DETR\cite{carion2020endtoendobjectdetectiontransformers}.
+End-to-end means that no hand-crafted features as well as no post-processing are needed; everything is learned by the model itself.
+The model's first version was proposed in 2021 as one of the first transformer-based video object detection models to streamline the detection pipeline and remove the need for hand-crafted features.
 By encoding not only spatial but also temporal information in their attention mechanism, the model shows strong performance on various video object detection benchmarks.
-In the most well known video object detection benchmark, ImageNet VID\cite{russakovsky2015ImageNet} outperforms its single frame baseline by 3.6 mAP (\%) achieving 80.7 mAP (\%) on the validation set.
+In the most well-known video object detection benchmark, ImageNet VID\cite{russakovsky2015ImageNet}, it outperforms its single-frame baseline by 3.6 mAP (\%), achieving 80.7 mAP (\%) on the validation set.
 One year later an improved version of TransVOD was proposed, called TransVOD++\cite{zhou2023transvodpp}, which builds upon the original TransVOD architecture and introduces several enhancements to further improve detection performance.
 The main goal of TransVOD++ is to address the heavy computation costs as well as increase the detection accuracy of its predecessor.
-Next to architectural improvements, which i will describe in the following, a new backbone namely Swin-Base\cite{swin2021transformer} instead of ResNet-101\cite{he2016ResNet} was used to further boost performance.
+Next to architectural improvements, which are described in the following, a new backbone, namely Swin-Base\cite{swin2021transformer} instead of ResNet-101\cite{he2016ResNet}, was used to further boost performance.
 With these improvements TransVOD++ was the first model to achieve over 90 mAP (\%) on the ImageNet VID validation set, reaching 90.0 mAP (\%).
 \subsubsection{Model design}
 \begin{figure}
@@ -273,9 +273,9 @@ With these improvements TransVOD++ was the first model to achieve over 90 mAP (\
     \caption{TransVOD++ architecture overview (from\cite{zhou2023transvodpp})}
     \label{fig:transvod++_architecture}
 \end{figure}
-TransVOD++ builds upon the deforamble DETR\cite{zhu2021deformabledetr} architecture, which itself improves the DETR\cite{carion2020endtoendobjectdetectiontransformers} model by introducing deformable attention modules to better handle multi-scale features and improve convergence speed.
+TransVOD++ builds upon the deformable DETR\cite{zhu2021deformabledetr} architecture, which itself improves the DETR\cite{carion2020endtoendobjectdetectiontransformers} model by introducing deformable attention modules to better handle multi-scale features and improve convergence speed.
 For the backbone of the model the Swin-Base\cite{swin2021transformer} architecture is used, which is a hierarchical vision transformer that utilizes shifted windows for efficient self-attention computation.
-To leverage temporal context of multible frames, TransVOD++ introduces two key components: Query and ROI fusion (QRF) and Hard Query Mining (HQM).
+To leverage temporal context of multiple frames, TransVOD++ introduces two key components: Query and ROI fusion (QRF) and Hard Query Mining (HQM).
 
 \paragraph{Query and ROI fusion (QRF)}
 The goal of this module, as described in\cite{zhou2023transvodpp}, is to reduce computational cost while still effectively leveraging temporal context.
@@ -296,12 +296,12 @@ Deformable Transformer Encoder to produce the final detection results.
 
 \section{YOLOV++}
 Based on the popular YOLO\cite{redmon2016yolo} architecture, to be more precise YOLOX\cite{yolox2021}, which are one-stage detectors known for their speed and efficiency, YOLOV\cite{shi2022yolov} extends this architecture to video data by incorporating temporal feature fusion techniques.
-The paper that was published in 2022, was able to surpass previous state of the art video object detection models on the ImageNet VID\cite{russakovsky2015ImageNet} benchmark with a mAP (\%) of 85.5 on the validation set, while being still near real time capable with 22.7 FPS on a Nvidia TITAN RTX GPU.
+The paper that was published in 2022 was able to surpass previous state-of-the-art video object detection models on the ImageNet VID\cite{russakovsky2015ImageNet} benchmark with an mAP (\%) of 85.5 on the validation set, while still being near real-time capable with 22.7 FPS on an Nvidia TITAN RTX GPU.
 YOLOV achieves this by introducing a temporal feature fusion module that aggregates features from multiple frames, allowing the model to leverage temporal context effectively.
-Futhermore like TransVOD a improved version of YOLOV was proposed called YOLOV++\cite{shi2024yolovpp}, which further enhances the temporal feature fusion mechanism and introduces additional optimizations to improve detection accuracy and efficiency.
-The now improved YOLOV++ was able to achieve a new record mAP (\%) of 93.2 on the ImageNet VID validation set, while still being over 30 FPS on a Nvidia RTX 3090. 
-However for this a special backbone names FocalNet-Large\cite{yang2022FocalModulation} is used.
-Using the same Swin-Base\cite{swin2021transformer} backbone as for TransVOD++, YOLOV++ achieves a mAP (\%) of 90.7 on the ImageNet VID validation set, which is still significantly higher than TransVOD++ with 90.0 mAP(\%).
+Furthermore, like TransVOD, an improved version of YOLOV was proposed called YOLOV++\cite{shi2024yolovpp}, which further enhances the temporal feature fusion mechanism and introduces additional optimizations to improve detection accuracy and efficiency.
+The now improved YOLOV++ was able to achieve a new record mAP (\%) of 93.2 on the ImageNet VID validation set, while still being over 30 FPS on an Nvidia RTX 3090.
+However, for this a special backbone named FocalNet-Large\cite{yang2022FocalModulation} is used.
+Using the same Swin-Base\cite{swin2021transformer} backbone as for TransVOD++, YOLOV++ achieves an mAP (\%) of 90.7 on the ImageNet VID validation set, which is still significantly higher than TransVOD++ with 90.0 mAP (\%).
 \subsubsection{Model design}
 \begin{figure}
     \centering
@@ -309,39 +309,39 @@ Using the same Swin-Base\cite{swin2021transformer} backbone as for TransVOD++, Y
     \caption{YOLOV++ architecture overview (from\cite{shi2024yolovpp})}
     \label{fig:yolov++_architecture}
 \end{figure}
-The YOLOX architecture, which serves as the basis for YOLOV, improves upon previous YOLO versions by introducing several enhancements, such as an anchor-free design, a decoupled head which splits the classification and regression tasks, as well as OTA (Dynamic label assignment) to improve training efficiency and detection accuracy.
-Based on this architecture, YOLOV++ adds the temporal context after the YOLOX processes each frame individually on the proposal-feature level.
-To achieve this, YOLOV++ introduces the Feature Selection Module (FSM), which as the name suggests selects the most relevant features from the all frames, as well as the Feature Aggregation Module (FAM), which aggregates features from multiple frames to enhance the feature representation for object detection.
+The YOLOX architecture, which serves as the basis for YOLOV, improves upon previous YOLO versions by introducing several enhancements, such as an anchor-free design, a decoupled head which splits the classification and regression tasks, as well as OTA (dynamic label assignment) to improve training efficiency and detection accuracy.
+Based on this architecture, YOLOV++ adds the temporal context after YOLOX processes each frame individually on the proposal-feature level.
+To achieve this, YOLOV++ introduces the Feature Selection Module (FSM), which, as the name suggests, selects the most relevant features from all frames, as well as the Feature Aggregation Module (FAM), which aggregates features from multiple frames to enhance the feature representation for object detection.
 
 \paragraph{Feature Selection Module (FSM)}
-Since one stage detectors like YOLOX generate a large number of proposals per frame, processing all proposals from multiple frames would be computationally infisable.
-Therefore the FSM is introduced to select only the most relevant proposals based on there confidence for temporal aggregation, as well as adding NMS (Non Maximum Suppression) to remove redundant proposals.
+Since one-stage detectors like YOLOX generate a large number of proposals per frame, processing all proposals from multiple frames would be computationally infeasible.
+Therefore the FSM is introduced to select only the most relevant proposals based on their confidence for temporal aggregation, as well as adding NMS (non-maximum suppression) to remove redundant proposals.
 This way the number of proposals goes from thousands per frame to only a few hundred, making temporal aggregation feasible.
 
 \paragraph{Feature Aggregation Module (FAM)}
-The FAM is responsible for aggregating the selected features from multiple frames. This is done by to parallel modules, one for classification features and one for regression features.
-These modules use multi head attention to effectively combine information from different frames, however a homogenity issue is described in the paper, where standard attention tends to focus on similar features across frames, which could all be blurred, occluded or low quality.
+The FAM is responsible for aggregating the selected features from multiple frames. This is done by two parallel modules, one for classification features and one for regression features.
+These modules use multi-head attention to effectively combine information from different frames; however, a homogeneity issue is described in the paper, where standard attention tends to focus on similar features across frames, which could all be blurred, occluded or low quality.
 To address this, they propose their key innovation, called Affinity Manner, where the similarity between proposals is weighted by their predicted confidence, so that temporally aggregated features are drawn preferentially from high-quality, reliable frames instead of uniformly similar but degraded ones.
 
-All together the YOLOV++ architecture can be seen in Figure~\ref{fig:yolov++_architecture}, where each frame is first processed individually by the YOLOX backbone and neck to extract spatial features and generate proposals.
-After that the FSM selects the most relevant proposals from all frames, which are then aggregated by the FAM using the Affinity Manner to produce enhanced features for final detection.
+Altogether, the YOLOV++ architecture can be seen in Figure~\ref{fig:yolov++_architecture}, where each frame is first processed individually by the YOLOX backbone and neck to extract spatial features and generate proposals.
+After that, the FSM selects the most relevant proposals from all frames, which are then aggregated by the FAM using the Affinity Manner to produce enhanced features for final detection.
 This way YOLOV++ effectively leverages temporal context while maintaining the efficiency and speed characteristic of one-stage detectors.
 
 \chapter{Dataset and Metrics}
 
 \section{Visdrone Dataset}
-The Visdrone dataset\cite{zhu2021detection} is a large-scale dataset for different detection scenarios based on drone based imagery.
+The Visdrone dataset\cite{zhu2021detection} is a large-scale dataset for different detection scenarios based on drone-based imagery.
 The images and videos were captured by various drone platforms in different urban and suburban areas of 14 different cities across China.
-The objects are entitys of public street scenes, e.g., pedestrians, vehicles, bicycles, etc.
-All together there are 10 different object categories.
+The objects are entities of public street scenes, e.g., pedestrians, vehicles, bicycles, etc.
+Altogether there are 10 different object categories.
 It is curated by the \emph{AISKYEYE} research group from the \emph{Tianjin University in China}.
 For this thesis VISDRONE2019-VID is used, to leverage the temporal context of the videos for the object detection task. 
-All together the dataset contains 79 sequences with 33,366 frames, which are split 56 videos with 24,198 frames for training, 7 videos with 2,846 frames for validation and 16 videos with 6,322 frames for testing.
+Altogether the dataset contains 79 sequences with 33,366 frames, which are split into 56 videos with 24,198 frames for training, 7 videos with 2,846 frames for validation and 16 videos with 6,322 frames for testing.
 The dataset is chosen because of its large size and the challenging scenarios, e.g., different weather conditions, various altitudes and camera angles as well as high density of objects in the images.
 Object sizes vary significantly, ranging from very small objects with only a few pixels to large objects covering a significant portion of the image.
 This large difference in object sizes makes it also suitable to evaluate the performance of detection models under different perturbations and across different scales.
 
-Since the dataset includes ignored regions, which are areas in the images where objects are not annotated due to beeing too crowded or too small, these regions are taken out of the evaluation to avoid penalizing the models for false positives in these areas.
+Since the dataset includes ignored regions, which are areas in the images where objects are not annotated due to being too crowded or too small, these regions are taken out of the evaluation to avoid penalizing the models for false positives in these areas.
 This was done by blacking out these regions in the images before feeding them into the models for training and evaluation.
 The method was chosen due to its simplicity and effectiveness. 
 Other methods such as removing the annotations for these regions or masking them out during evaluation were considered, but blacking them out directly in the images was found to be the most straightforward approach.
@@ -398,13 +398,13 @@ Without this step models tend to produce a high number of false positives in the
 \end{figure}
 
 \section{Perturbation}
-A significant part of this thesis to evaluate the robustness of video object detection models under common perturbations in UAV-based imagery.
-In this sentence two key concepts must be defined: what robustness means in the context of an object detection model, and which perturbations commonly occur in UAV-based imagery.
+A significant part of this thesis is to evaluate the robustness of video object detection models under common perturbations in UAV-based imagery.
+In this context, two key concepts must be defined: what robustness means in the context of an object detection model, and which perturbations commonly occur in UAV-based imagery.
 
 \subsection{Definition of Robustness}
 A widely used definition of robustness was proposed by Hendrycks and Dietterich~\cite{hendrycks2019benchmarking}, who define robustness as a model’s ability to maintain predictive performance under distribution shifts caused by common, naturally occurring image corruptions and perturbations.
 In the context of object detection, this means that a robust model should be able to accurately detect and localize objects even when the input images are affected by various types of noise, distortions, or other adverse conditions.
-In the context of this thesis, the main metric to quantify robustness is the relative performance degradation of a model mean avarage precision (mAP) under different perturbations compared to its performance on clean data.
+In the context of this thesis, the main metric to quantify robustness is the relative performance degradation of a model's mean average precision (mAP) under different perturbations compared to its performance on clean data.
 \subsection{Common Perturbations in UAV-based Imagery}
 The paper by Hendrycks and Dietterich~\cite{hendrycks2019benchmarking} introduced a benchmark suite called ImageNet-C, which consists of 15 different types of common image corruptions applied to the ImageNet dataset.
 For further insight a paper named \emph{Benchmarking the Robustness of UAV Tracking Against Common Corruptions}\cite{liu2024UAVRobustness} which was published in 2024, is used to identify perturbations that commonly occur in UAV-based imagery.
@@ -420,9 +420,9 @@ Based on these works, the following perturbations are considered in this thesis:
 The simulation of weather conditions such as fog, rain, and snow is not considered in this thesis, as these perturbations require more complex rendering techniques.
 For each perturbation type, multiple severity levels are defined to assess robustness across a range of adverse conditions; in this thesis, three levels are used: low, medium, and high.
 \subsection{Implementation}
-To apply the defined perturbations to the Visdrone dataset, a custom data augmentation pipeline is implemented into to the models data loader.
+To apply the defined perturbations to the Visdrone dataset, a custom data augmentation pipeline is implemented into the models' data loaders.
 Based on evaluation input parameters, the data loader applies the specified perturbation with the desired severity level to each frame before it is fed into the model for inference.
-For more in depth evaluation a probability parameter is added, which defines the likeliness each perturbation being applied to a frame.
+For more in-depth evaluation a probability parameter is added, which defines the likelihood of each perturbation being applied to a frame.
 
 \paragraph{Gaussian noise.}
 We add i.i.d.\ Gaussian noise:
@@ -519,7 +519,7 @@ JPEG compression
 \end{tabular}
 \end{table}
 
-With this setup, all together 18 different perturbation configurations (6 perturbation types $\times$ 3 severity levels) can be evaluated to assess the robustness of video object detection models in UAV-based imagery.
+With this setup, altogether 18 different perturbation configurations (6 perturbation types $\times$ 3 severity levels) can be evaluated to assess the robustness of video object detection models in UAV-based imagery.
 
 \begin{figure}[htbp]
 \centering
@@ -626,8 +626,8 @@ Mean Corruption Average Recall \textbf{(mCAR)}, relative mean Corruption Average
 \chapter{Experiments Setup}
 
 \section{Hardware and Software Environment}
-The training as well as evaluation of the models was done on eather Nvidia RTX 3060 Ti or Nvidia RTX 3090TI GPUs.
-This was due due to the fact that CUDA 11.3 was required by the TransVOD implementation, which is not supported by the newer GPUs such as the RTX 40 series.
+The training as well as evaluation of the models was done on either Nvidia RTX 3060 Ti or Nvidia RTX 3090 Ti GPUs.
+This was due to the fact that CUDA 11.3 was required by the TransVOD implementation, which is not supported by newer GPUs such as the RTX 40 series.
 Both models were implemented in PyTorch\cite{paszke2019pytorch} and trained using the AdamW\cite{loshchilov2019decoupled} optimizer.
 
 \section{Reference Frame Sampling Strategy} 
@@ -749,7 +749,7 @@ Subsequently the models were evaluated on the perturbed versions of the validati
 
 To evaluate whether temporal context enables models to maintain detection consistency when individual frames are perturbed, we conducted additional experiments using a probabilistic perturbation strategy. Specifically, we randomly selected 10\% and 20\% of frames within each video sequence and applied a diverse set of perturbations at high severity levels. This approach allows us to assess whether models can leverage information from adjacent unperturbed frames to mitigate the impact of corruptions on isolated frames.
 \chapter{Empirical Results}
-For the results alltogether 20 differnt models were evaluated, consisting of one single frame baseline and six video-based variants of YOLOV++ as well as one single frame baseline and twelve video-based variants of TransVOD++.
+For the results altogether 20 different models were evaluated, consisting of one single-frame baseline and six video-based variants of YOLOV++ as well as one single-frame baseline and twelve video-based variants of TransVOD++.
 All models were first evaluated on the clean Visdrone2019-VID\cite{zhu2021detection} validation set to obtain baseline performance metrics, followed by evaluations on perturbed versions of the validation set for each defined perturbation type and severity level.
 These results are then combined to compute the proposed robustness metrics mCAP, rmCAP, mCAR.
 As mentioned before, to further investigate the benefits of temporal context in handling sporadic perturbations, additional evaluations were performed using a probabilistic perturbation strategy where 10\% and 20\% of frames in each video sequence were randomly selected for high-severity perturbations.
@@ -798,24 +798,24 @@ Sampling global, 15 reference frames       & \underline{17.2} & \underline{31.0}
 \label{tab:clean_results}
 \end{table}
 
-As can it can be seen in Table~\ref{tab:clean_results}, the single frame baseline of TransVOD++ outperforms the single frame baseline of YOLOV++ by a significant margin of 2.2\% mAP and 6.5\% mAR.
-When looking at the video-based configurations, both models show improvements over their respective single frame baselines.
+As can be seen in Table~\ref{tab:clean_results}, the single-frame baseline of TransVOD++ outperforms the single-frame baseline of YOLOV++ by a significant margin of 2.2\% mAP and 6.5\% mAR.
+When looking at the video-based configurations, both models show improvements over their respective single-frame baselines.
 
 For YOLOV++, the best performance is achieved using random sampling of reference frames, with 7 reference frames.
-This configuration yields the highest mAP of 18.0\% and mAR of 30.0\%, therefore an increase of 0.8\% mAP and 1.7\% mAR or 4.7\% and 6.0\% relative improvement compared to the single frame baseline.
-Alligned with the findings in the YOLOV++ paper, random sampling of reference frames outperforms local sampling in all configurations, however the performance gap is relatively small with only 0.2\% mAP and 0.0-0.5\% mAR difference between the two sampling strategies.
+This configuration yields the highest mAP of 18.0\% and mAR of 30.0\%, therefore an increase of 0.8\% mAP and 1.7\% mAR or 4.7\% and 6.0\% relative improvement compared to the single-frame baseline.
+Aligned with the findings in the YOLOV++ paper, random sampling of reference frames outperforms local sampling in all configurations; however, the performance gap is relatively small with only 0.2\% mAP and 0.0--0.5\% mAR difference between the two sampling strategies.
 
 For TransVOD++, the best performance is achieved using a local sampling strategy with a temporal stride of 1 frame and 7 reference frames.
 This configuration yields the highest mAP of 20.4\% and mAR of 36.3\%, therefore an increase of 1.0\% mAP and 1.5\% mAR or 5.2\% and 4.3\% relative improvement compared to the single frame baseline.
-However, it is important to note that in contrast to the orginal TransVOD++ paper, the global sampling strategy results in the worst performance on the Visdrone dataset.
-It even performs worse than the single frame baseline when using 15 reference frames, which indicates that this sampling strategy is not suitable for the Visdrone dataset.
+However, it is important to note that in contrast to the original TransVOD++ paper, the global sampling strategy results in the worst performance on the Visdrone dataset.
+It even performs worse than the single-frame baseline when using 15 reference frames, which indicates that this sampling strategy is not suitable for the Visdrone dataset.
 
 To get a better insight into the impact of the sampling strategy, local sampling with a temporal stride of 8 frames was also evaluated.
 This configuration shows a similar trend as global sampling, where the performance degrades with an increasing number of reference frames.
 This further supports the hypothesis that sampling frames that are temporally distant from the target frame is not beneficial for the Visdrone dataset, likely due to the fast motion and rapid scene changes in UAV-based videos.
 
 Since the global sampling strategy achieves the worst performance with a significant margin, it will not be considered for the robustness evaluation in the following chapter.
-Therefore we we have a total of 9 instead of 13 different TransVOD++ configurations for robustness evaluation.
+Therefore we have a total of 9 instead of 13 different TransVOD++ configurations for robustness evaluation.
 
 
 
@@ -862,24 +862,24 @@ Sampling stride 8, 15 reference frames & \underline{14.3} & \underline{26.2} & \
 
 On perturbed data, TransVOD++ significantly outperforms YOLOV++ in terms of mCAP and mCAR across all configurations, as seen in Table~\ref{tab:perturbated_results}.
 This performance gap can be noticed on every model configuration, with TransVOD++ achieving mCAP values ranging from 17.0\% to 19.1\%, while YOLOV++ achieves mCAP values between 11.3\% and 12.0\%.
-Looking at the relative metrics rmCAP and rmCAR, TransVOD++ also demonstrates superior robustness to perturbations, on the other hand a signicant releative performance drop can be observed for YOLOV++.
+Looking at the relative metrics rmCAP and rmCAR, TransVOD++ also demonstrates superior robustness to perturbations; on the other hand, a significant relative performance drop can be observed for YOLOV++.
 
 The perturbation results for YOLOV++ in Table~\ref{tab:perturbated_results} show that the video-based configurations outperform the single-frame baseline in terms of mCAP and mCAR.
 This phenomenon is consistent with the clean data results \ref{tab:clean_results}, where video-based models also showed improved performance.
-Looking at the the realtive metrics rmCAP and rmCAR, no clear trend can be observed between model configurations. 
+Looking at the relative metrics rmCAP and rmCAR, no clear trend can be observed between model configurations.
 This indicates that the number of reference frames and sampling strategy have little impact on the relative robustness of YOLOV++ to perturbations.
-In general the YOLOV++ models show a signicant relative performance drop when evaluated on perturbed data, with rmCAP values ranging from 0.64 to 0.67 and rmCAR values between 0.71 and 0.77.
+In general the YOLOV++ models show a significant relative performance drop when evaluated on perturbed data, with rmCAP values ranging from 0.64 to 0.67 and rmCAR values between 0.71 and 0.77.
 
 For TransVOD++, a similar trend as in the clean data results can be observed in Table~\ref{tab:perturbated_results}, where the models gain from the first few reference frames but performance degrades when using too many reference frames.
-Forthermore the local sampling stagegy with a temporal stride of 1 frame outperforms the stride of 8 frames strategy, with the best performance achieved using 7 reference frames.
-However an important observation is that the relative robustness of all TransVOD++ configurations is shown a very strong robustness to perturbations, with rmCAP values ranging from 0.83 to 0.86 and rmCAR values between 0.84 and 0.86.
+Furthermore the local sampling strategy with a temporal stride of 1 frame outperforms the stride of 8 frames strategy, with the best performance achieved using 7 reference frames.
+However, an important observation is that all TransVOD++ configurations show very strong robustness to perturbations, with rmCAP values ranging from 0.83 to 0.86 and rmCAR values between 0.84 and 0.86.
 As with YOLOV++ no clear trend can be observed between model configurations, indicating that the number of reference frames and sampling strategy have little impact on the relative robustness of TransVOD++ to perturbations.
 
 \subsection{Perturbations and Reference Frames}
-Opposite of the initial hypothesis, increasing the number of reference frames does not necessarily lead to improved robustness against perturbations.
-This trend is can be observed in both YOLOV++ and TransVOD++ models, while video models generally outperform their single-frame baselines, relative to their clean data performance, the robustness does not improve with more reference frames.
+Opposite to the initial hypothesis, increasing the number of reference frames does not necessarily lead to improved robustness against perturbations.
+This trend can be observed in both YOLOV++ and TransVOD++ models: while video models generally outperform their single-frame baselines relative to their clean data performance, the robustness does not improve with more reference frames.
 This indicates that simply adding more temporal context is not sufficient to enhance robustness against perturbations.
-Therefore if all frames are perturbated, the models are not able to leverage information from multibiple perturbated frames to improve detection performance.
+Therefore if all frames are perturbed, the models are not able to leverage information from multiple perturbed frames to improve detection performance.
 
 \section{Results by Perturbation Type}
 For the insight on a perturbation level, 3 model configurations were selected for each YOLOV++ and TransVOD++. These configurations represent the single-frame baseline, as well the best performing temporal window size of each sampling strategy.
@@ -947,15 +947,15 @@ Stride 8, 15 ref & 18.2 & 17.9 & 17.4 & 1.7\% & 4.3\% \\
 \end{table}
 In contrast to the previous evaluations where all frames in a video sequence were perturbed, additional experiments were conducted using a probabilistic perturbation strategy.
 This approach involved randomly selecting 10\% and 20\% of frames within each video sequence and applying a single perturbation at high severity level.
-Therefore while single frame models have no way of recovering from the perturbation, video models can leverage information from adjacent unperturbed frames to mitigate the impact of corruptions on isolated frames.
-This way we can evaluate wheather temporal context enables models to maintain detection consistency when individual frames are perturbed.
+Therefore, while single frame models have no way of recovering from the perturbation, video models can leverage information from adjacent unperturbed frames to mitigate the impact of corruptions on isolated frames.
+This way we can evaluate whether temporal context enables models to maintain detection consistency when individual frames are perturbed.
 The results of these experiments are summarized in Table~\ref{tab:single_frame_perturbations}.
-When looking at the results, all models as expected show a performance drop going from clean to perturbated data.
+When looking at the results, all models as expected show a performance drop going from clean to perturbed data.
 However in this experiment the video-based models show a smaller performance drop compared to their single-frame baselines, indicating that temporal context helps mitigate the impact of sporadic perturbations.
 For example for YOLOV++, the single-frame baseline experiences a performance drop of 4.7\% and 9.9\% for 10\% and 20\% perturbed frames respectively, while the video-based model with random sampling and 7 reference frames only shows a drop of 2.8\% and 6.7\%.
-This show a relative reduction in performance drop of 40.4\% and 32.3\% respectively.
+This shows a relative reduction in performance drop of 40.4\% and 32.3\% respectively.
 A similar trend can be observed for TransVOD++, where the single-frame baseline experiences a performance drop of 3.1\% and 6.2\% for 10\% and 20\% perturbed frames respectively, while the video-based model with stride 1 sampling and 7 reference frames only shows a drop of 2.0\% and 4.4\%.
-Also here a relative reduction in performance drop of 35.5\% and 29.0\% respectively can be observed.
+Also here, a relative reduction in performance drop of 35.5\% and 29.0\% respectively can be observed.
 This clearly shows that temporal context enables video object detection models to better handle sporadic perturbations by leveraging information from adjacent unperturbed frames.
 For better visualization of the results, the performance drop values are also illustrated in the bar chart in Figure~\ref{fig:partial_perturbations_drop_chart}.
 
@@ -1099,7 +1099,7 @@ Within each model group: 20\% (back, lighter) and 10\% (front, darker).}
 % \end{table}
 
 \chapter{Discussion}
-The aim of this this was to evaluate wheather video object detection models can leverage temporal context to improve robustness against perturbations in UAV-based videos.
+The aim of this thesis was to evaluate whether video object detection models can leverage temporal context to improve robustness against perturbations in UAV-based videos.
 This was done by evaluating two state-of-the-art video object detection models, YOLOV++ and TransVOD++, on the Visdrone2019-VID dataset under various perturbations.
 
 Taking a look at the clean data results, both YOLOV++ and TransVOD++ demonstrated improved detection performance compared to their single-frame baselines.
@@ -1109,12 +1109,12 @@ For YOLOV++, random sampling of reference frames consistently outperformed local
 This is supported by the findings in the original YOLOV++ paper\cite{shi2024yolovpp}, where random sampling with up to 32 reference frames yielded the best results.
 In this research, reference frame numbers were limited to a maximum of 7 due to computational constraints, but the trend indicates that more reference frames could potentially lead to further improvements.
 
-For TransVOD++, sampling plays a crucial role for performance. The model was evaluated on three different sampling strategies: local sampling with a temporal stride of 1 frame, local sampling with a temporal stride of 8 frames, and global sampling.
+For TransVOD++, sampling plays a crucial role for performance. The model was evaluated with three different sampling strategies: local sampling with a temporal stride of 1 frame, local sampling with a temporal stride of 8 frames, and global sampling.
 Contrary to the findings in the original TransVOD++ paper\cite{zhou2023transvodpp}, where global sampling yielded the best results on the ImageNet VID dataset, local sampling with a temporal stride of 1 frame outperformed both other strategies on the Visdrone dataset.
 Especially global sampling showed a significant performance drop, even performing worse than the single-frame baseline when using 15 reference frames.
 This suggests that for UAV-based videos, where objects are rather small, grouped together, often move quickly and scenes change rapidly, sampling temporally close frames is more beneficial than sampling distant frames.
 When using local sampling with a temporal stride of 1 frame, the best performance was achieved using 7 reference frames, indicating that leveraging more temporal context is beneficial for detection performance.
-In the original paper\cite{zhou2023transvodpp}, the best performance was achieved using 14 reference frames, this is not the case in this research, where 15 reference frames consistently led to a performance drop compared to using 7 reference frames.
+In the original paper\cite{zhou2023transvodpp}, the best performance was achieved using 14 reference frames. This is not the case in this research, where 15 reference frames consistently led to a performance drop compared to using 7 reference frames.
 
 This begs the question why YOLOV++ benefits from more random reference frames, while TransVOD++ shows a performance drop when using too many local reference frames.
 A possible explanation could be that since YOLOV++ is gathering information by aggregating information from random timepoints, it is able to make better predictions when more frames are available.
@@ -1122,27 +1122,27 @@ In contrast, TransVOD++ relies on attention-based fusion of locally sampled refe
 Consequently, additional local reference frames may introduce more noise than useful information, leading to a decline in performance.
 
 To sum up the clean data results, both YOLOV++ and TransVOD++ demonstrated improved detection performance, where the choice of sampling strategy and number of reference frames played a crucial role.
-With the correct configuration, YOLOV++ achieved an mAP of 18.0\% and mAR of 30.0\%, therefore an increase of 0.7 mAP and 1.7 mAR or 4.0\% and 6.0\% relative improvement compared to the single frame baseline.
-TransVOD++ achieved an mAP of 20.4\% and mAR of 36.3\%, therefore an increase of 1.0 mAP and 1.5 mAR or 5.2\% and 4.3\% relative improvement compared to the single frame baseline.
+With the correct configuration, YOLOV++ achieved an mAP of 18.0\% and mAR of 30.0\%, therefore an increase of 0.7 mAP and 1.7 mAR or 4.0\% and 6.0\% relative improvement compared to the single-frame baseline.
+TransVOD++ achieved an mAP of 20.4\% and mAR of 36.3\%, therefore an increase of 1.0 mAP and 1.5 mAR or 5.2\% and 4.3\% relative improvement compared to the single-frame baseline.
 
-To answer the main research question regarding robustness against perturbations, the Visdrone dataset was perturbated multible ways, simulating real-world corruptions that can occur in UAV-based videos.
+To answer the main research question regarding robustness against perturbations, the Visdrone dataset was perturbed in multiple ways, simulating real-world corruptions that can occur in UAV-based videos.
 For the first evaluation, all frames in a video sequence were perturbed, and the models were evaluated on their detection performance under these conditions.
 
-Against the prehand expected outcome, using increasing the temporal context window does not show any significant improvement in robustness as seen in Table~\ref{tab:perturbated_results}.
+Against the beforehand expected outcome, increasing the temporal context window does not show any significant improvement in robustness as seen in Table~\ref{tab:perturbated_results}.
 This trend is consistent across both YOLOV++ and TransVOD++ models, where video-based configurations outperform their single-frame baselines, but the robustness does not improve with more reference frames.
-This indicates that simply adding more temporal context does increase detection performance but not robustness against perturbations, when all frames are affected.
-Furthermore this shows that the models are not able to use information from multiple perturbated frames to compensate for the precision loss caused by the perturbations.
-Therefore aggregating weak object features from multiple perturbated frames does not perform better than relying on a single clean frame.
+This indicates that simply adding more temporal context does increase detection performance but not robustness against perturbations when all frames are affected.
+Furthermore, this shows that the models are not able to use information from multiple perturbed frames to compensate for the precision loss caused by the perturbations.
+Therefore, aggregating weak object features from multiple perturbed frames does not perform better than relying on a single clean frame.
 
 However comparing the two models, TransVOD++ demonstrates significantly better robustness to perturbations compared to YOLOV++, as evidenced by the higher relative robustness metrics rmCAP and rmCAR.
 A good reason for this could be that the fully fetched transformer architecture of TransVOD++ is inherently more robust to perturbations due to its attention mechanism, while YOLOV++ relies on feature aggregation which may be more susceptible to noise introduced by perturbations.
 
 Looking at each perturbation type individually \ref{fig:perturbation_analysis}, both models exhibit similar trends in handling different corruptions.
-Pixelation is the most challenging perturbation type of all perturbations, both model show a significant performance drop, however YOLOV++ detection pipeline completely fails.
-Since pixelation causes the most infomration loss, it is expected that the models struggle to detect objects under this perturbation.
+Pixelation is the most challenging perturbation type of all perturbations; both models show a significant performance drop, however YOLOV++'s detection pipeline completely fails.
+Since pixelation causes the most information loss, it is expected that the models struggle to detect objects under this perturbation.
 For brightness and contrast changes, both models show a relatively stable performance, where virtually no performance drop can be observed even at high severity levels.
 Since color jitter is introduced during training, the models are likely to be more robust to these types of perturbations.
-When evaluating defocus blur, gaussian noise and JPEG compression, both models experience a steady performance decline as severity increases, since fine image details are lost or corrupted.
+When evaluating defocus blur, Gaussian noise and JPEG compression, both models experience a steady performance decline as severity increases, since fine image details are lost or corrupted.
 
 Therefore the results indicate that temporal context improves detection accuracy but does not inherently improve robustness against global perturbations affecting all frames. 
 
@@ -1152,7 +1152,7 @@ This behavior is reflected in the results: models with increasing temporal conte
 For both architectures, the best-performing video-based configuration achieves a relative reduction in performance drop of approximately 30\% to 40\% compared to the single-frame baseline.
 These findings clearly illustrate the advantage of temporal context, as short-lived disturbances can be smoothed out, allowing the model to maintain more consistent and robust detection performance across the video sequence.
 
-In distinction to the previous evaluation where all frames were perturbed, this experiment shows that temporal context can indeed enhance robustness when perturbations are sporadic rather than pervasive across the entire video sequence.    
+In distinction to the previous evaluation where all frames were perturbed, this experiment shows that temporal context can indeed enhance robustness when perturbations are sporadic rather than pervasive across the entire video sequence.
 \chapter{Conclusion and Future Work}
 This research investigated the robustness of video object detection models, specifically YOLOV++ and TransVOD++, under realistic perturbations in UAV-based videos.
 Using the VisDrone2019-VID dataset, both models were evaluated across different corruption types and severity levels to simulate real-world conditions.
@@ -1170,7 +1170,7 @@ In contrast, when perturbations are sporadic, video-based models can leverage cl
 Overall, TransVOD++ exhibits consistently stronger robustness to perturbations than YOLOV++, likely due to its attention-based architecture, which appears more resilient to noise.
 These findings highlight that temporal context is not inherently robustifying; its benefit depends on both the corruption pattern and the model’s ability to selectively aggregate high-quality temporal information.
 
-Since this research focused only only on image-level perturbations, future work could explore the impact of temporal perturbations, such as frame drops or temporal jitter and dynamic motion blur, which are common in UAV videos.
+Since this research focused only on image-level perturbations, future work could explore the impact of temporal perturbations, such as frame drops, temporal jitter, and dynamic motion blur, which are common in UAV videos.
 Additionally, since the models have not been trained on perturbed data, future research could investigate whether training with a wider variety of perturbations can enhance robustness.
 Finally, exploring more advanced temporal aggregation techniques that can better handle noisy inputs may further improve the robustness of video object detection models in real-world UAV applications.
 

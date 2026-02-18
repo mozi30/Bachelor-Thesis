@@ -1,20 +1,20 @@
 # Fdb version 4
-["bibtex example"] 1771409245.92932 "example.aux" "example.bbl" "example" 1771409797.76313 0
+["bibtex example"] 1771410266.38694 "example.aux" "example.bbl" "example" 1771410283.71457 0
   "./intro.bib" 1771331427 8633 b5b4c6433ac25cb519f2fd6590c0e39c ""
   "c:/texlive/2025/texmf-dist/bibtex/bst/base/alpha.bst" 1768898177 23907 a5f93555796fb564b924339521f10a7c ""
-  "example.aux" 1771409794 18647 2f5381048778de4ae878fec887a49461 "pdflatex"
+  "example.aux" 1771410276 18647 2eabac44c87a3f06cad2b37ecf3a6b10 "pdflatex"
   (generated)
   "example.bbl"
   "example.blg"
   (rewritten before read)
-["makeindex example.idx"] 1771406387.1679 "example.idx" "example.ind" "example" 1771409797.76215 0
-  "example.idx" 1771409794 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex example.idx"] 1771406387.1679 "example.idx" "example.ind" "example" 1771410283.71358 0
+  "example.idx" 1771410277 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "example.ilg"
   "example.ind"
   (rewritten before read)
-["pdflatex"] 1771409787.90294 "c:/Users/morit/tu/repo/Bachelor-Thesis/example.tex" "example.pdf" "example" 1771409797.76367 0
-  "c:/Users/morit/tu/repo/Bachelor-Thesis/example.tex" 1771409781 92015 8a6a0b502644de16273de333e7b39395 ""
+["pdflatex"] 1771410267.93161 "c:/Users/morit/tu/repo/Bachelor-Thesis/example.tex" "example.pdf" "example" 1771410283.71558 0
+  "c:/Users/morit/tu/repo/Bachelor-Thesis/example.tex" 1771410264 91967 f94a46773cf44d6efb0ceb7375e5e880 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1768899729 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1768902708 2375 baa924870cfb487815765f9094cf3728 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1768902708 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -376,19 +376,19 @@
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1768907288 3636255 57e90dec32045bf6f65cecb07c5e8b21 ""
   "c:/texlive/2025/texmf.cnf" 1768907022 713 e69b156964470283e0530f5060668171 ""
   "example.acr" 0 -1 0 ""
-  "example.aux" 1771409794 18647 2f5381048778de4ae878fec887a49461 "pdflatex"
-  "example.bbl" 1771409246 6249 dc53ff7911318cf43c40f54ad6030f7d "bibtex example"
+  "example.aux" 1771410276 18647 2eabac44c87a3f06cad2b37ecf3a6b10 "pdflatex"
+  "example.bbl" 1771410267 6249 dc53ff7911318cf43c40f54ad6030f7d "bibtex example"
   "example.gls" 0 -1 0 ""
   "example.glsdefs" 1768907852 3313 e42084a783b3c977a1f737e29daafb6f ""
   "example.ind" 1771406388 0 d41d8cd98f00b204e9800998ecf8427e "makeindex example.idx"
-  "example.loa" 1771409794 220 8f403a86bcc1838cdd603ac8eaa2b5aa "pdflatex"
-  "example.lof" 1771409794 1895 c529650758db9355877754a7048cd420 "pdflatex"
-  "example.lot" 1771409794 2176 06113bbcd367a2265728f346d03fe1d1 "pdflatex"
-  "example.mw" 1771409794 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "example.out" 1771409794 4588 bc32ffbcd6500ef8a2da7f86d0bc4d68 "pdflatex"
-  "example.tex" 1771409781 92015 8a6a0b502644de16273de333e7b39395 ""
-  "example.toc" 1771409794 4883 b4113574227f5c5bf33bb6a4bf71c341 "pdflatex"
-  "example.xmpdata" 1771409789 711 588719ad0d2eceb12ea479cc5641dc3b "pdflatex"
+  "example.loa" 1771410277 220 8f403a86bcc1838cdd603ac8eaa2b5aa "pdflatex"
+  "example.lof" 1771410277 1895 c529650758db9355877754a7048cd420 "pdflatex"
+  "example.lot" 1771410277 2176 ae6aeedf7e77ed2704384628bad01037 "pdflatex"
+  "example.mw" 1771410277 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "example.out" 1771410277 4588 9ff9c7e9c3e5e59405a929e587781ce9 "pdflatex"
+  "example.tex" 1771410264 91967 f94a46773cf44d6efb0ceb7375e5e880 ""
+  "example.toc" 1771410277 4883 bddc71d9bd47f22acc6b0910d6a603b2 "pdflatex"
+  "example.xmpdata" 1771410270 711 588719ad0d2eceb12ea479cc5641dc3b "pdflatex"
   "graphics/Logo-schwarz.pdf" 1768896933 87471 51cfa851b58003a09545855222e847b7 ""
   "graphics/blackout/blackout.jpg" 1768896933 298155 c9b92ff41d1b6517dd4d613219f85ada ""
   "graphics/blackout/original.jpg" 1768896933 306962 2f88b9965a5ea0f2394ac5a1d01e07e4 ""
@@ -421,7 +421,7 @@
   "graphics/visdrone_perturbated_examples/pixelation_low.jpg" 1768896933 5705 bb6c908dca93d4c736ebf1fb8fed4057 ""
   "graphics/visdrone_perturbated_examples/pixelation_mid.jpg" 1768896933 5007 075030c7297ce319c2b03549176707e8 ""
   "graphics/yolov/model.png" 1769093046 156631 55e6388f8280560347a8469f8b0914f2 ""
-  "pdfa.xmpi" 1771409791 5077 226b82580eeb3f295d0abc174cac7d1b "pdflatex"
+  "pdfa.xmpi" 1771410272 5077 1dafb6eec4ad958a74c0d9c7b288c391 "pdflatex"
   "vutinfth.cls" 1768907852 29834 d8446851930716ad39f249f5155e9610 ""
   (generated)
   "example.acn"
