@@ -16,18 +16,17 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {3.1}{\ignorespaces Perturbation presets and severity levels used in robustness evaluation.}}{15}{table.caption.33}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Perturbation presets and severity levels used in robustness evaluation.}}{15}{table.caption.32}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces Fine-tuning hyperparameters for the single-frame detectors.}}{21}{table.caption.39}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Fine-tuning hyperparameters for the video detectors.}}{21}{table.caption.40}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Fine-tuning hyperparameters for the single-frame detectors.}}{21}{table.caption.37}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Fine-tuning hyperparameters for the video detectors.}}{21}{table.caption.38}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Detection performance of all evaluated video object detection models on the VisDrone2019-VID validation set. (Best results in \textbf {bold} and worst results in \underline {underline} per model.)}}{24}{table.caption.41}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Detection performance of all evaluated video object detection models on the VisDrone2019-VID validation set under perturbations. (Best results in \textbf {bold} and worst results in \underline {underline} per model.)}}{25}{table.caption.42}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Detection performance under probabilistic perturbations (10\% and 20\% of frames perturbed).}}{28}{table.caption.44}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Detection performance of all evaluated video object detection models on the VisDrone2019-VID validation set. (Best results in \textbf {bold} and worst results in \underline {underline} per model.)}}{24}{table.caption.39}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Detection performance of all evaluated video object detection models on the VisDrone2019-VID validation set under perturbations. (Best results in \textbf {bold} and worst results in \underline {underline} per model.)}}{25}{table.caption.40}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Detection performance under probabilistic perturbations (10\% and 20\% of frames perturbed).}}{28}{table.caption.42}%
 \addvspace {10pt}
 \addvspace {10pt}
-\addvspace {10pt}
-\contentsline {table}{\numberline {8.1}{\ignorespaces Robustness under image corruptions (mAP$\times $100). For each perturbation type, we report Clean and Low/Mid/High severity. Rows include each model's baseline and selected best-performing temporal aggregation settings.}}{36}{table.caption.46}%
+\contentsline {table}{\numberline {7.1}{\ignorespaces Robustness under image corruptions (mAP$\times $100). For each perturbation type, we report Clean and Low/Mid/High severity. Rows include each model's baseline and selected best-performing temporal aggregation settings.}}{37}{table.caption.44}%
 \babel@toc {english}{}\relax
 \addvspace {10pt}
 \babel@toc {english}{}\relax

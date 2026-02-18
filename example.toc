@@ -13,7 +13,7 @@
 \contentsline {chapter}{Abstract}{xiii}{chapter*.13}%
 \babel@toc {naustrian}{}\relax
 \babel@toc {english}{}\relax
-\contentsline {chapter}{Contents}{xv}{chapter*.15}%
+\contentsline {chapter}{Contents}{xv}{chapter*.14}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Related Work}{2}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Object Detection}{2}{subsection.1.1.1}%
@@ -22,32 +22,31 @@
 \contentsline {section}{\numberline {1.2}Overview}{4}{section.1.2}%
 \contentsline {chapter}{\chapternumberline {2}Method}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Model Overview}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Transvod}{5}{section.2.2}%
-\contentsline {subsubsection}{Model design}{6}{section*.16}%
-\contentsline {paragraph}{Query and ROI fusion (QRF)}{6}{section*.18}%
-\contentsline {paragraph}{Hard Query Mining (HQM)}{7}{section*.19}%
-\contentsline {section}{\numberline {2.3}YOLOV}{7}{section.2.3}%
-\contentsline {subsubsection}{Model design}{7}{section*.20}%
-\contentsline {paragraph}{Feature Selection Module (FSM)}{8}{section*.22}%
-\contentsline {paragraph}{Feature Aggregation Module (FAM)}{8}{section*.23}%
+\contentsline {section}{\numberline {2.2}Transvod++}{5}{section.2.2}%
+\contentsline {subsubsection}{Model design}{6}{section*.15}%
+\contentsline {paragraph}{Query and ROI fusion (QRF)}{6}{section*.17}%
+\contentsline {paragraph}{Hard Query Mining (HQM)}{7}{section*.18}%
+\contentsline {section}{\numberline {2.3}YOLOV++}{7}{section.2.3}%
+\contentsline {subsubsection}{Model design}{7}{section*.19}%
+\contentsline {paragraph}{Feature Selection Module (FSM)}{8}{section*.21}%
+\contentsline {paragraph}{Feature Aggregation Module (FAM)}{8}{section*.22}%
 \contentsline {chapter}{\chapternumberline {3}Dataset and Metrics}{11}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Visdrone Dataset}{11}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Perturbation}{12}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Definition of Robustness}{12}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Common Perturbations in UAV-based Imagery}{12}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Implementation}{14}{subsection.3.2.3}%
-\contentsline {paragraph}{Gaussian noise.}{14}{section*.26}%
-\contentsline {paragraph}{Defocus blur.}{14}{section*.27}%
-\contentsline {paragraph}{Motion blur.}{14}{section*.28}%
-\contentsline {paragraph}{Brightness change.}{15}{section*.29}%
-\contentsline {paragraph}{Contrast change.}{15}{section*.30}%
-\contentsline {paragraph}{Pixelation.}{15}{section*.31}%
-\contentsline {paragraph}{JPEG compression.}{15}{section*.32}%
+\contentsline {paragraph}{Gaussian noise.}{14}{section*.25}%
+\contentsline {paragraph}{Defocus blur.}{14}{section*.26}%
+\contentsline {paragraph}{Motion blur.}{14}{section*.27}%
+\contentsline {paragraph}{Brightness change.}{15}{section*.28}%
+\contentsline {paragraph}{Contrast change.}{15}{section*.29}%
+\contentsline {paragraph}{Pixelation.}{15}{section*.30}%
+\contentsline {paragraph}{JPEG compression.}{15}{section*.31}%
 \contentsline {section}{\numberline {3.3}Evaluation Metrics}{17}{section.3.3}%
-\contentsline {paragraph}{Mean Corruption Average Precision (mCAP)}{17}{section*.35}%
-\contentsline {paragraph}{Relative mean Corruption Average Precision (rmCAP)}{17}{section*.36}%
-\contentsline {paragraph}{Probability-based mean Corruption Average Precision (p-mCAP).}{17}{section*.37}%
-\contentsline {paragraph}{Relative probability-based mean Corruption Average Precision (rp-mCAP).}{18}{section*.38}%
+\contentsline {paragraph}{Mean Corruption Average Precision (mCAP)}{17}{section*.34}%
+\contentsline {paragraph}{Relative mean Corruption Average Precision (rmCAP)}{17}{section*.35}%
+\contentsline {paragraph}{Relative mAP drop under corruption ($\mathrm {rDrop}_{\mathrm {AP}}$).}{17}{section*.36}%
 \contentsline {chapter}{\chapternumberline {4}Experiments Setup}{19}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Hardware and Software Environment}{19}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Reference Frame Sampling Strategy}{19}{section.4.2}%
@@ -59,18 +58,17 @@
 \contentsline {section}{\numberline {5.1}Evaluation on Clean Data}{23}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Evaluation on Perturbed Data}{25}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Perturbations and Reference Frames}{26}{subsection.5.2.1}%
-\contentsline {section}{\numberline {5.3}Deeper insight into Perturbations}{26}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Single Frame Perturbation Results}{28}{section.5.4}%
+\contentsline {section}{\numberline {5.3}Results by Perturbation Type}{26}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Results under Partial Perturbation}{28}{section.5.4}%
 \contentsline {chapter}{\chapternumberline {6}Discussion}{31}{chapter.6}%
-\contentsline {chapter}{\chapternumberline {7}Conclusion and Future Work}{33}{chapter.7}%
-\contentsline {chapter}{\chapternumberline {8}Appendix}{35}{chapter.8}%
+\contentsline {chapter}{\chapternumberline {7}Conclusion and Future Work}{35}{chapter.7}%
 \babel@toc {english}{}\relax
-\contentsline {chapter}{Overview of Generative AI Tools Used}{37}{chapter*.48}%
+\contentsline {chapter}{Overview of Generative AI Tools Used}{39}{chapter*.46}%
 \babel@toc {english}{}\relax
 \babel@toc {naustrian}{}\relax
-\contentsline {chapter}{Übersicht verwendeter Hilfsmittel}{39}{chapter*.51}%
+\contentsline {chapter}{Übersicht verwendeter Hilfsmittel}{41}{chapter*.49}%
 \babel@toc {english}{}\relax
-\contentsline {chapter}{List of Figures}{41}{chapter*.53}%
-\contentsline {chapter}{List of Tables}{43}{chapter*.54}%
-\contentsline {chapter}{List of Algorithms}{45}{chapter*.56}%
-\contentsline {chapter}{Bibliography}{47}{chapter*.58}%
+\contentsline {chapter}{List of Figures}{43}{chapter*.51}%
+\contentsline {chapter}{List of Tables}{45}{chapter*.52}%
+\contentsline {chapter}{List of Algorithms}{47}{chapter*.54}%
+\contentsline {chapter}{Bibliography}{49}{chapter*.56}%
