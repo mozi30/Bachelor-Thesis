@@ -1081,6 +1081,12 @@ OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
 INPUT ./example.toc
 INPUT ./example.toc
 INPUT example.toc
@@ -1096,6 +1102,10 @@ INPUT example.mw
 OUTPUT example.mw
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
 OUTPUT example.mw
+INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
 OUTPUT example.mw
@@ -1107,7 +1117,6 @@ INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmcsc10.tfm
 OUTPUT example.mw
-INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT example.mw
 OUTPUT example.mw
 OUTPUT example.mw
@@ -1142,11 +1151,32 @@ INPUT ./graphics/transvod/model.png
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
 INPUT ./graphics/yolov/model.png
 INPUT ./graphics/yolov/model.png
 INPUT ./graphics/yolov/model.png
 INPUT ./graphics/yolov/model.png
 INPUT ./graphics/yolov/model.png
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
@@ -1174,6 +1204,21 @@ INPUT ./graphics/blackout/blackout.jpg
 INPUT ./graphics/blackout/blackout.jpg
 INPUT ./graphics/blackout/blackout.jpg
 INPUT ./graphics/blackout/blackout.jpg
+INPUT ./graphics/visdrone_example_1.jpg
+INPUT ./graphics/visdrone_example_1.jpg
+INPUT ./graphics/visdrone_example_1.jpg
+INPUT ./graphics/visdrone_example_1.jpg
+INPUT ./graphics/visdrone_example_1.jpg
+INPUT ./graphics/visdrone_example_2.jpg
+INPUT ./graphics/visdrone_example_2.jpg
+INPUT ./graphics/visdrone_example_2.jpg
+INPUT ./graphics/visdrone_example_2.jpg
+INPUT ./graphics/visdrone_example_2.jpg
+INPUT ./graphics/visdrone_example_3.jpg
+INPUT ./graphics/visdrone_example_3.jpg
+INPUT ./graphics/visdrone_example_3.jpg
+INPUT ./graphics/visdrone_example_3.jpg
+INPUT ./graphics/visdrone_example_3.jpg
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
@@ -1183,36 +1228,24 @@ OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
-INPUT ./graphics/visdrone_example_1.jpg
-INPUT ./graphics/visdrone_example_1.jpg
-INPUT ./graphics/visdrone_example_1.jpg
-INPUT ./graphics/visdrone_example_1.jpg
-INPUT ./graphics/visdrone_example_1.jpg
-INPUT ./graphics/visdrone_example_2.jpg
-INPUT ./graphics/visdrone_example_2.jpg
-INPUT ./graphics/visdrone_example_2.jpg
-INPUT ./graphics/visdrone_example_2.jpg
-INPUT ./graphics/visdrone_example_2.jpg
-INPUT ./graphics/visdrone_example_3.jpg
-INPUT ./graphics/visdrone_example_3.jpg
-INPUT ./graphics/visdrone_example_3.jpg
-INPUT ./graphics/visdrone_example_3.jpg
-INPUT ./graphics/visdrone_example_3.jpg
 INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm
 OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
-OUTPUT example.mw
 INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
 INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
@@ -1314,13 +1347,7 @@ OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr9.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr9.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm
@@ -1333,6 +1360,63 @@ INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr6.tfm
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
@@ -1393,36 +1477,54 @@ OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Single-frame_baseline.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Single-frame_baseline.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Single-frame_baseline.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Single-frame_baseline.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Single-frame_baseline.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Single-frame_baseline.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Single-frame_baseline.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Single-frame_baseline.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Single-frame_baseline.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Single-frame_baseline.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Local_int=10_3_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Local_int=10_3_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Local_int=10_3_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Local_int=10_3_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Local_int=10_3_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Stride_1_7_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Stride_1_7_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Stride_1_7_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Stride_1_7_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Stride_1_7_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Random_int=10_7_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Random_int=10_7_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Random_int=10_7_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Random_int=10_7_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_YOLOV_Random_int=10_7_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Stride_8_3_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Stride_8_3_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Stride_8_3_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Stride_8_3_ref.pdf
-INPUT ./graphics/plots/perturbation/radar_TransVOD_Stride_8_3_ref.pdf
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
@@ -1522,6 +1624,21 @@ INPUT example.loa
 INPUT ./example.ind
 INPUT ./example.ind
 INPUT example.ind
+INPUT ./example.gls
+INPUT ./example.gls
+INPUT example.gls
+INPUT ./example.acr
+INPUT ./example.acr
+INPUT example.acr
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
 INPUT ./example.bbl
 INPUT ./example.bbl
 INPUT example.bbl
@@ -1534,7 +1651,12 @@ OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
+OUTPUT example.mw
+INPUT example.mw
+OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
@@ -1549,30 +1671,6 @@ OUTPUT example.lof
 OUTPUT example.lot
 OUTPUT example.loa
 INPUT example.aux
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
-OUTPUT example.mw
-INPUT example.mw
-OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw

@@ -1,23 +1,40 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{CCHW20}
+\begin{thebibliography}{MMG{\etalchar{+}}19}
 
 \bibitem[CCHW20]{chen2020memoryenhancedgloballocalaggregation}
 Yihong Chen, Yue Cao, Han Hu, and Liwei Wang.
-\newblock Memory enhanced global-local aggregation for video object detection, 2020.
+\newblock Memory enhanced global-local aggregation for video object detection.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, pages 10337--10346, 2020.
 
 \bibitem[CMS{\etalchar{+}}20]{carion2020endtoendobjectdetectiontransformers}
 Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, and Sergey Zagoruyko.
-\newblock End-to-end object detection with transformers, 2020.
+\newblock End-to-end object detection with transformers.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, pages 213--229. Springer, 2020.
+
+\bibitem[CZ17]{carreira2017quo}
+Jo{\~a}o Carreira and Andrew Zisserman.
+\newblock Quo vadis, action recognition? a new model and the kinetics dataset.
+\newblock In {\em IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2017.
 
 \bibitem[DT05]{dalal2005histograms}
 Navneet Dalal and Bill Triggs.
 \newblock Histograms of oriented gradients for human detection.
 \newblock In {\em Proceedings of the 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR)}, volume~1, pages 886--893. IEEE, 2005.
 
+\bibitem[GDDM14]{girshick2014rich}
+Ross Girshick, Jeff Donahue, Trevor Darrell, and Jitendra Malik.
+\newblock Rich feature hierarchies for accurate object detection and semantic segmentation.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2014.
+
 \bibitem[GLW{\etalchar{+}}21]{yolox2021}
 Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun.
-\newblock Yolox: Exceeding yolo series in 2021.
+\newblock {YOLOX}: Exceeding yolo series in 2021.
 \newblock {\em arXiv preprint arXiv:2107.08430}, 2021.
+
+\bibitem[GTTG21]{gu2021vitpatchrobustness}
+Jinjin Gu, Volker Tresp, Philip~H.S. Torr, and Yike Guo.
+\newblock Are vision transformers robust to patch perturbations?
+\newblock {\em arXiv preprint arXiv:2111.10659}, 2021.
 
 \bibitem[HD19]{hendrycks2019benchmarking}
 Dan Hendrycks and Thomas Dietterich.
@@ -31,14 +48,13 @@ Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
 
 \bibitem[LAE{\etalchar{+}}16]{liu2016ssd}
 Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed, Cheng-Yang Fu, and Alexander~C. Berg.
-\newblock Ssd: Single shot multibox detector.
+\newblock {SSD}{MultiBox}: Single shot multibox detector.
 \newblock In {\em European Conference on Computer Vision (ECCV)}, pages 21--37. Springer, 2016.
 
 \bibitem[LFH{\etalchar{+}}24]{liu2024UAVRobustness}
 Xiaoqiong Liu, Yunhe Feng, Shu Hu, Xiaohui Yuan, and Heng Fan.
-\newblock Benchmarking the robustness of uav tracking against common corruptions.
-\newblock {\em arXiv preprint arXiv:2403.11424v1}, March 2024.
-\newblock [cs.CV].
+\newblock Benchmarking the robustness of {UAV} tracking against common corruptions.
+\newblock {\em arXiv preprint arXiv:2403.11424}, 2024.
 
 \bibitem[LH19]{loshchilov2019decoupled}
 Ilya Loshchilov and Frank Hutter.
@@ -50,6 +66,16 @@ Ze~Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, and B
 \newblock Swin transformer: Hierarchical vision transformer using shifted windows.
 \newblock In {\em Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}, 2021.
 
+\bibitem[LOW{\etalchar{+}}20]{liu2020video}
+Li~Liu, Wanli Ouyang, Xiaogang Wang, Paul Fieguth, Jie Chen, Xinwang Liu, and Matti Pietikäinen.
+\newblock Object detection in videos: A survey.
+\newblock {\em ACM Computing Surveys}, 53(2), 2020.
+
+\bibitem[MMG{\etalchar{+}}19]{michaelis2019benchmarking}
+Claudio Michaelis, Benjamin Mitzkus, Robert Geirhos, Evgenia Rusak, Oliver Bringmann, Alexander~S. Ecker, Matthias Bethge, and Wieland Brendel.
+\newblock Benchmarking robustness in object detection: Autonomous driving when winter is coming.
+\newblock In {\em International Conference on Computer Vision (ICCV)}, 2019.
+
 \bibitem[PGM{\etalchar{+}}19]{paszke2019pytorch}
 Adam Paszke, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory Chanan, Trevor Killeen, Zeming Lin, Natalia Gimelshein, Luca Antiga, Alban Desmaison, Andreas K{\"o}pf, Edward Yang, Zachary DeVito, Martin Raison, Alykhan Tejani, Sasank Chilamkurthy, Benoit Steiner, Lu~Fang, Junjie Bai, and Soumith Chintala.
 \newblock Pytorch: An imperative style, high-performance deep learning library.
@@ -57,8 +83,8 @@ Adam Paszke, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory Cha
 
 \bibitem[RDGF16]{redmon2016yolo}
 Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi.
-\newblock You only look once: Unified, real-time object detection.
-\newblock In {\em 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, pages 779--788, 2016.
+\newblock {YOLO}: You only look once: Unified, real-time object detection.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, pages 779--788, 2016.
 
 \bibitem[RDS{\etalchar{+}}15]{russakovsky2015ImageNet}
 Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, Zhiheng Huang, Andrej Karpathy, Aditya Khosla, and Michael Bernstein.
@@ -67,13 +93,18 @@ Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, 
 
 \bibitem[SWG22]{shi2022yolov}
 Yuheng Shi, Naiyan Wang, and Xiaojie Guo.
-\newblock Yolov: Making still image object detectors great at video object detection.
+\newblock {YOLOV}: Making still image object detectors great at video object detection.
 \newblock {\em arXiv preprint arXiv:2208.09686}, 2022.
 
 \bibitem[SZG24]{shi2024yolovpp}
 Yuheng Shi, Tong Zhang, and Xiaojie Guo.
-\newblock Practical video object detection via feature selection and aggregation.
+\newblock {YOLOV++}: Practical video object detection via feature selection and aggregation.
 \newblock {\em arXiv preprint arXiv:2407.19650}, 2024.
+
+\bibitem[Tas23]{tasnim2023object}
+S.~Tasnim.
+\newblock Progress in object detection: An in-depth analysis of deep learning approaches.
+\newblock {\em European Journal of Electrical Engineering and Computer Science}, 7(4), 2023.
 
 \bibitem[VJ01]{viola2001rapid}
 Paul Viola and Michael Jones.
@@ -85,24 +116,30 @@ Jianwei Yang, Chao Li, Xiaohang Dai, and Jianfeng Gao.
 \newblock Focal modulation networks.
 \newblock In {\em Advances in Neural Information Processing Systems}, 2022.
 
-\bibitem[ZLH{\etalchar{+}}22]{zhou2022transvod}
+\bibitem[ZBRS22]{zhou2022understandingvitrobustness}
+Yiyu Zhou, Serena Booth, Marco~Tulio Ribeiro, and Chirag Shah.
+\newblock Understanding the robustness of vision transformers.
+\newblock {\em arXiv preprint arXiv:2204.12450}, 2022.
+
+\bibitem[ZLH{\etalchar{+}}21]{zhou2022transvod}
 Qianyu Zhou, Xiangtai Li, Lu~He, Yibo Yang, Guangliang Cheng, Yunhai Tong, Lizhuang Ma, and Dacheng Tao.
-\newblock Transvod: End-to-end video object detection with spatial-temporal transformers.
-\newblock {\em arXiv preprint arXiv:2201.05047}, 2022.
+\newblock {TransVOD}: End-to-end video object detection with spatial-temporal transformers.
+\newblock In {\em Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}, pages 17450--17459, 2021.
 
 \bibitem[ZLH{\etalchar{+}}23]{zhou2023transvodpp}
 Qianyu Zhou, Xiangtai Li, Lu~He, Yibo Yang, Guangliang Cheng, Yunhai Tong, Lizhuang Ma, and Dacheng Tao.
-\newblock Transvod++: Improved spatial-temporal transformer models for video object detection.
-\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}, 2023.
+\newblock {TransVOD++}: Improved spatial-temporal transformer models for video object detection.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}, 45(12):14644--14660, 2023.
 
 \bibitem[ZSL{\etalchar{+}}21]{zhu2021deformabledetr}
 Xizhou Zhu, Weijie Su, Lewei Lu, Bin Li, Xiaogang Wang, and Jifeng Dai.
-\newblock Deformable detr: Deformable transformers for end-to-end object detection.
+\newblock {Deformable DETR}: Deformable transformers for end-to-end object detection.
 \newblock In {\em International Conference on Learning Representations (ICLR)}, 2021.
 
 \bibitem[ZWD{\etalchar{+}}17]{zhu2017flowguidedfeatureaggregationvideo}
 Xizhou Zhu, Yujie Wang, Jifeng Dai, Lu~Yuan, and Yichen Wei.
-\newblock Flow-guided feature aggregation for video object detection, 2017.
+\newblock Flow-guided feature aggregation for video object detection.
+\newblock In {\em Proceedings of the IEEE International Conference on Computer Vision (ICCV)}, pages 408--417, 2017.
 
 \bibitem[ZWD{\etalchar{+}}21]{zhu2021detection}
 Pengfei Zhu, Longyin Wen, Dawei Du, Xiao Bian, Heng Fan, Qinghua Hu, and Haibin Ling.
