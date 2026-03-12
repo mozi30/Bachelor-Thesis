@@ -1486,39 +1486,39 @@ OUTPUT example.mw
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
-INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
-INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
-INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw
+INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
+INPUT ./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
+INPUT ./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf
 OUTPUT example.mw
 INPUT example.mw
 OUTPUT example.mw

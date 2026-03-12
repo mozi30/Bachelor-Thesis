@@ -105,7 +105,7 @@
 % Required data.
 \setregnumber{12217036}
 \setdate{01}{01}{2001} % Set date with 3 arguments: {day}{month}{year}.
-\settitle{\thesistitle}{Auswirkungen des zeitlichen Kontexts auf die Detektionsrobustheit in der UAV-gestützten Objekterkennung} % Sets English and German version of the title (both can be English or German). If your title contains commas, enclose it with additional curvy brackets (i.e., {{your title}}) or define it as a macro as done with \thesistitle.
+\settitle{\thesistitle}{Einfluss des zeitlichen Kontexts auf die Robustheit der Objekterkennung in UAV-Videos} % Sets English and German version of the title (both can be English or German). If your title contains commas, enclose it with additional curvy brackets (i.e., {{your title}}) or define it as a macro as done with \thesistitle.
 \setsubtitle{Optional Subtitle of the Thesis}{Optionaler Untertitel der Arbeit} % Sets English and German version of the subtitle (both can be English or German).
 
 % Select the thesis type: bachelor / master / doctor.
@@ -121,7 +121,7 @@
 %\setdoctordegree{rer.soc.oec.}% rer.nat. / techn. / rer.soc.oec.
 
 % For bachelor and master:
-\setcurriculum{Media Informatics and Visual Computing}{Medieninformatik und Visual Computing} % Sets the English and German name of the curriculum.
+\setcurriculum{Software and Information Engineering}{Software und Information Engineering} % Sets the English and German name of the curriculum.
 
 % Optional reviewer data:
 \setfirstreviewerdata{Affiliation, Country}
@@ -134,6 +134,8 @@
 
 
 \begin{document}
+
+\raggedbottom
 
 \frontmatter % Switches to roman numbering.
 % The structure of the thesis has to conform to the guidelines at
@@ -152,7 +154,22 @@
 \end{acknowledgements*}
 
 \begin{kurzfassung}
-\todo{Ihr Text hier.}
+Leistungseinbußen von Objekterkennungsmodellen durch Bildkorruptionen sind ein bekanntes Problem im maschinellen Sehen und wurden für Einzelbild-Detektoren bereits umfassend untersucht.
+Die Robustheit von Video-Objektdetektoren (VOD) gegenüber systematischen Bildstörungen wie Rauschen, Unschärfe oder Kompressionsartefakten ist hingegen bislang wenig erforscht.
+Solche Störungen treten besonders häufig in UAV-Bildgebung auf, etwa durch Bewegung, begrenzte Sensorqualität oder Bandbreitenbeschränkungen.
+
+Diese Arbeit untersucht den Einfluss kontrollierter Bildkorruptionen auf\newline Video-Objektdetektoren und analysiert, inwieweit zeitlicher Kontext zwischen Frames zur Robustheit der Modelle beiträgt.
+Dazu werden die Modelle TransVOD++ und YOLOV++ auf dem VisDrone2019-VID-Datensatz mit einem Korruptions-Benchmark evaluiert, der verschiedene Störungstypen und Schweregrade umfasst.
+Neben vollständig korrumpierten Videosequenzen werden auch partielle Störungen untersucht, bei denen nur 10-–20 \% der Frames degradiert sind, um realistische UAV-Störungen zu simulieren.
+Die Robustheit wird anhand korruptionsgemittelter Präzisions- und Recallwerte sowie der relativen Veränderung von mAP und mAR bewertet.
+
+Auf dem unveränderten Datensatz erreichen die Modelle bis zu 5 \% bessere Ergebnisse als Einzelbild-Detektoren.
+Werden jedoch alle Frames korrumpiert, behalten Modelle mit zeitlichem Kontext zwar eine höhere absolute Genauigkeit, zeigen aber keine verbesserte relative Robustheit.
+Bei partiellen Störungen zeigt sich dagegen ein klarer Vorteil des zeitlichen Kontexts: Der relative mAP-Verlust kann um bis zu 40 \% reduziert werden.
+Insgesamt weist TransVOD++ eine höhere Robustheit als YOLOV++ auf, insbesondere bei Unschärfe und Pixelierung.
+
+Die Ergebnisse zeigen, dass zeitlicher Kontext die Robustheit von Video-Objektdetektoren vor allem dann verbessert, wenn benachbarte Frames noch saubere Informationen enthalten.
+Gleichzeitig unterstreichen sie die Bedeutung geeigneter Samplingstrategien und architektonischer Entscheidungen für robuste Video-Detektion in UAV-Anwendungen.
 \end{kurzfassung}
 
 \begin{abstract}
@@ -318,7 +335,7 @@ YOLOV achieves this by introducing a temporal feature fusion module that aggrega
 Furthermore, like TransVOD, an improved version of YOLOV was proposed called YOLOV++~\cite{shi2024yolovpp}, which enhances the temporal feature fusion mechanism and introduces optimizations to improve detection accuracy and efficiency.
 The now improved YOLOV++ was able to achieve an mAP (\%) of 93.2 on the ImageNet VID validation set, while still being over 30 \gls{fps} on an Nvidia RTX 3090.
 However, for this a backbone named FocalNet-Large~\cite{yang2022FocalModulation} is used.
-Using the same Swin-Base~\cite{swin2021transformer} backbone as for TransVOD++, YOLOV++ achieves an mAP (\%) of 90.7 on the ImageNet VID validation set, which is 0.7 pp higher than TransVOD++ with 90.0 mAP (\%).
+Using the same Swin-Base~\cite{swin2021transformer} backbone as for TransVOD++, YOLOV++ achieves an mAP (\%) of 90.7 on the ImageNet VID validation set, which is 0.7 \% higher than TransVOD++ with 90.0 mAP (\%).
 \subsubsection{Model design}
 \begin{figure}
     \centering
@@ -388,7 +405,7 @@ Without this step models produce a number of false positives in these ignored re
 
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{graphics/visdrone_example_1.jpg}
+        \includegraphics[width=0.7\textwidth]{graphics/visdrone_example_1.jpg}
         \caption{Example 1}
     \end{subfigure}
 
@@ -396,7 +413,7 @@ Without this step models produce a number of false positives in these ignored re
 
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{graphics/visdrone_example_2.jpg}
+        \includegraphics[width=0.7\textwidth]{graphics/visdrone_example_2.jpg}
         \caption{Example 2}
     \end{subfigure}
 
@@ -404,7 +421,7 @@ Without this step models produce a number of false positives in these ignored re
 
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{graphics/visdrone_example_3.jpg}
+        \includegraphics[width=0.7\textwidth]{graphics/visdrone_example_3.jpg}
         \caption{Example 3}
     \end{subfigure}
 
@@ -775,7 +792,7 @@ The results on the clean dataset are summarized in Table~\ref{tab:clean_results}
 \small
 \setlength{\tabcolsep}{6pt}
 
-\begin{tabular}{p{0.50\textwidth} c c}
+\begin{tabular}{p{0.59\textwidth} c c}
 \toprule
 \rowcolor{tableheader}
 \textbf{Model Configuration} & \textbf{mAP$_{50:95}$ (\%)} & \textbf{mAR$_{50:95}$ (\%)} \\
@@ -841,7 +858,7 @@ For more detailed results on each perturbation type and severity level, please r
 \small
 \setlength{\tabcolsep}{4pt}
 
-\begin{tabular}{p{0.40\textwidth} c c c c}
+\begin{tabular}{p{0.35\textwidth} c c c c}
 \toprule
 \rowcolor{tableheader}
 \textbf{Model Configuration} & \textbf{mCAP$_{50:95}$ (\%)} & \textbf{mCAR$_{50:95}$ (\%)} & \textbf{rmCAP} & \textbf{rmCAR} \\
@@ -893,23 +910,15 @@ Therefore if all frames are perturbed, the models are not able to leverage infor
 For the insight on a perturbation level, 3 model configurations were selected for each YOLOV++ and TransVOD++. These configurations represent the single-frame baseline, as well the best performing temporal window size of each sampling strategy.
 The key results are visualized in radar plots in Figure~\ref{fig:perturbation_analysis}. Each plot illustrates the mAP performance across perturbation types and severity levels, providing a comparison of how each model configuration handles various corruptions.
 
-\begin{figure}[htbp]
+\begin{figure}[p]
 \centering
+\includegraphics[width=0.42\linewidth]{graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf}
+\includegraphics[width=0.42\linewidth]{graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf}\\[0.5em]
+\includegraphics[width=0.42\linewidth]{graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf}
+\includegraphics[width=0.42\linewidth]{graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf}\\[0.5em]
+\includegraphics[width=0.42\linewidth]{graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf}
+\includegraphics[width=0.42\linewidth]{graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf}
 \caption{mAP performance across perturbation types and severity levels.}\label{fig:perturbation_analysis}
-\includegraphics[width=0.49\linewidth]{graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf}
-\includegraphics[width=0.49\linewidth]{graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.49\linewidth]{graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf}
-\includegraphics[width=0.49\linewidth]{graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.49\linewidth]{graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf}
-\includegraphics[width=0.49\linewidth]{graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf}
 \end{figure}
 
 As already observed in the aggregated results, TransVOD++ consistently outperforms YOLOV++.
@@ -921,7 +930,7 @@ When evaluating \textbf{defocus blur}, \textbf{gaussian noise} and \textbf{JPEG 
 As seen in the overall results, increasing the number of reference frames does not consistently enhance robustness across all perturbation types.
 This strengthens the observation that simply adding more temporal context is not sufficient to improve robustness against perturbations, especially when all frames are affected.
 
-\section{Results under Partial Perturbation}
+\section{Results under Partial Frame Perturbation}
 \begingroup
 \small
 \begin{table}[H]
@@ -932,7 +941,8 @@ This strengthens the observation that simply adding more temporal context is not
 \small
 \setlength{\tabcolsep}{3pt}
 
-\begin{tabular}{p{0.33\textwidth} c c c c c}
+\begin{tabular}{p{0.21
+    \textwidth} c c c c c}
 \toprule
 \rowcolor{tableheader}
 \textbf{Model Config.} & \textbf{Clean} & \textbf{\gls{map} (10\%)} & \textbf{\gls{mar} (20\%)} & \textbf{\gls{rdap} (10\%)} & \textbf{\gls{rdap} (20\%)} \\
@@ -976,7 +986,7 @@ For better visualization of the results, the performance drop values are also il
 
 
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \begin{tikzpicture}
 \begin{axis}[
@@ -1122,7 +1132,7 @@ Since color jitter is introduced during training, the models are likely to be mo
 When evaluating defocus blur, Gaussian noise and JPEG compression, both models experience a steady performance decline as severity increases, since fine image details are lost or corrupted.
 
 Therefore the results indicate that temporal context improves detection accuracy but does not inherently improve robustness against global perturbations affecting all frames. 
-\section{Robustness to Partial Perturbation}
+\section{Robustness to Partial Frame Perturbation}
 Examining the results of the single-frame perturbation experiment in Table~\ref{tab:single_frame_perturbations}, where only 10\% and 20\% of frames are corrupted, further highlights the benefits of temporal context.
 Because the perturbations affect only a subset of frames, video-based models can utilize information from adjacent, uncorrupted frames to compensate for isolated corruptions.
 This behavior is reflected in the results: models with increasing temporal context exhibit a smaller performance degradation compared to their single-frame counterparts, demonstrating that temporal information helps mitigate the impact of sporadic perturbations.
@@ -1131,7 +1141,7 @@ These findings illustrate the advantage of temporal context, as single frame dis
 
 In distinction to the previous evaluation where all frames were perturbed, the partial perturbated image experiment shows that temporal context can enhance robustness when perturbations are sporadic rather than pervasive across the entire video sequence.
 \section{Overall Findings}
-The goal of this thesis was to investigate whether video object detection models can use temporal context to improve robustness to perturbations in UAV-based videos. 
+% The goal of this thesis was to investigate whether video object detection models can use temporal context to improve robustness to perturbations in UAV-based videos. 
 Temporal context improves detection performance by up to 5\% compared to single-frame baselines when appropriate sampling strategies and temporal window sizes are used.
 Both evaluated models, YOLOV++ and TransVOD++, benefit from temporal information under clean conditions, although their optimal sampling strategies differ due to architectural differences.
 

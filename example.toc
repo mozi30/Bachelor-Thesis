@@ -10,10 +10,10 @@
 \contentsline {chapter}{Kurzfassung}{xi}{chapter*.10}%
 \babel@toc {naustrian}{}\relax
 \babel@toc {english}{}\relax
-\contentsline {chapter}{Abstract}{xiii}{chapter*.13}%
+\contentsline {chapter}{Abstract}{xiii}{chapter*.12}%
 \babel@toc {naustrian}{}\relax
 \babel@toc {english}{}\relax
-\contentsline {chapter}{Contents}{xv}{chapter*.14}%
+\contentsline {chapter}{Contents}{xv}{chapter*.13}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Related Work}{2}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Object Detection}{2}{subsection.1.1.1}%
@@ -23,30 +23,30 @@
 \contentsline {chapter}{\chapternumberline {2}Method}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Model Overview}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}TransVOD++}{5}{section.2.2}%
-\contentsline {subsubsection}{Model design}{6}{section*.15}%
-\contentsline {paragraph}{Query and ROI fusion (QRF):}{6}{section*.17}%
-\contentsline {paragraph}{Hard Query Mining (HQM):}{7}{section*.18}%
+\contentsline {subsubsection}{Model design}{6}{section*.14}%
+\contentsline {paragraph}{Query and ROI fusion (QRF):}{6}{section*.16}%
+\contentsline {paragraph}{Hard Query Mining (HQM):}{7}{section*.17}%
 \contentsline {section}{\numberline {2.3}YOLOV++}{7}{section.2.3}%
-\contentsline {subsubsection}{Model design}{7}{section*.19}%
-\contentsline {paragraph}{Feature Selection Module (FSM):}{8}{section*.21}%
-\contentsline {paragraph}{Feature Aggregation Module (FAM):}{8}{section*.22}%
+\contentsline {subsubsection}{Model design}{7}{section*.18}%
+\contentsline {paragraph}{Feature Selection Module (FSM):}{8}{section*.20}%
+\contentsline {paragraph}{Feature Aggregation Module (FAM):}{8}{section*.21}%
 \contentsline {chapter}{\chapternumberline {3}Dataset and Metrics}{11}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Visdrone Dataset}{11}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Perturbation}{12}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Definition of Robustness}{12}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Common Perturbations in UAV-based Imagery}{12}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Implementation}{14}{subsection.3.2.3}%
-\contentsline {paragraph}{Gaussian noise:}{14}{section*.25}%
-\contentsline {paragraph}{Defocus blur:}{14}{section*.26}%
-\contentsline {paragraph}{Motion blur:}{14}{section*.27}%
-\contentsline {paragraph}{Brightness change:}{15}{section*.28}%
-\contentsline {paragraph}{Contrast change:}{15}{section*.29}%
-\contentsline {paragraph}{Pixelation:}{15}{section*.30}%
-\contentsline {paragraph}{JPEG compression:}{15}{section*.31}%
+\contentsline {paragraph}{Gaussian noise:}{14}{section*.24}%
+\contentsline {paragraph}{Defocus blur:}{14}{section*.25}%
+\contentsline {paragraph}{Motion blur:}{14}{section*.26}%
+\contentsline {paragraph}{Brightness change:}{15}{section*.27}%
+\contentsline {paragraph}{Contrast change:}{15}{section*.28}%
+\contentsline {paragraph}{Pixelation:}{15}{section*.29}%
+\contentsline {paragraph}{JPEG compression:}{15}{section*.30}%
 \contentsline {section}{\numberline {3.3}Evaluation Metrics}{17}{section.3.3}%
-\contentsline {paragraph}{\gls {mcap}:}{17}{section*.34}%
-\contentsline {paragraph}{\gls {rmcap}:}{17}{section*.35}%
-\contentsline {paragraph}{\gls {rdap}:}{17}{section*.36}%
+\contentsline {paragraph}{\gls {mcap}:}{17}{section*.33}%
+\contentsline {paragraph}{\gls {rmcap}:}{17}{section*.34}%
+\contentsline {paragraph}{\gls {rdap}:}{17}{section*.35}%
 \contentsline {chapter}{\chapternumberline {4}Experiments Setup}{19}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Hardware and Software Environment}{19}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Reference Frame Sampling Strategy}{19}{section.4.2}%
@@ -58,19 +58,19 @@
 \contentsline {section}{\numberline {5.1}Evaluation on Clean Data}{23}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Evaluation on Perturbed Data}{25}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Perturbations and Reference Frames}{26}{subsection.5.2.1}%
-\contentsline {section}{\numberline {5.3}Results by Perturbation Type}{26}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Results under Partial Perturbation}{29}{section.5.4}%
+\contentsline {section}{\numberline {5.3}Results by Perturbation Type}{27}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Results under Partial Frame Perturbation}{29}{section.5.4}%
 \contentsline {chapter}{\chapternumberline {6}Discussion and Conclusion}{31}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Performance on Clean Data}{31}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Robustness to Global Perturbations}{32}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Robustness to Partial Perturbation}{33}{section.6.3}%
+\contentsline {section}{\numberline {6.3}Robustness to Partial Frame Perturbation}{33}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Overall Findings}{34}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Future Work}{34}{section.6.5}%
 \babel@toc {english}{}\relax
-\contentsline {chapter}{Overview of Generative AI Tools Used}{37}{chapter*.48}%
+\contentsline {chapter}{Overview of Generative AI Tools Used}{37}{chapter*.45}%
 \babel@toc {english}{}\relax
-\contentsline {chapter}{List of Figures}{39}{chapter*.49}%
-\contentsline {chapter}{List of Tables}{41}{chapter*.50}%
-\contentsline {chapter}{List of Algorithms}{43}{chapter*.52}%
-\contentsline {chapter}{Acronyms}{45}{section*.53}%
-\contentsline {chapter}{Bibliography}{47}{chapter*.57}%
+\contentsline {chapter}{List of Figures}{39}{chapter*.46}%
+\contentsline {chapter}{List of Tables}{41}{chapter*.47}%
+\contentsline {chapter}{List of Algorithms}{43}{chapter*.49}%
+\contentsline {chapter}{Acronyms}{45}{section*.50}%
+\contentsline {chapter}{Bibliography}{47}{chapter*.54}%
