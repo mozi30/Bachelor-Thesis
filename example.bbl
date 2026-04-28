@@ -91,6 +91,11 @@ Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, 
 \newblock Imagenet large scale visual recognition challenge.
 \newblock {\em International Journal of Computer Vision}, 115(3):211--252, December 2015.
 
+\bibitem[RF17]{redmon2017yolo9000}
+Joseph Redmon and Ali Farhadi.
+\newblock {YOLO9000}: Better, faster, stronger.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, pages 6517--6525, 2017.
+
 \bibitem[SWG22]{shi2022yolov}
 Yuheng Shi, Naiyan Wang, and Xiaojie Guo.
 \newblock {YOLOV}: Making still image object detectors great at video object detection.

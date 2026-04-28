@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.20)  12 MAR 2026 14:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.20)  28 APR 2026 16:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2858,7 +2858,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2025/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-<graphics/Logo-schwarz.pdf, id=154, 380.32086pt x 57.013pt>
+<graphics/Logo-schwarz.pdf, id=158, 380.32086pt x 57.013pt>
 File: graphics/Logo-schwarz.pdf Graphic file (type pdf)
 <use graphics/Logo-schwarz.pdf>
 Package pdftex.def Info: graphics/Logo-schwarz.pdf  used on input line 144.
@@ -3084,7 +3084,6 @@ Overfull \vbox (4.07988pt too high) has occurred while \output is active []
 ] (./example.mw)
 \openout5 = `example.mw'.
 
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 149.
 \openout5 = `example.mw'.
 
  [7
@@ -3144,14 +3143,6 @@ Package hyperref Info: bookmark level for unknown todo defaults to 0 on input li
 
 \openout5 = `example.mw'.
 
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
  [14
 
 ] (./example.mw)
@@ -3191,17 +3182,20 @@ Chapter 1.
 
 \openout5 = `example.mw'.
 
+\openout5 = `example.mw'.
 
-Overfull \hbox (40.3933pt too wide) in paragraph at lines 240--247
-\T1/lmr/m/n/10.95 (-20) tec-tures have emerged, each with its own strengths and weak-nesses [[]] [[]] [[]].
- []
+\openout5 = `example.mw'.
 
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 \openout5 = `example.mw'.
 
-[2] (./example.mw)
+ [2] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3222,20 +3216,35 @@ Package microtype Info: Character `029' is missing
 
 \openout5 = `example.mw'.
 
-
-Chapter 2.
-
-Overfull \hbox (18.1162pt too wide) in paragraph at lines 296--304
-\T1/lmr/m/n/10.95 (-20) TransVOD [[]] is an end-to-end video ob-ject de-tec-tion model based on DETR [[]].
- []
+\openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
 
-[5
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [5] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [6
 
 ] (./example.mw)
 \openout5 = `example.mw'.
 
+
+Chapter 2.
+\openout5 = `example.mw'.
+
+[7] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3246,16 +3255,14 @@ Overfull \hbox (18.1162pt too wide) in paragraph at lines 296--304
 
 \openout5 = `example.mw'.
 
-\openout5 = `example.mw'.
-
-<graphics/transvod/model.png, id=396, 676.02562pt x 361.35pt>
+<graphics/transvod/model.png, id=413, 676.02562pt x 361.35pt>
 File: graphics/transvod/model.png Graphic file (type png)
 <use graphics/transvod/model.png>
-Package pdftex.def Info: graphics/transvod/model.png  used on input line 307.
+Package pdftex.def Info: graphics/transvod/model.png  used on input line 326.
 (pdftex.def)             Requested size: 418.25368pt x 223.57153pt.
 \openout5 = `example.mw'.
 
- [6 <./graphics/transvod/model.png>] (./example.mw)
+ [8 <./graphics/transvod/model.png>] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3266,45 +3273,11 @@ Package pdftex.def Info: graphics/transvod/model.png  used on input line 307.
 
 \openout5 = `example.mw'.
 
-<graphics/yolov/model.png, id=428, 808.52063pt x 319.94531pt>
+<graphics/yolov/model.png, id=445, 808.52063pt x 319.94531pt>
 File: graphics/yolov/model.png Graphic file (type png)
 <use graphics/yolov/model.png>
-Package pdftex.def Info: graphics/yolov/model.png  used on input line 342.
+Package pdftex.def Info: graphics/yolov/model.png  used on input line 361.
 (pdftex.def)             Requested size: 418.25368pt x 165.51329pt.
-\openout5 = `example.mw'.
-
- [7] (./example.mw)
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
- [8 <./graphics/yolov/model.png>] (./example.mw)
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
 \openout5 = `example.mw'.
 
  [9] (./example.mw)
@@ -3312,41 +3285,96 @@ Package pdftex.def Info: graphics/yolov/model.png  used on input line 342.
 
 \openout5 = `example.mw'.
 
- [10
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [10 <./graphics/yolov/model.png>] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [11] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [12
 
 ] (./example.mw)
 \openout5 = `example.mw'.
 
 
 Chapter 3.
-<graphics/blackout/original.jpg, id=466, 1911.14pt x 1075.01625pt>
+\openout5 = `example.mw'.
+
+[13] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+<graphics/blackout/original.jpg, id=491, 1911.14pt x 1075.01625pt>
 File: graphics/blackout/original.jpg Graphic file (type jpg)
 <use graphics/blackout/original.jpg>
-Package pdftex.def Info: graphics/blackout/original.jpg  used on input line 387.
+Package pdftex.def Info: graphics/blackout/original.jpg  used on input line 410.
 (pdftex.def)             Requested size: 188.21288pt x 105.86758pt.
-<graphics/blackout/blackout.jpg, id=467, 1911.14pt x 1075.01625pt>
+<graphics/blackout/blackout.jpg, id=492, 1911.14pt x 1075.01625pt>
 File: graphics/blackout/blackout.jpg Graphic file (type jpg)
 <use graphics/blackout/blackout.jpg>
-Package pdftex.def Info: graphics/blackout/blackout.jpg  used on input line 393.
+Package pdftex.def Info: graphics/blackout/blackout.jpg  used on input line 416.
 (pdftex.def)             Requested size: 188.21288pt x 105.86758pt.
-<graphics/visdrone_example_1.jpg, id=468, 1911.14pt x 1075.01625pt>
+<graphics/visdrone_example_1.jpg, id=493, 1911.14pt x 1075.01625pt>
 File: graphics/visdrone_example_1.jpg Graphic file (type jpg)
 <use graphics/visdrone_example_1.jpg>
-Package pdftex.def Info: graphics/visdrone_example_1.jpg  used on input line 408.
+Package pdftex.def Info: graphics/visdrone_example_1.jpg  used on input line 431.
 (pdftex.def)             Requested size: 292.77629pt x 164.67378pt.
-<graphics/visdrone_example_2.jpg, id=469, 1365.1pt x 767.86874pt>
+<graphics/visdrone_example_2.jpg, id=494, 1365.1pt x 767.86874pt>
 File: graphics/visdrone_example_2.jpg Graphic file (type jpg)
 <use graphics/visdrone_example_2.jpg>
-Package pdftex.def Info: graphics/visdrone_example_2.jpg  used on input line 416.
+Package pdftex.def Info: graphics/visdrone_example_2.jpg  used on input line 439.
 (pdftex.def)             Requested size: 292.77629pt x 164.67847pt.
-<graphics/visdrone_example_3.jpg, id=470, 963.6pt x 546.04pt>
+<graphics/visdrone_example_3.jpg, id=495, 963.6pt x 546.04pt>
 File: graphics/visdrone_example_3.jpg Graphic file (type jpg)
 <use graphics/visdrone_example_3.jpg>
-Package pdftex.def Info: graphics/visdrone_example_3.jpg  used on input line 424.
+Package pdftex.def Info: graphics/visdrone_example_3.jpg  used on input line 447.
 (pdftex.def)             Requested size: 292.77629pt x 165.90456pt.
 \openout5 = `example.mw'.
 
-[11] (./example.mw)
+ [14 <./graphics/blackout/original.jpg> <./graphics/blackout/blackout.jpg>] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3357,137 +3385,110 @@ Package pdftex.def Info: graphics/visdrone_example_3.jpg  used on input line 424
 
 \openout5 = `example.mw'.
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 443.
+\openout5 = `example.mw'.
+
+ [15 <./graphics/visdrone_example_1.jpg> <./graphics/visdrone_example_2.jpg> <./graphics/visdrone_example_3.jpg>] (./example.mw)
+\openout5 = `example.mw'.
+
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 466.
  (c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 \openout5 = `example.mw'.
 
- [12{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./graphics/blackout/original.jpg> <./graphics/blackout/blackout.jpg>] (./example.mw)
+ [16{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] (./example.mw)
 \openout5 = `example.mw'.
 
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
- [13 <./graphics/visdrone_example_1.jpg> <./graphics/visdrone_example_2.jpg> <./graphics/visdrone_example_3.jpg>] (./example.mw)
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
- [14{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] (./example.mw)
-\openout5 = `example.mw'.
-
-<graphics/visdrone_perturbated_examples/gaussian_noise_low.jpg, id=512, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/gaussian_noise_low.jpg, id=528, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/gaussian_noise_low.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/gaussian_noise_low.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/gaussian_noise_low.jpg  used on input line 567.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/gaussian_noise_low.jpg  used on input line 590.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/gaussian_noise_mid.jpg, id=513, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/gaussian_noise_mid.jpg, id=529, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/gaussian_noise_mid.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/gaussian_noise_mid.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/gaussian_noise_mid.jpg  used on input line 568.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/gaussian_noise_mid.jpg  used on input line 591.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/gaussian_noise_high.jpg, id=514, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/gaussian_noise_high.jpg, id=530, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/gaussian_noise_high.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/gaussian_noise_high.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/gaussian_noise_high.jpg  used on input line 569.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/gaussian_noise_high.jpg  used on input line 592.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/defocus_blur_low.jpg, id=515, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/defocus_blur_low.jpg, id=531, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/defocus_blur_low.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/defocus_blur_low.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/defocus_blur_low.jpg  used on input line 572.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/defocus_blur_low.jpg  used on input line 595.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/defocus_blur_mid.jpg, id=516, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/defocus_blur_mid.jpg, id=532, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/defocus_blur_mid.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/defocus_blur_mid.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/defocus_blur_mid.jpg  used on input line 573.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/defocus_blur_mid.jpg  used on input line 596.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/defocus_blur_high.jpg, id=517, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/defocus_blur_high.jpg, id=533, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/defocus_blur_high.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/defocus_blur_high.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/defocus_blur_high.jpg  used on input line 574.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/defocus_blur_high.jpg  used on input line 597.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/motion_blur_low.jpg, id=518, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/motion_blur_low.jpg, id=534, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/motion_blur_low.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/motion_blur_low.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/motion_blur_low.jpg  used on input line 577.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/motion_blur_low.jpg  used on input line 600.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/motion_blur_mid.jpg, id=519, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/motion_blur_mid.jpg, id=535, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/motion_blur_mid.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/motion_blur_mid.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/motion_blur_mid.jpg  used on input line 578.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/motion_blur_mid.jpg  used on input line 601.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/motion_blur_high.jpg, id=520, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/motion_blur_high.jpg, id=536, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/motion_blur_high.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/motion_blur_high.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/motion_blur_high.jpg  used on input line 579.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/motion_blur_high.jpg  used on input line 602.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/brightness_change_low.jpg, id=521, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/brightness_change_low.jpg, id=537, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/brightness_change_low.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/brightness_change_low.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/brightness_change_low.jpg  used on input line 582.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/brightness_change_low.jpg  used on input line 605.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/brightness_change_mid.jpg, id=522, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/brightness_change_mid.jpg, id=538, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/brightness_change_mid.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/brightness_change_mid.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/brightness_change_mid.jpg  used on input line 583.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/brightness_change_mid.jpg  used on input line 606.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/brightness_change_high.jpg, id=523, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/brightness_change_high.jpg, id=539, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/brightness_change_high.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/brightness_change_high.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/brightness_change_high.jpg  used on input line 584.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/brightness_change_high.jpg  used on input line 607.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/contrast_change_low.jpg, id=524, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/contrast_change_low.jpg, id=540, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/contrast_change_low.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/contrast_change_low.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/contrast_change_low.jpg  used on input line 587.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/contrast_change_low.jpg  used on input line 610.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/contrast_change_mid.jpg, id=525, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/contrast_change_mid.jpg, id=541, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/contrast_change_mid.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/contrast_change_mid.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/contrast_change_mid.jpg  used on input line 588.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/contrast_change_mid.jpg  used on input line 611.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/contrast_change_high.jpg, id=526, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/contrast_change_high.jpg, id=542, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/contrast_change_high.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/contrast_change_high.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/contrast_change_high.jpg  used on input line 589.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/contrast_change_high.jpg  used on input line 612.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/pixelation_low.jpg, id=527, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/pixelation_low.jpg, id=543, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/pixelation_low.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/pixelation_low.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/pixelation_low.jpg  used on input line 592.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/pixelation_low.jpg  used on input line 615.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/pixelation_mid.jpg, id=528, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/pixelation_mid.jpg, id=544, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/pixelation_mid.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/pixelation_mid.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/pixelation_mid.jpg  used on input line 593.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/pixelation_mid.jpg  used on input line 616.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-<graphics/visdrone_perturbated_examples/pixelation_high.jpg, id=529, 120.45pt x 120.45pt>
+<graphics/visdrone_perturbated_examples/pixelation_high.jpg, id=545, 120.45pt x 120.45pt>
 File: graphics/visdrone_perturbated_examples/pixelation_high.jpg Graphic file (type jpg)
 <use graphics/visdrone_perturbated_examples/pixelation_high.jpg>
-Package pdftex.def Info: graphics/visdrone_perturbated_examples/pixelation_high.jpg  used on input line 594.
+Package pdftex.def Info: graphics/visdrone_perturbated_examples/pixelation_high.jpg  used on input line 617.
 (pdftex.def)             Requested size: 83.64944pt x 83.65092pt.
-\openout5 = `example.mw'.
-
- [15] (./example.mw)
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
- [16 <./graphics/visdrone_perturbated_examples/gaussian_noise_low.jpg> <./graphics/visdrone_perturbated_examples/gaussian_noise_mid.jpg> <./graphics/visdrone_perturbated_examples/gaussian_noise_high.jpg> <./graphics/visdrone_perturbated_examples/defocus_blur_low.jpg> <./graphics/visdrone_perturbated_examples/defocus_blur_mid.jpg> <./graphics/visdrone_perturbated_examples/defocus_blur_high.jpg> <./graphics/visdrone_perturbated_examples/motion_blur_low.jpg> <./graphics/visdrone_perturbated_examples/motion_blur_mid.jpg> <./graphics/visdrone_perturbated_examples/motion_blur_high.jpg> <./graphics/visdrone_perturbated_examples/brightness_change_low.jpg> <./graphics/visdrone_perturbated_examples/brightness_change_mid.jpg> <./graphics/visdrone_perturbated_examples/brightness_change_high.jpg> <./graphics/visdrone_perturbated_examples/contrast_change_low.jpg> <./graphics/visdrone_perturbated_examples/contrast_change_mid.jpg> <./graphics/visdrone_perturbated_examples/contrast_change_high.jpg> <./graphics/visdrone_perturbated_examples/pixelation_low.jpg> <./graphics/visdrone_perturbated_examples/pixelation_mid.jpg> <./graphics/visdrone_perturbated_examples/pixelation_high.jpg>] (./example.mw)
-\openout5 = `example.mw'.
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 649.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 649.
 \openout5 = `example.mw'.
 
  [17] (./example.mw)
@@ -3495,6 +3496,12 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 \openout5 = `example.mw'.
 
+ [18 <./graphics/visdrone_perturbated_examples/gaussian_noise_low.jpg> <./graphics/visdrone_perturbated_examples/gaussian_noise_mid.jpg> <./graphics/visdrone_perturbated_examples/gaussian_noise_high.jpg> <./graphics/visdrone_perturbated_examples/defocus_blur_low.jpg> <./graphics/visdrone_perturbated_examples/defocus_blur_mid.jpg> <./graphics/visdrone_perturbated_examples/defocus_blur_high.jpg> <./graphics/visdrone_perturbated_examples/motion_blur_low.jpg> <./graphics/visdrone_perturbated_examples/motion_blur_mid.jpg> <./graphics/visdrone_perturbated_examples/motion_blur_high.jpg> <./graphics/visdrone_perturbated_examples/brightness_change_low.jpg> <./graphics/visdrone_perturbated_examples/brightness_change_mid.jpg> <./graphics/visdrone_perturbated_examples/brightness_change_high.jpg> <./graphics/visdrone_perturbated_examples/contrast_change_low.jpg> <./graphics/visdrone_perturbated_examples/contrast_change_mid.jpg> <./graphics/visdrone_perturbated_examples/contrast_change_high.jpg> <./graphics/visdrone_perturbated_examples/pixelation_low.jpg> <./graphics/visdrone_perturbated_examples/pixelation_mid.jpg> <./graphics/visdrone_perturbated_examples/pixelation_high.jpg>] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [19] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3535,48 +3542,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 \openout5 = `example.mw'.
 
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
- [18
-
-] (./example.mw)
-\openout5 = `example.mw'.
-
-
-Chapter 4.
-\openout5 = `example.mw'.
-
-[19] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3592,9 +3557,9 @@ Chapter 4.
 \openout5 = `example.mw'.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 697.
+(Font)              <9> on input line 672.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 697.
+(Font)              <5> on input line 672.
 \openout5 = `example.mw'.
 
  [20] (./example.mw)
@@ -3610,7 +3575,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 \openout5 = `example.mw'.
 
- [21] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3621,20 +3585,11 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 \openout5 = `example.mw'.
 
+
+Chapter 4.
 \openout5 = `example.mw'.
 
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
- [22] (./example.mw)
-\openout5 = `example.mw'.
-
-
-Chapter 5.
-\openout5 = `example.mw'.
-
-[23
+[21
 
 ] (./example.mw)
 \openout5 = `example.mw'.
@@ -3649,27 +3604,58 @@ Chapter 5.
 
 \openout5 = `example.mw'.
 
+\openout5 = `example.mw'.
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 725.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 725.
+\openout5 = `example.mw'.
+
+ [22] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [23] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
  [24] (./example.mw)
 \openout5 = `example.mw'.
 
-
-Underfull \hbox (badness 1590) in paragraph at lines 871--871
-[]|\T1/lmr/m/n/10 (+20) Sampling ran-dom, 1 ref-er-ence
- []
-
-
-Underfull \hbox (badness 1590) in paragraph at lines 872--872
-[]|\T1/lmr/m/n/10 (+20) Sampling ran-dom, 3 ref-er-ence
- []
-
-
-Underfull \hbox (badness 1590) in paragraph at lines 873--873
-[]|\T1/lmr/m/n/10 (+20) Sampling ran-dom, 7 ref-er-ence
- []
+\openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
 
-[25] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+
+Chapter 5.
+\openout5 = `example.mw'.
+
+[25
+
+] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3681,50 +3667,65 @@ Underfull \hbox (badness 1590) in paragraph at lines 873--873
  [26] (./example.mw)
 \openout5 = `example.mw'.
 
-<graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf, id=664, 414.13617pt x 437.74573pt>
+
+Underfull \hbox (badness 1590) in paragraph at lines 899--899
+[]|\T1/lmr/m/n/10 (+20) Sampling ran-dom, 1 ref-er-ence
+ []
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 900--900
+[]|\T1/lmr/m/n/10 (+20) Sampling ran-dom, 3 ref-er-ence
+ []
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 901--901
+[]|\T1/lmr/m/n/10 (+20) Sampling ran-dom, 7 ref-er-ence
+ []
+
+\openout5 = `example.mw'.
+
+[27] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [28] (./example.mw)
+\openout5 = `example.mw'.
+
+<graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf, id=688, 414.13617pt x 437.74573pt>
 File: graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf Graphic file (type pdf)
 <use graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf>
-Package pdftex.def Info: graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf  used on input line 915.
+Package pdftex.def Info: graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf  used on input line 943.
 (pdftex.def)             Requested size: 175.66577pt x 185.68211pt.
-<graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf, id=665, 414.13617pt x 437.74573pt>
+<graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf, id=689, 414.13617pt x 437.74573pt>
 File: graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf Graphic file (type pdf)
 <use graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf>
-Package pdftex.def Info: graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf  used on input line 916.
+Package pdftex.def Info: graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf  used on input line 944.
 (pdftex.def)             Requested size: 175.66577pt x 185.68211pt.
-<graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf, id=666, 414.13617pt x 437.74573pt>
+<graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf, id=690, 414.13617pt x 437.74573pt>
 File: graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf Graphic file (type pdf)
 <use graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf>
-Package pdftex.def Info: graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf  used on input line 917.
+Package pdftex.def Info: graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf  used on input line 945.
 (pdftex.def)             Requested size: 175.66577pt x 185.68211pt.
-<graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf, id=667, 414.13617pt x 437.74573pt>
+<graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf, id=691, 414.13617pt x 437.74573pt>
 File: graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf Graphic file (type pdf)
 <use graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf>
-Package pdftex.def Info: graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf  used on input line 918.
+Package pdftex.def Info: graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf  used on input line 946.
 (pdftex.def)             Requested size: 175.66577pt x 185.68211pt.
-<graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf, id=668, 414.13617pt x 437.74573pt>
+<graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf, id=692, 414.13617pt x 437.74573pt>
 File: graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf Graphic file (type pdf)
 <use graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf>
-Package pdftex.def Info: graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf  used on input line 919.
+Package pdftex.def Info: graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf  used on input line 947.
 (pdftex.def)             Requested size: 175.66577pt x 185.68211pt.
-<graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf, id=669, 414.13617pt x 437.74573pt>
+<graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf, id=693, 414.13617pt x 437.74573pt>
 File: graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf Graphic file (type pdf)
 <use graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf>
-Package pdftex.def Info: graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf  used on input line 920.
+Package pdftex.def Info: graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf  used on input line 948.
 (pdftex.def)             Requested size: 175.66577pt x 185.68211pt.
-\openout5 = `example.mw'.
-
- [27] (./example.mw)
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
- [28 <./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf> <./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf> <./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf> <./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf> <./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf> <./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf>] (./example.mw)
-\openout5 = `example.mw'.
-
 \openout5 = `example.mw'.
 
  [29] (./example.mw)
@@ -3736,6 +3737,12 @@ Package pdftex.def Info: graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.
 
 \openout5 = `example.mw'.
 
+ [30 <./graphics/plots/perturbation/YOLOV++ Single-frame baseline.pdf> <./graphics/plots/perturbation/TransVOD++ Single-frame baseline.pdf> <./graphics/plots/perturbation/YOLOV++ Local (int=10), 3 ref.pdf> <./graphics/plots/perturbation/TransVOD++ Stride 1, 7 ref.pdf> <./graphics/plots/perturbation/YOLOV++ Random (int=10), 7 ref.pdf> <./graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.pdf>] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [31] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3750,18 +3757,26 @@ Package pdftex.def Info: graphics/plots/perturbation/TransVOD++ Stride 8, 3 ref.
 
 \openout5 = `example.mw'.
 
-Package pgfplots info on input line 1024: Overriding colorspace to rgb due to xcolor configuration.
-Package pgfplots info on input line 1024: Using 'lua backend=false' for axis: x coord trafo unsupported.
 \openout5 = `example.mw'.
 
- [30] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+Package pgfplots info on input line 1052: Overriding colorspace to rgb due to xcolor configuration.
+Package pgfplots info on input line 1052: Using 'lua backend=false' for axis: x coord trafo unsupported.
+\openout5 = `example.mw'.
+
+ [32] (./example.mw)
 \openout5 = `example.mw'.
 
 
 Chapter 6.
 \openout5 = `example.mw'.
 
-[31
+[33
 
 ] (./example.mw)
 \openout5 = `example.mw'.
@@ -3776,33 +3791,7 @@ Chapter 6.
 
 \openout5 = `example.mw'.
 
- [32] (./example.mw)
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
- [33] (./example.mw)
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-
-
-LaTeX Warning: Float too large for page by 101.25635pt on input line 1235.
-
-\openout5 = `example.mw'.
-
-[34] (./example.mw)
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
+ [34] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3816,33 +3805,56 @@ LaTeX Warning: Float too large for page by 101.25635pt on input line 1235.
 
 \openout5 = `example.mw'.
 
- [36
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [36] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+
+Chapter 7.
+
+LaTeX Warning: Float too large for page by 101.25635pt on input line 1269.
+
+\openout5 = `example.mw'.
+
+[37
 
 ] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
 
- [37
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [38] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [39
+
 
 ] (./example.mw)
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
-\openout5 = `example.mw'.
-
- [38
-
-] (./example.mw)
-\openout5 = `example.mw'.
-
- (./example.lof)
-\openout5 = `example.mw'.
-
- [39] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3856,7 +3868,7 @@ LaTeX Warning: Float too large for page by 101.25635pt on input line 1235.
 ] (./example.mw)
 \openout5 = `example.mw'.
 
- (./example.lot)
+ (./example.lof)
 \openout5 = `example.mw'.
 
  [41] (./example.mw)
@@ -3873,7 +3885,7 @@ LaTeX Warning: Float too large for page by 101.25635pt on input line 1235.
 ] (./example.mw)
 \openout5 = `example.mw'.
 
- (./example.loa) (./example.ind) (./example.gls) (./example.acr
+ (./example.lot)
 \openout5 = `example.mw'.
 
  [43] (./example.mw)
@@ -3890,12 +3902,10 @@ LaTeX Warning: Float too large for page by 101.25635pt on input line 1235.
 ] (./example.mw)
 \openout5 = `example.mw'.
 
-) (./example.bbl
+ (./example.loa) (./example.ind) (./example.gls) (./example.acr
 \openout5 = `example.mw'.
 
- [45
-
-] (./example.mw)
+ [45] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3909,11 +3919,30 @@ LaTeX Warning: Float too large for page by 101.25635pt on input line 1235.
 ] (./example.mw)
 \openout5 = `example.mw'.
 
+) (./example.bbl
+\openout5 = `example.mw'.
+
+ [47
+
+] (./example.mw)
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+ [48
+
+] (./example.mw)
+\openout5 = `example.mw'.
+
 
 bibitemlist
 \openout5 = `example.mw'.
 
-[47] (./example.mw)
+[49] (./example.mw)
 \openout5 = `example.mw'.
 
 \openout5 = `example.mw'.
@@ -3922,17 +3951,17 @@ bibitemlist
 
 \openout5 = `example.mw'.
 
- [48] (./example.mw)
+ [50] (./example.mw)
 \openout5 = `example.mw'.
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 120--123
+Underfull \hbox (badness 1077) in paragraph at lines 125--128
 []\T1/lmr/m/n/10.95 (+20) Yiyu Zhou, Ser-ena Booth, Marco Tulio Ribeiro, and Chi-rag Shah.
  []
 
 \openout5 = `example.mw'.
 
-[49] (./example.mw)
+[51] (./example.mw)
 \openout5 = `example.mw'.
 
 )
@@ -3940,11 +3969,11 @@ Underfull \hbox (badness 1077) in paragraph at lines 120--123
 Class memoir Warning: The material used in the headers is too large
 (35.3779pt) for the given head height (13.6pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 1269.
+(in both cases you will find help in the memoir manual). on input line 1300.
 
 \openout5 = `example.mw'.
 
-[50] (./example.mw)
+[52] (./example.mw)
 \openout5 = `example.mw'.
 
 
@@ -4550,6 +4579,22 @@ No complaints by nag.
 
 \openout5 = `example.mw'.
 
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
+\openout5 = `example.mw'.
+
 )
  ***********
 LaTeX2e <2025-11-01>
@@ -4558,7 +4603,7 @@ L3 programming layer <2020/03/25>
 \openout5 = `example.out'.
 
 Package rerunfilecheck Info: File `example.out' has not changed.
-(rerunfilecheck)             Checksum: D1B8A39C047D5A74121BFD805E0EFD32;5326.
+(rerunfilecheck)             Checksum: 01981BDB317B55CA04040372BCD1D7DD;5525.
 \openout5 = `example.idx'.
 
 \openout5 = `example.glo'.
@@ -4575,18 +4620,18 @@ Package rerunfilecheck Info: File `example.out' has not changed.
 
  ) 
 Here is how much of TeX's memory you used:
- 60479 strings out of 467532
- 1292995 string characters out of 5423649
- 1921578 words of memory out of 5000000
- 86628 multiletter control sequences out of 15000+600000
- 766798 words of font info for 265 fonts, out of 8000000 for 9000
+ 60464 strings out of 467532
+ 1292232 string characters out of 5423649
+ 1916887 words of memory out of 5000000
+ 86571 multiletter control sequences out of 15000+600000
+ 765607 words of font info for 263 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,20n,131p,2535b,2734s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on example.pdf (66 pages, 2541242 bytes).
+Output written on example.pdf (68 pages, 2548306 bytes).
 PDF statistics:
- 1293 PDF objects out of 1440 (max. 8388607)
- 865 compressed objects within 9 object streams
- 211 named destinations out of 1000 (max. 500000)
- 69593 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1318 PDF objects out of 1440 (max. 8388607)
+ 888 compressed objects within 9 object streams
+ 213 named destinations out of 1000 (max. 500000)
+ 69601 words of extra memory for PDF output out of 74296 (max. 10000000)
 

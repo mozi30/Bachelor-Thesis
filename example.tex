@@ -203,7 +203,7 @@ When all frames are corrupted, temporal aggregation maintains higher absolute ac
 In contrast, under partial perturbation, temporal context reduces performance degradation, lowering relative mAP drop by up to 40\%.
 Across all experiments, TransVOD++ demonstrates stronger robustness than YOLOV++, particularly under blur and pixelation.
 
-These findings show that temporal modeling enhances robustness primarily when clean contextual information remains available and emphasize the importance of sampling strategies and architectural design for robust \gls{uav} video object detection.
+These findings show that temporal modeling enhances robustness primarily when clean contextual information remains available and emphasize the importance of sampling strategies and architectural design for robust unmanned aerial vehicle video object detection.
 \end{abstract}
 
 
@@ -217,20 +217,20 @@ These findings show that temporal modeling enhances robustness primarily when cl
 \mainmatter%
 
 \chapter{Introduction}
-\gls{vod} is a field in computer vision that aims to leverage temporal context in videos to improve detection performance  compared to image-based object detection.~\cite{chen2020memoryenhancedgloballocalaggregation}~\cite{zhu2017flowguidedfeatureaggregationvideo}
-Temporal context refers to information that can be extracted from the time domain of a video, such as object motion, object trajectories, and changes in object appearance over time.~\cite{carreira2017quo}
-By exploiting this additional information, video object detection models can achieve higher accuracy as well as provide more stable detections for tasks like tracking.~\cite{zhou2022transvod}
-This is important in scenarios where objects may be occluded, blurred, or undergo appearance changes over time.~\cite{zhu2017flowguidedfeatureaggregationvideo}
-A prominent example is \gls{uav}-based imagery, where the camera is constantly moving, objects are smaller than 32 pixels in height and width, and visual conditions can change from frame to frame due to variations in viewpoint, altitude, lighting, and background, resulting in completely different scenes and making reliable object detection particularly challenging for small and densely distributed objects.~\cite{zhu2021detection}
-To date, evaluations of object detection models—both image-based and video-based—focus primarily on accuracy measured on clean and unperturbed data.~\cite{hendrycks2019benchmarking}
-However, in real-world deployments visual data is affected by a wide range of perturbations, including sensor noise, compression artifacts, motion blur, illumination changes, and variations in viewpoint and scale.~\cite{russakovsky2015ImageNet}
-These perturbations can degrade detection performance.~\cite{russakovsky2015ImageNet}
+\gls{vod} is a field in computer vision that aims to leverage temporal context in videos to improve detection performance compared to image-based object detection~\cite{chen2020memoryenhancedgloballocalaggregation}~\cite{zhu2017flowguidedfeatureaggregationvideo}.
+Temporal context refers to information that can be extracted from the time domain of a video, such as object motion, object trajectories, and changes in object appearance over time~\cite{carreira2017quo}.
+By exploiting this additional information, video object detection models can achieve higher accuracy as well as provide more stable detections for tasks like tracking~\cite{zhou2022transvod}.
+This is important in scenarios where objects may be occluded, blurred, or undergo appearance changes over time~\cite{zhu2017flowguidedfeatureaggregationvideo}.
+A prominent example is \gls{uav}-based imagery, where the camera is constantly moving, objects are smaller than 32 pixels in height and width, and visual conditions can change from frame to frame due to variations in viewpoint, altitude, lighting, and background, resulting in completely different scenes and making reliable object detection particularly challenging for small and densely distributed objects~\cite{zhu2021detection}.
+To date, evaluations of object detection models—both image-based and video-based—focus primarily on accuracy measured on clean and unperturbed data~\cite{hendrycks2019benchmarking}.
+However, in real-world deployments visual data is affected by a wide range of perturbations, including sensor noise, compression artifacts, motion blur, illumination changes, and variations in viewpoint and scale~\cite{russakovsky2015ImageNet}.
+These perturbations can degrade detection performance~\cite{russakovsky2015ImageNet}.
 Although a number of studies have investigated the robustness of image-based object detectors~\cite{hendrycks2019benchmarking}~\cite{liu2024UAVRobustness}~\cite{michaelis2019benchmarking} to such corruptions, no papers have described the robustness of video object detection models, and no systematic studies exist for UAV-based video data in particular.
 
 In this thesis, the focus is therefore placed on the robustness of video object detection models under commonly occurring perturbations in UAV-based imagery, such as noise, motion blur, compression artifacts, and illumination changes.
-Robustness is defined as the ability of a model to maintain its detection performance when exposed to adverse conditions, such as lighting changes, weather effects, motion blur, occlusions, and variations in object appearance and scale.~\cite{hendrycks2019benchmarking}
-A model may achieve 90\% accuracy on clean data, yet still be unreliable in practice if its performance deteriorates under realistic perturbations.~\cite{hendrycks2019benchmarking}
-For safety-critical and autonomous \gls{uav} applications, such robustness is essential.~\cite{liu2024UAVRobustness}
+Robustness is defined as the ability of a model to maintain its detection performance when exposed to adverse conditions, such as lighting changes, weather effects, motion blur, occlusions, and variations in object appearance and scale~\cite{hendrycks2019benchmarking}.
+A model may achieve 90\% accuracy on clean data, yet still be unreliable in practice if its performance deteriorates under realistic perturbations~\cite{hendrycks2019benchmarking}.
+For safety-critical and autonomous \gls{uav} applications, such robustness is essential~\cite{liu2024UAVRobustness}.
 
 Therefore, the main research question of this thesis is formulated as follows:
 
@@ -255,19 +255,19 @@ Finally, existing works on robustness evaluation in computer vision are discusse
 \subsection{Object Detection}
 In the research field of computer vision, object detection is defined as the task of \textbf{identifying and localizing objects of interest within an image or video frame}~\cite{tasnim2023object}.
 This problem was traditionally approached using hand-crafted features and classical machine learning techniques, such as Haar cascades~\cite{viola2001rapid} and HOG + SVM~\cite{dalal2005histograms}.
-However, with the advent of deep learning, particularly convolutional neural networks (CNNs), object detection has seen advancements.~\cite{girshick2014rich}~\cite{redmon2016yolo}
+However, with the advent of deep learning, particularly convolutional neural networks (CNNs), object detection has seen advancements~\cite{girshick2014rich}~\cite{redmon2016yolo}.
 Since then, multiple architectures have emerged,\newline each with its own strengths and weaknesses~\cite{zhu2021deformabledetr}~\cite{girshick2014rich}~\cite{redmon2016yolo}.
 In this thesis, two main categories of object detection architectures are considered: transformer-based detectors and one-stage detectors.
 Transformer-based models are particularly effective at capturing spatio-temporal relationships across video frames through attention mechanisms, while one-stage detectors offer high inference speed suitable for real-time applications.
-Two-stage detectors are therefore not considered, as they generally provide a compromise between detection accuracy and computational efficiency and do not specifically optimize either temporal modeling or real-time performance.~\cite{zhou2022transvod}~\cite{shi2022yolov}~\cite{zhu2017flowguidedfeatureaggregationvideo}
+Two-stage detectors are therefore not considered, as they generally provide a compromise between detection accuracy and computational efficiency and do not specifically optimize either temporal modeling or real-time performance~\cite{zhou2022transvod}~\cite{shi2022yolov}~\cite{zhu2017flowguidedfeatureaggregationvideo}.
 
-Transformers, like \textbf{DETR}~\cite{carion2020endtoendobjectdetectiontransformers} and \textbf{Deformable DETR}~\cite{zhu2021deformabledetr}, use self-attention mechanisms, which makes them able to capture long-range dependencies in the input data.~\cite{carion2020endtoendobjectdetectiontransformers}
+Transformers, like \textbf{DETR}~\cite{carion2020endtoendobjectdetectiontransformers} and \textbf{Deformable DETR}~\cite{zhu2021deformabledetr}, use self-attention mechanisms, which makes them able to capture long-range dependencies in the input data~\cite{carion2020endtoendobjectdetectiontransformers}.
 This feature is useful for object detection, as it allows the model to consider the entire image context when making predictions.
-Therefore transformer-based detectors have shown strong performance on various object detection benchmarks, often outperforming traditional CNN-based methods, however they tend to be computationally more expensive and require larger amounts of training data.~\cite{carion2020endtoendobjectdetectiontransformers}
+Therefore transformer-based detectors have shown strong performance on various object detection benchmarks, often outperforming traditional CNN-based methods, however they tend to be computationally more expensive and require larger amounts of training data~\cite{carion2020endtoendobjectdetectiontransformers}.
 
 On the other hand one-stage detectors, like \textbf{YOLO}~\cite{redmon2016yolo} and \textbf{SSD}~\cite{liu2016ssd}, are designed for real-time applications, as they can process images quickly while still achieving competitive accuracy.
-One-stage means that they predict bounding boxes and class probabilities directly from the input image in a single forward pass, skipping the need for region proposal generation before classification.~\cite{redmon2016yolo}
-With this design they are able to achieve high inference speeds, making them suitable for applications like autonomous driving and surveillance, where real-time performance is crucial.~\cite{redmon2017yolo9000}
+One-stage means that they predict bounding boxes and class probabilities directly from the input image in a single forward pass, skipping the need for region proposal generation before classification~\cite{redmon2016yolo}.
+With this design they are able to achieve high inference speeds, making them suitable for applications like autonomous driving and surveillance, where real-time performance is crucial~\cite{redmon2017yolo9000}.
 
 \subsection{Video Object Detection}
 Compared to image-based object detection, video object detection research has received less attention as it can be seen in the paper~\cite{liu2020video}, even though real-world applications involve video data as well.
@@ -623,7 +623,7 @@ With this setup, altogether 18 perturbation configurations (6 perturbation types
 
 \section{Evaluation Metrics}
 For robustness evaluation, next to standard object detection metrics, such as \gls{map} and \gls{mar}, a metric is needed that quantifies the performance degradation of a model under perturbations relative to its performance on clean data.
-In this thesis, mAP and mAR refer to the COCO-style evaluation averaged over IoU thresholds from 0.50 to 0.95 (step size 0.05), which is also used in the VisDrone benchmark.~\cite{zhu2021detection}
+In this thesis, mAP and mAR refer to the COCO-style evaluation averaged over IoU thresholds from 0.50 to 0.95 (step size 0.05), which is also used in the VisDrone benchmark~\cite{zhu2021detection}.
 Derived from the paper \emph{Benchmarking the Robustness of UAV Tracking Against Common Corruptions}~\cite{liu2024UAVRobustness} \gls{mce} which was based on the top-1 error rate, a new metric named \emph{\gls{mcap}} and \emph{\gls{rmcap}} is proposed.
 Analogously, \emph{\gls{mcar}} and \emph{\gls{rmcar}}are defined.
 Furthermore, the \emph{\gls{rdap}} as well as the \emph{\gls{rdar}} are reported to explicitly quantify performance degradation.
@@ -1132,7 +1132,7 @@ When using local sampling with a temporal stride of 1 frame, the best performanc
 In the original paper~\cite{zhou2023transvodpp}, the best performance was achieved using 14 reference frames. This is not the case in this research, where 15 reference frames consistently led to a performance drop compared to using 7 reference frames.
 
 This raises the question why YOLOV++ benefits from random reference frames, while TransVOD++ shows a performance drop when using more than 7 local reference frames.
-Since YOLOV++ is gathering information by aggregating information from random timepoints, it is able to make better predictions when more frames are available.~\cite{shi2024yolovpp}
+Since YOLOV++ is gathering information by aggregating information from random timepoints, it is able to make better predictions when more frames are available~\cite{shi2024yolovpp}.
 In contrast, TransVOD++ relies on attention-based fusion of locally sampled reference frames. As the number of such frames increases, the attention space expands and becomes more susceptible to temporal noise and feature misalignment, particularly for small objects.
 Consequently, additional local reference frames introduce more noise than useful information, leading to a decline in performance.
 
@@ -1150,7 +1150,7 @@ Furthermore, this shows that the models are not able to use information from mul
 Therefore, aggregating weak object features from multiple perturbed frames does not perform better than relying on a single clean frame.
 
 However comparing the two models, TransVOD++ demonstrates better robustness to perturbations compared to YOLOV++, as evidenced by the 20\% better relative robustness metrics rmCAP and rmCAR.\@
-A reason for this is that the fully fetched transformer architecture of TransVOD++ is more robust to perturbations due to its attention mechanism, while YOLOV++ relies on feature aggregation which is susceptible to noise introduced by perturbations.~\cite{zhou2022understandingvitrobustness}~\cite{gu2021vitpatchrobustness}
+A reason for this is that the fully fetched transformer architecture of TransVOD++ is more robust to perturbations due to its attention mechanism, while YOLOV++ relies on feature aggregation which is susceptible to noise introduced by perturbations~\cite{zhou2022understandingvitrobustness}~\cite{gu2021vitpatchrobustness}.
 
 Looking at each perturbation type individually\ref{fig:perturbation_analysis}, both models exhibit similar trends in handling corruptions.
 Pixelation is the challenging perturbation type of all perturbations; both models show a performance drop, however YOLOV++'s detection pipeline fails.
